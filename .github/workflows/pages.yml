@@ -15,10 +15,11 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   # Build job
@@ -26,16 +27,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v1
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+        uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: actions/setup-ruby@v1
         with:
-          source: ./
-          destination: ./_site
+          # This is the version of Ruby to use.
+          # It's recommended to match the version used in your Gemfile.
+          ruby-version: '3'
+          # This automatically runs 'bundle install' and caches the installed gems,
+          # speeding up subsequent builds.
+          bundler-cache: true
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        # This command builds the Jekyll site. The --baseurl flag is important
+        # for ensuring links work correctly on GitHub Pages.
+        run: bundle exec jekyll build --source ./ --destination ./_site --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        # This action uploads the built site as an artifact that the deploy job can use.
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './_site'
 
   # Deployment job
   deploy:
@@ -47,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
