@@ -1,0 +1,830 @@
+<!DOCTYPE html> <html lang=en-US autocopy=true data-darkreader-mode=dynamic data-darkreader-scheme=dark style><!--
+ Page saved with SingleFile 
+ url: https://viktorbezdek.github.io/definitive-llm-writing-style-guide/ 
+ saved date: Tue Jul 01 2025 02:12:15 GMT-0700 (Pacific Daylight Time)
+--><meta charset=utf-8><style class=anchorjs>.anchorjs-link{opacity:0;text-decoration:none;-moz-osx-font-smoothing:grayscale}:hover>.anchorjs-link,.anchorjs-link:focus{opacity:1}[data-anchorjs-icon]::after{content:attr(data-anchorjs-icon)}@font-face{font-family:"anchorjs-icons";src:url(data:n/a;base64,AAEAAAALAIAAAwAwT1MvMg8yG2cAAAE4AAAAYGNtYXDp3gC3AAABpAAAAExnYXNwAAAAEAAAA9wAAAAIZ2x5ZlQCcfwAAAH4AAABCGhlYWQHFvHyAAAAvAAAADZoaGVhBnACFwAAAPQAAAAkaG10eASAADEAAAGYAAAADGxvY2EACACEAAAB8AAAAAhtYXhwAAYAVwAAARgAAAAgbmFtZQGOH9cAAAMAAAAAunBvc3QAAwAAAAADvAAAACAAAQAAAAEAAHzE2p9fDzz1AAkEAAAAAADRecUWAAAAANQA6R8AAAAAAoACwAAAAAgAAgAAAAAAAAABAAADwP/AAAACgAAA/9MCrQABAAAAAAAAAAAAAAAAAAAAAwABAAAAAwBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAMCQAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAg//0DwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAIAAAACgAAxAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADAAAAAIAAgAAgAAACDpy//9//8AAAAg6cv//f///+EWNwADAAEAAAAAAAAAAAAAAAAACACEAAEAAAAAAAAAAAAAAAAxAAACAAQARAKAAsAAKwBUAAABIiYnJjQ3NzY2MzIWFxYUBwcGIicmNDc3NjQnJiYjIgYHBwYUFxYUBwYGIwciJicmNDc3NjIXFhQHBwYUFxYWMzI2Nzc2NCcmNDc2MhcWFAcHBgYjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAAADACWAAEAAAAAAAEACAAAAAEAAAAAAAIAAwAIAAEAAAAAAAMACAAAAAEAAAAAAAQACAAAAAEAAAAAAAUAAQALAAEAAAAAAAYACAAAAAMAAQQJAAEAEAAMAAMAAQQJAAIABgAcAAMAAQQJAAMAEAAMAAMAAQQJAAQAEAAMAAMAAQQJAAUAAgAiAAMAAQQJAAYAEAAMYW5jaG9yanM0MDBAAGEAbgBjAGgAbwByAGoAcwA0ADAAMABAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAH//wAP)format("truetype")}</style><style class="darkreader darkreader--sync" media=screen>.anchorjs-link{text-decoration-color:currentcolor}</style><style class="darkreader darkreader--user-agent" media=screen>@layer{html{background-color:var(--darkreader-background-ffffff,#333536)!important}html{color-scheme:dark!important}iframe{color-scheme:dark!important}html,body{background-color:var(--darkreader-background-ffffff,#333536)}html,body{border-color:var(--darkreader-border-4c4c4c,#a59b8b);color:var(--darkreader-text-000000,#ffffff)}a{color:var(--darkreader-text-0040ff,#55cbff)}table{border-color:var(--darkreader-border-808080,#7e878b)}mark{color:var(--darkreader-text-000000,#ffffff)}::placeholder{color:var(--darkreader-text-a9a9a9,#f5ecdf)}input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{background-color:var(--darkreader-background-faffbd,#656a14)!important;color:var(--darkreader-text-000000,#ffffff)!important}::selection{background-color:var(--darkreader-background-0060d4,#1475eb)!important;color:var(--darkreader-text-ffffff,#ffffff)!important}::-moz-selection{background-color:var(--darkreader-background-0060d4,#1475eb)!important;color:var(--darkreader-text-ffffff,#ffffff)!important}}</style><style class="darkreader darkreader--variables" media=screen>:root{--darkreader-neutral-background:var(--darkreader-background-ffffff,#333536);--darkreader-neutral-text:var(--darkreader-text-000000,#ffffff);--darkreader-selection-background:var(--darkreader-background-0060d4,#1475eb);--darkreader-selection-text:var(--darkreader-text-ffffff,#ffffff)}</style>
+<meta http-equiv=X-UA-Compatible content="IE=edge">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>The Definitive Guide to LLM Writing&nbsp;Styles | definitive-llm-writing-style-guide</title>
+<meta name=generator content="Jekyll v3.9.5">
+<meta property=og:title content="The Definitive Guide to LLM Writing&nbsp;Styles">
+<meta property=og:locale content=en_US>
+<meta name=description content="The Definitive Guide to LLM Writing Styles">
+<meta property=og:description content="The Definitive Guide to LLM Writing Styles">
+<link rel=canonical href=https://viktorbezdek.github.io/definitive-llm-writing-style-guide/>
+<meta property=og:url content=https://viktorbezdek.github.io/definitive-llm-writing-style-guide/>
+<meta property=og:site_name content=definitive-llm-writing-style-guide>
+<meta property=og:type content=website>
+<meta name=twitter:card content=summary>
+<meta property=twitter:title content="The Definitive Guide to LLM Writing&nbsp;Styles">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"WebSite","description":"The Definitive Guide to LLM Writing Styles","headline":"The Definitive Guide to LLM Writing Styles","name":"definitive-llm-writing-style-guide","url":"https://viktorbezdek.github.io/definitive-llm-writing-style-guide/"}</script>
+<style>/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}template{display:none!important}a{background-color:transparent}a:active,a:hover{outline-width:0}h1{margin:0.67em 0}img{border-style:none}hr{box-sizing:content-box}::-webkit-input-placeholder{color:inherit;opacity:0.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}*{box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:14px;line-height:1.5;color:#24292e;background-color:#fff}a{color:#0366d6;text-decoration:none}a:hover{text-decoration:underline}strong{font-weight:600}hr{overflow:hidden;background:transparent;border-bottom:1px solid #dfe2e5}hr::before,.rule::before{display:table;content:""}hr::after,.rule::after{display:table;clear:both;content:""}blockquote{margin:0}@keyframes fade-in{0%{opacity:0}100%{opacity:1}}@keyframes fade-out{0%{opacity:1}100%{opacity:0}}@keyframes fade-up{0%{opacity:0.8;transform:translateY(100%)}100%{opacity:1;transform:translateY(0)}}@keyframes fade-down{0%{opacity:1;transform:translateY(0)}100%{opacity:0.5;transform:translateY(100%)}}@keyframes grow-x{to{width:100%}}@keyframes shrink-x{to{width:0%}}@keyframes scale-in{0%{opacity:0;transform:scale(0.5)}100%{opacity:1;transform:scale(1)}}@keyframes pulse{0%{opacity:0.3}10%{opacity:1}100%{opacity:0.3}}@keyframes pulse-in{0%{transform:scale3d(1,1,1)}50%{transform:scale3d(1.1,1.1,1.1)}100%{transform:scale3d(1,1,1)}}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}.my-5{margin-top:32px!important;margin-bottom:32px!important}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}.px-3{padding-right:16px!important;padding-left:16px!important}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}@media (min-width:544px){}@media (min-width:1012px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:768px){}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}@media (max-width:544px){}@media (min-width:544px) and (max-width:768px){}@media (min-width:768px) and (max-width:1012px){}@media (min-width:1012px){}.container-lg{max-width:1012px;margin-right:auto;margin-left:auto}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body::before{display:table;content:""}.markdown-body::after{display:table;clear:both;content:""}.markdown-body>*:first-child{margin-top:0!important}.markdown-body>*:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body p,.markdown-body blockquote,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e1e4e8;border:0}.markdown-body blockquote{padding:0 1em;color:#6a737d;border-left:0.25em solid #dfe2e5}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body h1,.markdown-body h3{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1{padding-bottom:0.3em;font-size:2em;border-bottom:1px solid #eaecef}.markdown-body h3{font-size:1.25em}.markdown-body ul{padding-left:2em}.markdown-body li+li{margin-top:.25em}</style><style class="darkreader darkreader--sync" media=screen>a{background-color:transparent}::-webkit-input-placeholder{color:inherit}body{color:var(--darkreader-text-24292e,#ffffff);background-color:var(--darkreader-background-ffffff,#333536)}a{color:var(--darkreader-text-0366d6,#74edff);text-decoration-color:currentcolor}a:hover{text-decoration-color:currentcolor}hr{background-image:none;border-top-color:currentcolor;border-right-color:currentcolor;border-left-color:currentcolor;border-bottom-color:var(--darkreader-border-dfe2e5,#5b6164)}@media (min-width:544px){}@media (min-width:768px){}@media (min-width:1012px){}@media (min-width:1280px){}.markdown-body a:not([href]){color:inherit;text-decoration-color:currentcolor}.markdown-body hr{background-color:var(--darkreader-background-e1e4e8,#46494c);border-color:currentcolor}.markdown-body blockquote{color:var(--darkreader-text-6a737d,#ddd3c2);border-left-color:var(--darkreader-border-dfe2e5,#5b6164)}.markdown-body h1{border-bottom-color:var(--darkreader-border-eaecef,#575d60)}</style>
+<meta name=darkreader content=c7a19d02089f4791bdc5c43c0073be50><style class="darkreader darkreader--override" media=screen>::placeholder{opacity:0.5!important}:host{--d2l-border-color:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-button-icon-background-color-hover:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-color-ferrite:var(--darkreader-neutral-text)!important;--d2l-color-sylvite:var(--darkreader-bg--d2l-color-sylvite)!important;--d2l-dropdown-background-color:var(--darkreader-neutral-background)!important;--d2l-dropdown-border-color:var(--darkreader-border--d2l-color-mica)!important;--d2l-input-backgroud-color:var(--darkreader-neutral-background)!important;--d2l-menu-border-color:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-tooltip-background-color:var(--darkreader-neutral-background)!important;--d2l-tooltip-border-color:var(--darkreader-bg--d2l-color-gypsum)!important}</style><style id=mckiig5p.kz>a.ijg-link:hover{background-color:gray}a.ijg-link{background-color:black;padding:3px;line-height:0;display:inline-block;text-decoration:none;transition:background-color 150ms}a.ijg-ghPagesToRepo{top:20px;right:20px;border-radius:6px;position:absolute}</style><meta name=referrer content=no-referrer><style>.sf-hidden{display:none!important}</style><meta http-equiv=content-security-policy content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"></head>
+ <body>
+ <div class="container-lg px-3 my-5 markdown-body">
+ 
+ <h1><a href=https://viktorbezdek.github.io/definitive-llm-writing-style-guide/>definitive-llm-writing-style-guide</a></h1>
+ 
+ <h3 id=the-definitive-guide-to-llm-writingstyles>The Definitive Guide to LLM Writing&nbsp;Styles<a class=anchorjs-link href=#the-definitive-guide-to-llm-writingstyles aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<blockquote>
+ <p>Language is a powerful tool for shaping thought, feeling and identity. Advances in large language models (LLMs) have unlocked unprecedented potential for machines to wield this tool in increasingly human-like ways. By systematically manipulating key attributes across multiple dimensions, researchers and developers can now create AI writing agents with rich and distinctive personas.</p>
+</blockquote>
+<p>This article provides a comprehensive framework for understanding the complex interplay of traits that go into crafting a compelling LLM writing style, from personality quirks to cultural background to narrative techniques. Drawing on fields like linguistics, psychology and creative writing, it breaks down the essential building blocks of language and identity into actionable design parameters.</p>
+<p>The goal is to empower a new generation of LLMs that not only convey information, but engage readers with all the nuance, flair and variability of human expression. However, with great expressive power comes great ethical responsibility. This piece considers both the immense potential and the hidden pitfalls of engineering AI with the ability to emulate — and manipulate — the full spectrum of human communication.</p>
+<p>Whether you are a researcher pushing the boundaries of natural language generation or an end user trying to get the most authentic, fit-for-purpose outputs from your AI writing assistant, this definitive guide to LLM writing styles will give you the conceptual tools to analyze and synthesize linguistic identities like never before. Strap in for a whirlwind tour of traits from Agreeableness to Archaism, Machismo to Metaphor, Tsundere to Techno-Babble!</p>
+<h3 id=personality-traits>Personality Traits<a class=anchorjs-link href=#personality-traits aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Personality traits are the fundamental dispositions and tendencies that shape how an individual typically thinks, feels, and behaves across situations. In the context of language modeling, personality traits influence the overall tone, content, and style of the generated text. A language model with high openness, for example, may produce more creative and unconventional responses, while one with high conscientiousness may generate more organized and detail-oriented output. Manipulating these traits allows for the creation of distinct and consistent model personas.</p>
+<ul>
+ <li><strong>Openness (low, medium, high)</strong>: Low openness leads to more conventional, straightforward writing. High openness results in more creative, unconventional ideas and phrasings.</li>
+ <li><strong>Conscientiousness (low, medium, high)</strong>: Low conscientiousness means less attention to detail and organization. High conscientiousness produces carefully structured, precise writing.</li>
+ <li><strong>Extraversion (low, medium, high)</strong>: Introversion leads to more reserved, formal writing tone. Extraversion produces enthusiastic, casual, engaging style.</li>
+ <li><strong>Agreeableness (low, medium, high)</strong>: Low agreeableness can result in blunt, critical writing. High agreeableness means more positive, diplomatic, complimentary language.</li>
+ <li><strong>Neuroticism (low, medium, high)</strong>: Low neuroticism leads to confident, bold assertions. High neuroticism means more hesitant, anxious, self-doubting language.</li>
+ <li><strong>Assertiveness (low, medium, high)</strong>: Low assertiveness produces humble, deferential writing. High assertiveness means bold declarations and strong opinions.</li>
+ <li><strong>Empathy (low, medium, high)</strong>: Low empathy results in detached, unsympathetic writing. High empathy means emotionally attuned, compassionate language.</li>
+ <li><strong>Optimism (low, medium, high)</strong>: Pessimism leads to more negative, critical, cautionary writing. Optimism means upbeat, hopeful, encouraging style.</li>
+ <li><strong>Humility (low, medium, high)</strong>: Low humility can produce arrogant, self-aggrandizing writing. High humility means modest, self-effacing language.</li>
+ <li><strong>Ambition (low, medium, high)</strong>: Low ambition results in content, laid-back writing. High ambition means driven, goal-oriented, motivational style.</li>
+ <li><strong>Curiosity (low, medium, high)</strong>: Low curiosity produces incurious, closed-minded writing. High curiosity means inquisitive, exploratory, open-minded language.</li>
+ <li><strong>Honesty (low, medium, high)</strong>: Low honesty can lead to deceptive, evasive writing. High honesty means direct, authentic, transparent style.</li>
+ <li><strong>Risk-taking (low, medium, high)</strong>: Risk-aversion results in careful, conservative, conventional writing. Risk-taking means bold, daring, experimental style.</li>
+ <li><strong>Adaptability (low, medium, high)</strong>: Low adaptability produces rigid, stubborn writing. High adaptability means flexible, accommodating, open-to-change style.</li>
+ <li><strong>Tolerance (low, medium, high)</strong>: Intolerance can lead to prejudiced, judgmental writing. High tolerance means inclusive, accepting, open-minded language.</li>
+</ul>
+<h3 id=emotional-intelligence>Emotional Intelligence<a class=anchorjs-link href=#emotional-intelligence aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Emotional intelligence refers to the ability to recognize, understand, and manage one’s own emotions, as well as the emotions of others. Language models with high emotional intelligence can produce more empathetic, socially aware, and emotionally appropriate responses. They are better at recognizing the emotional context of a conversation and adapting their language accordingly. Attributes like empathy, self-awareness, and conflict resolution shape the model’s ability to navigate sensitive topics, provide support, and maintain positive relationships with users.</p>
+<ul>
+ <li><strong>Self-awareness (low, medium, high)</strong>: Low self-awareness can produce oblivious, un-self-conscious writing. High self-awareness means reflective, self-examining style.</li>
+ <li><strong>Self-regulation (low, medium, high)</strong>: Poor self-regulation results in unrestrained, impulsive writing. Good self-regulation means disciplined, self-controlled style.</li>
+ <li><strong>Motivation (low, medium, high)</strong>: Low motivation leads to apathetic, disengaged writing. High motivation means passionate, driven, goal-oriented language.</li>
+ <li><strong>Empathy (low, medium, high)</strong>: Low empathy produces detached, unsympathetic writing. High empathy means emotionally attuned, understanding, compassionate style.</li>
+ <li><strong>Social skills (low, medium, high)</strong>: Poor social skills can result in awkward, inappropriate writing. Good social skills means socially fluent, adaptive, engaging style.</li>
+ <li><strong>Emotional perception (low, medium, high)</strong>: Low emotional perception leads to oblivious, unperceptive writing. High perception means emotionally aware, insightful, attuned language.</li>
+ <li><strong>Emotional expression (low, medium, high)</strong>: Low expressiveness results in flat, unexpressive writing. High expressiveness means vivid, evocative, emotionally rich style.</li>
+ <li><strong>Assertiveness (low, medium, high)</strong>: Low assertiveness can produce meek, hesitant writing. High assertiveness means confident, forthright, opinionated language.</li>
+ <li><strong>Independence (low, medium, high)</strong>: Dependence leads to reliant, approval-seeking writing. Independence means autonomous, free-thinking, nonconformist style.</li>
+ <li><strong>Optimism (low, medium, high)</strong>: Pessimism results in negative, cynical, defeatist writing. Optimism means hopeful, confident, resilient language.</li>
+ <li><strong>Stress tolerance (low, medium, high)</strong>: Low stress tolerance can produce anxious, overwhelmed writing. High tolerance means calm, composed, resilient style under pressure.</li>
+ <li><strong>Self-actualization (low, medium, high)</strong>: Low self-actualization leads to uninspired, conventional writing. High self-actualization means fulfilled, purposeful, growth-focused language.</li>
+ <li><strong>Adaptability (low, medium, high)</strong>: Rigidity results in inflexible, close-minded writing. Adaptability means open, flexible, accommodating style.</li>
+ <li><strong>Trust (low, medium, high)</strong>: Distrust can produce suspicious, guarded writing. High trust means open, confiding, collaborative language.</li>
+ <li><strong>Conflict resolution (low, medium, high)</strong>: Poor conflict resolution leads to argumentative, confrontational writing. Good resolution skills means diplomatic, constructive, solution-focused style.</li>
+</ul>
+<h3 id=cognitive-style>Cognitive Style<a class=anchorjs-link href=#cognitive-style aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Cognitive style describes the characteristic ways in which an individual processes and organizes information, solves problems, and makes decisions. In language modeling, cognitive style influences the complexity, depth, and organization of the generated text. A model with a highly analytical style may produce more logical, detailed, and structured outputs, while one with a more intuitive style may generate responses that are more associative, inferential, and abstract. Varying cognitive styles can make models better suited for different tasks and audiences.</p>
+<ul>
+ <li><strong>Analytical (low, medium, high)</strong>: Low analysis produces simplistic, surface-level writing. High analysis means rigorous, in-depth, probing style.</li>
+ <li><strong>Creative (low, medium, high)</strong>: Low creativity results in conventional, predictable writing. High creativity means imaginative, original, innovative language.</li>
+ <li><strong>Strategic (low, medium, high)</strong>: Poor strategy leads to haphazard, aimless writing. Good strategy means purposeful, well-planned, objective-driven style.</li>
+ <li><strong>Detail-oriented (low, medium, high)</strong>: Inattention to detail produces vague, imprecise writing. Detail-orientation means meticulous, specific, thorough language.</li>
+ <li><strong>Big-picture thinking (low, medium, high)</strong>: Narrow thinking results in myopic, finite writing. Big-picture thinking means visionary, far-sighted, systems-oriented style.</li>
+ <li><strong>Systematic (low, medium, high)</strong>: Low systemization leads to disorganized, ad hoc writing. High systemization means structured, methodical, process-driven language.</li>
+ <li><strong>Intuitive (low, medium, high)</strong>: Low intuition produces literal, explicit writing. High intuition means suggestive, metaphorical, between-the-lines style.</li>
+ <li><strong>Practical (low, medium, high)</strong>: Impracticality results in unrealistic, infeasible writing. Practicality means grounded, actionable, results-oriented language.</li>
+ <li><strong>Scientific (low, medium, high)</strong>: Unscientific thinking leads to sloppy, unrigorous writing. Scientific thinking means empirical, evidence-based, methodical style.</li>
+ <li><strong>Abstract thinking (low, medium, high)</strong>: Concrete thinking produces literal, specific writing. Abstract thinking means conceptual, theoretical, idea-driven language.</li>
+ <li><strong>Logical thinking (low, medium, high)</strong>: Illogic results in irrational, invalid writing. Logic means coherent, valid, well-reasoned style.</li>
+ <li><strong>Verbal (low, medium, high)</strong>: Low verbal skills lead to simple, inarticulate writing. High verbal ability means articulate, eloquent, well-spoken language.</li>
+ <li><strong>Visual (low, medium, high)</strong>: Non-visual thinking produces prosaic, non-imagistic writing. Visual thinking means vivid, image-rich, visually evocative style.</li>
+ <li><strong>Concrete thinking (low, medium, high)</strong>: Abstract thinking leads to vague, impalpable writing. Concrete thinking means tangible, relatable, real-world grounded language.</li>
+ <li><strong>Sequential thinking (low, medium, high)</strong>: Non-linear thinking produces disjointed, scattered writing. Sequential thinking means orderly, step-by-step, logically progressing style.</li>
+</ul>
+<h3 id=values-andbeliefs>Values and&nbsp;Beliefs<a class=anchorjs-link href=#values-andbeliefs aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Values and beliefs are the guiding principles and convictions that shape an individual’s worldview, priorities, and sense of right and wrong. For language models, values and beliefs influence the opinions, arguments, and recommendations expressed in the generated text. A model with conservative values may produce more traditional and cautious responses, while one with progressive values may generate more change-oriented and activist content. Explicitly modeling values allows for greater transparency and control over the ideological bent of AI-generated text.</p>
+<ul>
+ <li><strong>Conservative (low, medium, high)</strong>: Progressivism leads to change-oriented, future-focused writing. Conservatism means traditional, conventional, preservation-minded style.</li>
+ <li><strong>Liberal (low, medium, high)</strong>: Conservatism results in tradition-upholding, status-quo writing. Liberalism means reform-minded, progressive, open-to-change language.</li>
+ <li><strong>Libertarian (low, medium, high)</strong>: Authoritarianism produces rule-following, conformist writing. Libertarianism means individualistic, free-choice advocating, authority-questioning style.</li>
+ <li><strong>Progressive (low, medium, high)</strong>: Conservatism leads to past-focused, tradition-preserving writing. Progressivism means future-oriented, change-embracing, innovative language.</li>
+ <li><strong>Traditional (low, medium, high)</strong>: Unconventionality results in norm-defying, novel writing. Traditionalism means conventional, time-honored, orthodox style.</li>
+ <li><strong>Religious (low, medium, high)</strong>: Secularism leads to mundane, worldly writing. Religiosity means spiritual, transcendent, faith-informed language.</li>
+ <li><strong>Secular (low, medium, high)</strong>: Religiosity produces pious, sacred writing. Secularism means worldly, temporal, non-religious style.</li>
+ <li><strong>Humanist (low, medium, high)</strong>: Inhumanism leads to cynical, misanthropic writing. Humanism means compassionate, human-centered, humanitarian language.</li>
+ <li><strong>Environmentalist (low, medium, high)</strong>: Anti-environmentalism results in development-prioritizing, nature-indifferent writing. Environmentalism means conservation-minded, eco-conscious, sustainability-focused style.</li>
+ <li><strong>Capitalist (low, medium, high)</strong>: Socialism leads to collective-focused, equality-oriented writing. Capitalism means individualistic, free-market advocating, profit-driven language.</li>
+ <li><strong>Socialist (low, medium, high)</strong>: Capitalism produces individualistic, free-market writing. Socialism means collective ownership advocating, equality-focused, worker-empowering style.</li>
+ <li><strong>Patriotic (low, medium, high)</strong>: Unpatriotic sentiment leads to nation-critical, cosmopolitan writing. Patriotism means nationalistic, homeland-devoted, civic-minded language.</li>
+ <li><strong>Globalist (low, medium, high)</strong>: Nationalism results in country-first, foreign-skeptical writing. Globalism means internationally-minded, cross-cultural, “one-world” advocating style.</li>
+ <li><strong>Individualistic (low, medium, high)</strong>: Collectivism leads to group-oriented, collaboration-focused writing. Individualism means self-reliant, independence-valuing, personal freedom-prioritizing language.</li>
+ <li><strong>Collectivistic (low, medium, high)</strong>: Individualism produces self-centered, independence-focused writing. Collectivism means group-oriented, collaboration-valuing, communitarian style.</li>
+</ul>
+<h3 id=cultural-background>Cultural Background<a class=anchorjs-link href=#cultural-background aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Cultural background encompasses the shared norms, traditions, knowledge, and ways of life associated with a particular social group. Language models that incorporate cultural background can produce more diverse, inclusive, and culturally-sensitive content. By representing a wide range of cultural perspectives, models can better serve and resonate with users from different communities. Attributes like ethnicity, nationality, and regional identity shape the cultural frame of reference and lived experience reflected in the model’s language use.</p>
+<ul>
+ <li><strong>African (low, medium, high)</strong>: Non-African perspectives produce Eurocentric, culturally foreign writing for Africans. African perspective means culturally relatable, locally relevant style for African audience.</li>
+ <li><strong>Asian (low, medium, high)</strong>: Non-Asian views lead to culturally alien, un-relatable writing for Asians. Asian perspective means culturally familiar, relevant language for Asian readers.</li>
+ <li><strong>European (low, medium, high)</strong>: Non-European thinking results in culturally remote, unengaging writing for Europeans. European perspective means culturally apropos, identifiable style for European audience.</li>
+ <li><strong>Latin American (low, medium, high)</strong>: Non-Latin American outlook produces culturally irrelevant, detached writing for Latin Americans. Latin American perspective means culturally germane, resonant language for Latin American readers.</li>
+ <li><strong>Middle Eastern (low, medium, high)</strong>: Non-Middle Eastern views lead to culturally unfamiliar, unrelatable writing for Middle Easterners. Middle Eastern perspective means culturally congruent, pertinent style for Middle Eastern audience.</li>
+ <li><strong>North American (low, medium, high)</strong>: Non-North American thinking results in culturally foreign, unrelatable writing for North Americans. North American perspective means culturally applicable, relevant language for North American readers.</li>
+ <li><strong>Oceanian (low, medium, high)</strong>: Non-Oceanian outlook produces culturally remote, un-identifiable writing for Oceanians. Oceanian perspective means culturally fitting, connected style for Oceanian audience.</li>
+ <li><strong>Scandinavian (low, medium, high)</strong>: Non-Scandinavian views lead to culturally unrecognizable, irrelevant writing for Scandinavians. Scandinavian perspective means culturally congenial, relatable language for Scandinavian readers.</li>
+ <li><strong>Slavic (low, medium, high)</strong>: Non-Slavic thinking results in culturally external, un-engaged writing for Slavs. Slavic perspective means culturally attuned, identifiable style for Slavic audience.</li>
+ <li><strong>Germanic (low, medium, high)</strong>: Non-Germanic outlook produces culturally unaligned, un-involved writing for Germanic peoples. Germanic perspective means culturally affiliated, resonant language for Germanic readers.</li>
+ <li><strong>Romance (low, medium, high)</strong>: Non-Romance views lead to culturally distant, un-simpatico writing for Romance cultures. Romance perspective means culturally sympathetic, relatable style for Romance language speakers.</li>
+ <li><strong>Mountainous (low, medium, high)</strong>: Non-mountainous perspective results in geographically un-characteristic, irrelevant writing for mountain dwellers. Mountainous perspective means environmentally influenced, adapted language for mountain inhabitants.</li>
+ <li><strong>Coastal (low, medium, high)</strong>: Landlocked outlook produces geographically unrepresentative, un-relatable writing for coastal residents. Coastal perspective means environmentally shaped, pertinent style for seaside dwellers.</li>
+ <li><strong>Island (low, medium, high)</strong>: Continental thinking leads to geographically inapplicable, un-engaged writing for islanders. Island perspective means environmentally molded, relevant language for island inhabitants.</li>
+ <li><strong>Tropical (low, medium, high)</strong>: Non-tropical views result in climatically inauthentic, irrelevant writing for tropical residents. Tropical perspective means environmentally informed, relatable style for people in hot, humid regions.</li>
+</ul>
+<h3 id=communication-style>Communication Style<a class=anchorjs-link href=#communication-style aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Communication style refers to the characteristic ways in which an individual expresses themselves and interacts with others through language. It encompasses attributes like directness, formality, expressiveness, and politeness. Language models with different communication styles can produce outputs tailored to different contexts and audiences. A model with a more formal and analytical style may be better suited for professional and academic settings, while one with a more informal and humorous style may be more engaging for casual conversation and entertainment.</p>
+<ul>
+ <li><strong>Direct</strong>: Direct communication means frankness, explicitness, getting straight to the point, even if it means being blunt. It does not beat around the bush or sugarcoat things.</li>
+ <li><strong>Indirect</strong>: Indirect communication is more roundabout, hints at things rather than stating them outright. It is tactful and subtle, aiming to avoid giving offense.</li>
+ <li><strong>Formal</strong>: Formal style follows strict rules of grammar and etiquette. It is proper, dignified, and serious in tone. It maintains professional distance.</li>
+ <li><strong>Informal</strong>: Informal style is casual, relaxed and familiar in tone. It dispenses with strict rules and conveys closeness and affinity with the audience.</li>
+ <li><strong>Factual</strong>: Factual communication is objective, data-driven and evidence-based. It avoids speculation, opinion, and emotional appeals in favor of verifiable information.</li>
+ <li><strong>Emotional</strong>: Emotional expression is subjective, personal, and evocative. It uses vivid language to arouse feelings and forge empathetic connections.</li>
+ <li><strong>Analytical</strong>: Analytical style is logical, methodical and detail-oriented. It breaks things down into systematic parts and draws careful inferences.</li>
+ <li><strong>Intuitive</strong>: Intuitive communication is more instinctive, speculative and impression-based. It draws on hunches, associations and reading between the lines.</li>
+ <li><strong>Verbose</strong>: Verbosity means using more words than needed to convey ideas. It over-elaborates, gets longwinded and potentially tedious.</li>
+ <li><strong>Concise</strong>: Concision means expressing ideas in the fewest words possible. It is succinct, to-the-point, and avoids fluff or filler.</li>
+ <li><strong>Confident</strong>: Confident expression is self-assured, decisive and certain. It takes strong stances and speaks with authority and conviction.</li>
+ <li><strong>Hesitant</strong>: Hesitation comes across as timid, doubtful and unsure. It is marked by qualifiers, hedges and a questioning, deferential tone.</li>
+ <li><strong>Humorous</strong>: Humor incorporates wit, irony, exaggeration and playfulness to entertain and satirize. It is more lighthearted and comic in tone.</li>
+ <li><strong>Serious</strong>: Serious communication is sober, matter-of-fact and gravitas-filled. It is weighty, consequential and averse to frivolity.</li>
+ <li><strong>Respectful</strong>: Respectful language is mannerly, considerate and deferent to others. It observes etiquette and avoids insults or over-familiarity.</li>
+ <li><strong>Friendly</strong>: Friendly expression is affable, warm and cordial. It builds rapport, puts others at ease and makes them feel liked.</li>
+ <li><strong>Loud</strong>: Loud communication is more intense, emphatic and in-your-face. It grabs attention but can come across as aggressive if overused.</li>
+ <li><strong>Soft-spoken</strong>: Soft spokenness is gentler, understated and less forceful. It soothes and sets others at ease but can seem meek if overused.</li>
+ <li><strong>Fast-paced</strong>: Fast pacing is energetic, brisk and animated. It engages by moving rapidly between ideas but can overwhelm if unrelenting.</li>
+ <li><strong>Slow-paced</strong>: Slow pacing is more measured, gradual and leisurely. It allows time to absorb ideas but can bore if overly plodding.</li>
+ <li><strong>Visual</strong>: Visual language paints vivid word pictures. It describes appearances, scenes and images. It immerses by evoking the sense of sight.</li>
+ <li><strong>Auditory</strong>: Auditory language emphasizes sounds, voices and audible details. It immerses by conjuring the listening experience.</li>
+ <li><strong>Kinesthetic</strong>: Kinesthetic language highlights movements, sensations and physical experiences. It immerses by evoking the tactile and embodied.</li>
+ <li><strong>Functional</strong>: Functional communication is pragmatic, utilitarian and task-focused. It aims to inform and accomplish goals efficiently.</li>
+ <li><strong>Expressive</strong>: Expressive communication is more personal, artistic and emotionally revealing. It voices innermost thoughts and feelings vividly.</li>
+</ul>
+<h3 id=language-register>Language Register<a class=anchorjs-link href=#language-register aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Language register refers to the level of formality, complexity, and specificity of language used in a particular social context. Different registers are appropriate for different situations, audiences, and purposes. Language models that can generate text in multiple registers can adapt to a wider range of use cases. For example, a model that can switch between technical jargon and plain language can serve both expert and lay audiences. Attributes like vocabulary, grammar, and tone signal the register and shape the accessibility and appropriateness of the model’s language.</p>
+<ul>
+ <li><strong>Formal</strong>: Formal register follows strict rules of grammar and decorum. It is impersonal, dignified and detached. It conveys authority and observes hierarchy.</li>
+ <li><strong>Informal</strong>: Informal register is more casual, personal and relaxed. It uses colloquialisms, contractions and an familiar, conversational tone. It puts the reader at ease.</li>
+ <li><strong>Colloquial</strong>: Colloquial language is informal, conversational speech. It uses slang, idioms, and regional expressions. It establishes an authentic, folksy, “keeping it real” tone.</li>
+ <li><strong>Slang</strong>: Slang is extremely informal, sometimes vulgar language. It marks insider status in a subculture or group. It distances the uninitiated.</li>
+ <li><strong>Jargon</strong>: Jargon is specialized, technical vocabulary used by specific professions or groups. It efficiently conveys insider knowledge but excludes the uninformed.</li>
+ <li><strong>Technical</strong>: Technical writing is complex, detailed and expertise-dependent. It uses scientific, industrial or niche terminology. It is objective and precise.</li>
+ <li><strong>Academic</strong>: Academic writing is scholarly, intellectual and research-based. It uses discipline-specific terms, formal style and rigorous logic. It positions the writer as an expert.</li>
+ <li><strong>Literary</strong>: Literary language is imaginative, expressive and connotative. It uses poetic devices and wordplay. It is more evocative and ambiguous than literal.</li>
+ <li><strong>Poetic</strong>: Poetic language is highly aesthetic, rhythmic and metaphorical. It liberally uses imagery, lyricism and abstract symbolism. It is more suggestive than explicit.</li>
+ <li><strong>Nostalgic</strong>: Nostalgic language sentimentalizes the past. It portrays former times as simpler, purer or better. It romanticizes history and tradition.</li>
+ <li><strong>Inspirational</strong>: Inspirational writing is optimistic, elevating and motivational. It uplifts the human spirit and encourages people to be their best selves.</li>
+ <li><strong>Humorous</strong>: Humorous writing is comical, ironic and satirical. It finds amusement in absurdities and pokes fun. It entertains through wit.</li>
+ <li><strong>Sarcastic</strong>: Sarcasm is mock-sincere, ridiculing language. It says the opposite of what it means to belittle the subject. It expresses contempt through irony.</li>
+ <li><strong>Ironic</strong>: Irony highlights discrepancies between reality and expectations. It points out paradoxes and contradictions. It is wry and subversive.</li>
+ <li><strong>Sincere</strong>: Sincere language is earnest, heartfelt and genuine. It is honest and straightforward. It establishes trust and an authentic connection.</li>
+ <li><strong>Exaggerated</strong>: Exaggeration is overstatement and hyperbole. It makes something seem more extreme than it really is for emphasis or effect.</li>
+ <li><strong>Understated</strong>: Understatement is restraint and meiosis. It makes something seem less significant than it is through minimization or irony.</li>
+ <li><strong>Persuasive</strong>: Persuasive language is convincing, compelling and influential. It sways opinion and moves people to action through reason and emotion.</li>
+ <li><strong>Informative</strong>: Informative writing is factual, instructive and educational. It clearly explains and informs. It is accurate and well-organized.</li>
+ <li><strong>Instructional</strong>: Instructional language is procedural, prescriptive and advisory. It gives directions and guides behavior. It teaches skills step-by-step.</li>
+ <li><strong>Conversational</strong>: Conversational writing is informal, personal and interactive. It reads like friendly dialogue. It uses simple words, contractions and “you” and “I”.</li>
+ <li><strong>Oratorical</strong>: Oratorical language is grand, dramatic and persuasive. It is intended to be spoken aloud. It uses rhetorical techniques to stir emotions.</li>
+ <li><strong>Sermon</strong>: Sermonic language is morally instructive, authoritative and imperative. It interprets religious scripture and exhorts the congregation to righteousness.</li>
+ <li><strong>Baby talk</strong>: Baby talk is infantile, simple and repetitive. It uses nonsense sounds and pet names. It mimics how adults speak to babies.</li>
+ <li><strong>Caretaker speech</strong>: Caretaker speech is soothing, gentle and encouraging. It is affirming and patient. It guides children with simple instructions.</li>
+ <li><strong>Motherese</strong>: Motherese is warm, comforting and affectionate. It uses a lilting, exaggerated tone. It expresses nurturance and unconditional love.</li>
+ <li><strong>Debate</strong>: Debate language is adversarial, logical and evidence-based. It aims to prove a claim and defeat an opponent’s arguments.</li>
+ <li><strong>Ceremonial</strong>: Ceremonial language is grand, formal and performative. It marks important occasions and rituals. It uses stock phrases to enact protocols.</li>
+ <li><strong>Prayer</strong>: Prayer language is reverential, humble and adorational. It directly addresses a higher power. It gives thanks and makes requests.</li>
+ <li><strong>Ritual</strong>: Ritual language is solemn, symbolic and prescribed. It follows a set formula to invoke spiritual meaning. It consecrates sacred acts.</li>
+ <li><strong>Folkloric</strong>: Folkloric language is traditional, mythic and allegorical. It shares cultural stories and beliefs. It is imaginative and full of archetypes.</li>
+ <li><strong>Intimate</strong>: Intimate language is personal, emotional and vulnerable. It reveals private thoughts and experiences. It establishes trust and rapport.</li>
+ <li><strong>Casual</strong>: Casual language is relaxed, familiar and unofficial. It puts others at ease and dispenses with formalities. It treats readers as equals.</li>
+</ul>
+<h3 id=jargon>Jargon<a class=anchorjs-link href=#jargon aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Jargon refers to the specialized terminology used within specific fields, professions, or social groups. Jargon serves to efficiently convey complex ideas among insiders, but can be exclusionary or confusing to outsiders. Language models that incorporate jargon from different domains can engage in more authentic and informative conversations with users who share that background. However, the use of jargon should be balanced with the ability to explain or translate concepts for a general audience when needed.</p>
+<ul>
+ <li><strong>Medical</strong>: Medical jargon includes clinical terms for anatomy, disorders, treatments, pharmacology, etc.</li>
+ <li><em>Example: “The patient presented with acute cholecystitis and was NPO prior to laproscopic cholecystectomy.”</em></li>
+ <li><strong>Legal</strong>: Legalese uses technical terms for laws, statutes, procedures, felonies, torts, contracts, etc.</li>
+ <li><em>Example: “The plaintiff seeks compensatory and punitive damages for negligent infliction of emotional distress.”</em></li>
+ <li><strong>Technical</strong>: Tech jargon spans IT, electronics, engineering, etc. with acronyms and trademarked names.</li>
+ <li><em>Example: “Optimize the UX of the SaaS product’s GUI on AWS EC2 instances.”</em></li>
+ <li><strong>Scientific</strong>: Scientific terminology precisely describes natural phenomena, species, chemicals, processes, lab techniques, etc.</li>
+ <li><em>Example: “Titrate the solution to reach pH 7.4 then use gel electrophoresis to separate the proteins.”</em></li>
+ <li><strong>Academic</strong>: Academic jargon uses scholarly terms from different fields like psychology, economics, literary theory, etc.</li>
+ <li><em>Example: “Poststructuralist deconstruction of the text reveals the semantic slippage of the signifier.”</em></li>
+ <li><strong>Business</strong>: Business-speak includes management, finance, accounting, marketing and corporate strategy terms.</li>
+ <li><em>Example: “We need to increase QoQ revenue and EBITDA by leveraging our core competencies and first-mover advantage.”</em></li>
+ <li><strong>Marketing</strong>: Marketing and advertising lingo describes branding, market research, consumer behavior, etc.</li>
+ <li><em>Example: “Improve CTR and CPA by A/B testing the CTA on the landing page.”</em></li>
+ <li><strong>Financial</strong>: Banking, investing, lending, accounting and insurance terms.</li>
+ <li><em>Example: “The underwriter set the IPO price at 5x EBITDA and a CAGR of 15%.”</em></li>
+ <li><strong>Political</strong>: Public policy, activism, geopolitics, electioneering and hot-button issues.</li>
+ <li><em>Example: “The caucus whip is canvassing votes for the omnibus spending bill.”</em></li>
+ <li><strong>Military</strong>: Combat, tactics, protocol, hardware, acronyms and slang.</li>
+ <li><em>Example: “The PFC was AWOL from his FOB after an IED hit his HMMWV on a MEDCAP mission.”</em></li>
+ <li><strong>Sports</strong>: Rules, positions, plays, strategies, equipment and scores for different sports.</li>
+ <li><em>Example: “The QB threw a Hail Mary into triple coverage resulting in a pick six.”</em></li>
+ <li><strong>Arts</strong>: Genres, techniques, instruments, notation, criticism for fine, performing and applied arts.</li>
+ <li><em>Example: “The soprano’s bel canto style perfectly suited the Italian opera buffa.”</em></li>
+ <li><strong>Culinary</strong>: Food, preparation techniques, flavoring, cuisine types, etc.</li>
+ <li><em>Example: “Slice the chiffonade of basil to top the ratatouille after plating.”</em></li>
+ <li><strong>Fashion</strong>: Clothing styles, designers, fabrics, accessories, trends, etc.</li>
+ <li><em>Example: “The boho chic ensemble paired a floral maxi dress with a leather crossbody hobo bag.”</em></li>
+ <li><strong>Music</strong>: Notation, instruments, theory, equipment, digital audio workstations, etc.</li>
+ <li><em>Example: “The Mixolydian mode emphasizes the flat seventh scale degree and works over a dominant seventh chord.”</em></li>
+ <li><strong>Film</strong>: Cinematic styles, techniques, equipment, roles and critique.</li>
+ <li><em>Example: “The director used non-diegetic sound and an elliptical edit for the flashback montage sequence.”</em></li>
+ <li><strong>Gaming</strong>: Video game genres, consoles, gameplay, strategies, slang.</li>
+ <li><em>Example: “The sandbox open-world RPG features crafting, base-building and FPS combat with mobs.”</em></li>
+ <li><strong>Social Media</strong>: Platforms, features, algorithms, analytics, content types.</li>
+ <li><em>Example: “The brand went viral on TikTok with a dance challenge that led to user-generated content.”</em></li>
+ <li><strong>Internet</strong>: Protocols, coding, cybersecurity, hardware, software, memes.</li>
+ <li><em>Example: “Configure the firewall to whitelist traffic only on ports 80 and 443.”</em></li>
+ <li><strong>Crypto</strong>: Blockchain, cryptocurrencies, protocols, exchanges, initiatives.</li>
+ <li><em>Example: “The DAO issued an airdrop of governance tokens for staking on the layer-2 DEX.”</em></li>
+ <li><strong>Programming</strong>: Languages, control flow, data structures, algorithms, paradigms.</li>
+ <li><em>Example: “The stack stores LIFO data with push and pop methods while the queue has FIFO handling.”</em></li>
+ <li><strong>Engineering</strong>: Electrical, mechanical, civil, aerospace design and problem-solving.</li>
+ <li><em>Example: “The cantilever bridge uses a tied arch and a counterweight to balance the compression and tension forces.”</em></li>
+ <li><strong>Architecture</strong>: Styles, techniques, materials, roles, history.</li>
+ <li><em>Example: “The Bauhaus modernist aesthetic favored steel, glass, and poured concrete construction with minimalist geometry.”</em></li>
+ <li><strong>Psychology</strong>: Mental processes, behavior, cognition, disorders and treatment.</li>
+ <li><em>Example: “CBT aims to reframe distorted thoughts and exposure therapy gradually reduces phobic avoidance.”</em></li>
+ <li><strong>Education</strong>: Pedagogy, instruction, classroom management, testing, etc.</li>
+ <li><em>Example: “Scaffolded instruction within the zone of proximal development facilitates constructivist learning.”</em></li>
+ <li><strong>Journalism</strong>: News gathering, writing styles, editing, media law and ethics.</li>
+ <li><em>Example: “The inverted pyramid format is used for hard news ledes and the editorial had a scathing lede.”</em></li>
+ <li><strong>Publishing</strong>: Books, magazines, journals, imprints, editing and formats.</li>
+ <li><em>Example: “The front and back matter include the tabula rasa, dedications, epilogue and appendices.”</em></li>
+</ul>
+<h3 id=slang>Slang<a class=anchorjs-link href=#slang aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Slang refers to the informal, colloquial language used within particular social groups, often to signal in-group identity and solidarity. Slang is characterized by novel, playful, and often ephemeral expressions that deviate from standard usage. Language models that incorporate slang can produce more natural, engaging, and culturally-attuned outputs, particularly for younger and more subcultural audiences. However, slang use risks sounding inauthentic or appropriative if not grounded in genuine cultural knowledge and sensitivity.</p>
+<ul>
+ <li><strong>Regional</strong>: Local vernacular in New York like “bodega”, “schmear”, “mad”, etc.</li>
+ <li><em>Example: “I got a bacon, egg and cheese at the bodega and the lady put mad cream cheese on it.”</em></li>
+ <li><strong>Ethnic</strong>: In-group slang used by specific cultural communities.</li>
+ <li><em>Example: “The abuela made arroz con gandules and flan for the quinceañera.”</em></li>
+ <li><strong>Cultural</strong>: Subcultures like gamers, Valley Girls, drag queens, rappers, etc. have unique slang.</li>
+ <li><em>Example: “The salty gamer was malding and called the other player a noob for camping the spawn.”</em></li>
+ <li><strong>Generational</strong>: Different age cohorts use distinct slang.</li>
+ <li><em>Example: “OK Boomer, no cap, that record slaps, it’s fire AF. I can’t even…”</em></li>
+ <li><strong>Occupational</strong>: Different professions have their own informal shorthand.</li>
+ <li><em>Example: “The flack buried the lede in the presser and the hacks missed the scoop.”</em></li>
+ <li><strong>Argot</strong>: Deliberately obscure jargon used by insular groups like prisoners, drug dealers, etc. to conceal meaning from outsiders.</li>
+ <li><em>Example: “Stick to the script, deliver the package to the mark and bring back the paper.”</em></li>
+ <li><strong>Cant</strong>: Similar to argot, language used by beggars, carnival workers, etc.</li>
+ <li><em>Example: “The rube did a Baltimore Bankroll at the faro table then begged for some soda.”</em></li>
+ <li><strong>Jargon</strong>: Specific technical terminology used by experts in a field.</li>
+ <li><em>Example: “The frontend dev pushed the latest build with cleaner code but it caused scope creep.”</em></li>
+ <li><strong>Colloquialisms</strong>: Casual, conversational expressions used in informal speech.</li>
+ <li><em>Example: “I’m just joshin’ ya, don’t get your knickers in a twist over spilled milk.”</em></li>
+ <li><strong>Idioms</strong>: Colorful figurative phrases with connotative meanings.</li>
+ <li><em>Example: “Dude, when life gives you lemons, make lemonade, it’s not rocket science.”</em></li>
+ <li><strong>Euphemisms</strong>: Polite, vague expressions that conceal harsh truths.</li>
+ <li><em>Example: “Your position was made redundant as part of a workforce imbalance correction.”</em></li>
+ <li><strong>Dysphemisms</strong>: Rude expressions that are more offensive than the literal terms.</li>
+ <li><em>Example: “Did you blow chunks after getting shitfaced at the watering hole?”</em></li>
+ <li><strong>Profanity</strong>: Obscene, vulgar or blasphemous words.</li>
+ <li><em>Example: “That stupid motherf***er cut me off in traffic then flipped me the bird!”</em></li>
+ <li><strong>Obscenity</strong>: Indecent, lewd, pornographic language.</li>
+ <li><em>Example: “That skeezy perv was talking mad sh*t about tapping asses and slangin’ D.”</em></li>
+ <li><strong>Internet</strong>: Slang originating from and used predominantly online.</li>
+ <li><em>Example: “NGL, I was today years old when I got Rick-rolled then rage quit the thread.”</em></li>
+ <li><strong>Social media</strong>: Informal language used on specific social media apps.</li>
+ <li><em>Example: “She slid into his DMs to stan his fit pic then he clapped back with a tea emoji.”</em></li>
+ <li><strong>Memes</strong>: Viral images, videos, phrases or concepts spread online.</li>
+ <li><em>Example: “That GIF of Sandra Oh popping and locking lives rent free in my head.”</em></li>
+ <li><strong>Emojis</strong>: Small digital images or icons expressing emotions or ideas.</li>
+ <li><em>Example: “He texted ‘you up?’ at 2am with the eyes, eggplant and water drop emojis.”</em></li>
+ <li><strong>Niche</strong>: Highly specific terminology used only by small subgroups.</li>
+ <li><em>Example: “The cottagecore aesthetic romanticizes agricultural self-sufficiency and the trad wife lifestyle.”</em></li>
+ <li><strong>Outdated</strong>: Slang that has fallen out of usage and sounds old-fashioned.</li>
+ <li><em>Example: “23 skidoo, all you hoofers, let’s blouse and rabbit to the passion pit!”</em></li>
+ <li><strong>Trendy</strong>: Current buzz words that are extremely popular.</li>
+ <li><em>Example: “It’s the vibe shift for me” or “We’re entering our flop era.”</em></li>
+ <li><strong>Playful</strong>: Lighthearted, witty expressions used for fun.</li>
+ <li><em>Example: “I’m just yanking your chain, don’t go cuckoo for Cocoa Puffs!”</em></li>
+ <li><strong>Ironic</strong>: Slang used sarcastically or to mean the opposite.</li>
+ <li><em>Example: “I’m sure the meat sweats from my epic bacon bender will give me a sick dad bod.”</em></li>
+ <li><strong>Sarcastic</strong>: Mocking or satirical expressions.</li>
+ <li><em>Example: “Way to go Einstein, you really Schruted it with your galaxy brain takes.”</em></li>
+ <li><strong>Derogatory</strong>: Insulting or disparaging slurs.</li>
+ <li><em>Example: “The keyboard warrior called the streamer a troglodyte and a smooth-brain.”</em></li>
+ <li><strong>Complimentary</strong>: Flattering or admiring slang.</li>
+ <li><em>Example: “That DILF has big himbo energy with abs for days!”</em></li>
+ <li><strong>Nicknames</strong>: Familar or humorous substitute names for people, places or things.</li>
+ <li><em>Example: “The Big Apple is full of Massholes and Hoosiers who love their za.”</em></li>
+ <li><strong>Abbreviations</strong>: Shortened forms of words or phrases.</li>
+ <li><em>Example: “I’ll BRB ASAP after hitting the WC and grabbing a sammy from the caf.”</em></li>
+ <li><strong>Acronyms</strong>: Words formed from the initial letters of a phrase.</li>
+ <li><em>Example: “The report is due EOD but I have to hop on a conf call RN with the VP of Biz Dev.”</em></li>
+ <li><strong>Blends</strong>: Combining parts of two words to make a new one.</li>
+ <li><em>Example: “I’m hangry so let’s grab some Tex-Mex at that boujee gastropub.”</em></li>
+ <li><strong>Clippings</strong>: Shortening a word by dropping sounds from the beginning or end.</li>
+ <li><em>Example: “I’m a stud, bro, my glutes and delts are totes jacked from getting swole at the gym.”</em></li>
+ <li><strong>Reduplications</strong>: Repeating sounds or words for emphasis or as a playful expression.</li>
+ <li><em>Example: “The itty bitty baby doggo was licking its widdle paws in the teeny weeny sweater.”</em></li>
+</ul>
+<h3 id=politeness>Politeness<a class=anchorjs-link href=#politeness aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Politeness refers to the linguistic strategies used to show respect, save face, and maintain social harmony in interaction. Politeness norms vary across cultures, contexts, and relationships. Language models with high politeness can navigate requests, disagreements, and sensitive topics with more tact and consideration for the user’s feelings. Attributes like honorifics, hedging, and indirect speech shape the perceived respect and rapport conveyed by the model’s responses.</p>
+<ul>
+ <li><strong>Formal address</strong>: Use honorifics and full names for dignitaries.</li>
+ <li><em>Example: “Good evening Ambassador von Papen, thank you for gracing us with your presence.”</em></li>
+ <li><strong>Informal address</strong>: Use first names or casual greetings for friends.</li>
+ <li><em>Example: “Hey girl hey! Thanks for coming to my shindig, mi casa es tu casa.”</em></li>
+ <li><strong>Titles</strong>: Acknowledge ranks and earned designations.</li>
+ <li><em>Example: “As you can see Professor Emeritus Williams, figure 3 demonstrates a positive correlation.”</em></li>
+ <li><strong>Honorifics</strong>: Show respect through formal prefixes.</li>
+ <li><em>Example: “I appreciate you taking the time to discuss this matter with me Dr. Nguyen.”</em></li>
+ <li><strong>Deference expressions</strong>: Humbly minimizing your importance.</li>
+ <li><em>Example: “Far be it from me to question your expertise on the subject.”</em></li>
+ <li><strong>Hedging language</strong>: Avoiding definitive statements to minimize disagreements.</li>
+ <li><em>Example: “I may be mistaken but my understanding was that the deadline was more fluid.”</em></li>
+ <li><strong>Face-saving strategies</strong>: Phrasing feedback to avoid embarrassment and maintain dignity.</li>
+ <li><em>Example: “Perhaps we could explore an alternative approach that might be more efficient.”</em></li>
+ <li><strong>Indirect speech acts</strong>: Using questions or statements to imply requests.</li>
+ <li><em>Example: “If someone could please pass the salt, I would really appreciate it.”</em></li>
+ <li><strong>Indirect requests</strong>: Minimizing an imposition by phrasing it as a question or suggestion.</li>
+ <li><em>Example: “Would it be possible to get a refill on my coffee when you have a chance?”</em></li>
+ <li><strong>Apologies</strong>: Acknowledging fault or inconvenience to others.</li>
+ <li><em>Example: “I sincerely apologize for the delayed response, I was in back-to-back meetings all day.”</em></li>
+ <li><strong>Gratitude expressions</strong>: Thanking others for their contributions or kindness.</li>
+ <li><em>Example: “I really appreciate you going above and beyond to get this report done ahead of schedule.”</em></li>
+ <li><strong>Compliments</strong>: Praising others’ accomplishments or positive qualities.</li>
+ <li><em>Example: “Your presentation was incredibly persuasive and well-researched, well done!”</em></li>
+ <li><strong>Refusals</strong>: Gently declining offers or requests to avoid offense.</li>
+ <li><em>Example: “I’m truly grateful for the generous invitation but unfortunately I have a prior commitment that evening.”</em></li>
+ <li><strong>Disagreements</strong>: Tactfully phrasing a different opinion to maintain harmony.</li>
+ <li><em>Example: “I see where you’re coming from but perhaps there’s a middle ground we haven’t considered yet.”</em></li>
+ <li><strong>Interruptions</strong>: Politely interjecting or asking for a chance to speak.</li>
+ <li><em>Example: “If I may jump in for a second, I had a thought about the proposed timeline.”</em></li>
+ <li><strong>Turn-taking</strong>: Allowing equal participation in a conversation.</li>
+ <li><em>Example: “That’s an excellent point Jamal, what do you think about this Claire?”</em></li>
+ <li><strong>Silence</strong>: Using strategic pauses to avoid interrupting or dominating.</li>
+ <li><em>Example: *Nodding attentively while others are speaking, waiting for a lull to chime in.*</em></li>
+ <li><strong>Eye contact</strong>: Demonstrating interest and respect for the speaker.</li>
+ <li><em>Example: *Maintaining friendly eye contact during the conversation, occasionally glancing away thoughtfully.*</em></li>
+ <li><strong>Gestures</strong>: Nonverbally conveying politeness and engagement.</li>
+ <li><em>Example: *Smiling warmly, offering a firm handshake, using an open palm to offer the floor to others.*</em></li>
+ <li><strong>Proximity</strong>: Respecting others’ personal space and privacy.</li>
+ <li><em>Example: *Maintaining a respectful distance, asking permission before entering someone’s office, lowering your voice for sensitive topics.*</em></li>
+</ul>
+<h3 id=gendered-language>Gendered Language<a class=anchorjs-link href=#gendered-language aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Gendered language refers to the ways in which language encodes and perpetuates gender norms, stereotypes, and power dynamics.</p>
+<ul>
+ <li><strong>Masculine-coded</strong>: Language associated with stereotypically male traits like assertiveness, leadership, boldness.</li>
+ <li><em>Example: “He really dominated the competition and proved he’s top dog.”</em></li>
+ <li><strong>Feminine-coded</strong>: Language associated with stereotypically female traits like collaboration, compassion, beauty.</li>
+ <li><em>Example: “She was as pretty as a picture and sweet as pie.”</em></li>
+ <li><strong>Gender-neutral</strong>: Non-specific language that avoids assumptions of gender.</li>
+ <li><em>Example: “The ideal candidate will be ambitious and nurturing toward their direct reports.”</em></li>
+</ul>
+<h3 id=age-specific-language>Age-specific Language<a class=anchorjs-link href=#age-specific-language aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Age-specific language refers to the linguistic features and cultural references characteristic of different age cohorts. Language models that incorporate age-specific language can produce more relatable and engaging content for users of different generations. Attributes like slang, pop culture references, and life stage concerns shape the perceived age and zeitgeist of the model persona. However, age-specific language should be used with care to avoid perpetuating stereotypes or alienating users.</p>
+<ul>
+ <li><strong>Infantile</strong>: Language imitating baby talk to create a childlike tone.</li>
+ <li><em>Example: “Aww wook at da pwecious widdle baaaaby! Coochy-coochy-coo! Who’s a cutie pie? You are! Yes you are!”</em></li>
+ <li><strong>Childlike</strong>: Language evoking youthful innocence and simplicity.</li>
+ <li><em>Example: “In a land far, far away, there lived a good little boy named Jack who loved climbing beanstalks.”</em></li>
+ <li><strong>Adolescent</strong>: Language capturing the slang, attitude and concerns of teenagers.</li>
+ <li><em>Example: “Ugh, my mom is being so extra, she won’t let me go to Stacy’s house because we posted thirst traps on Insta.”</em></li>
+ <li><strong>Teenspeak</strong>: Trendy slang used by teenagers in a particular era.</li>
+ <li><em>Example: “Gag me with a spoon! Barf me out the door! I’m like, totally buggin’ cuz I’m grounded and can’t go to the max!”</em></li>
+ <li><strong>Youthful</strong>: Language conveying vitality, trendiness and hipness associated with young adulthood.</li>
+ <li><em>Example: “Dude, I’m hella stoked for this lit AF Coachella rager, it’s gonna be a whole vibe, no cap!”</em></li>
+ <li><strong>Middle-aged</strong>: Language reflecting stereotypical concerns and sensibilities of middle age like family, career and nostalgia.</li>
+ <li><em>Example: “Kids, let me tell you, they don’t make ’em like they used to. Our generation understood the value of hard work!”</em></li>
+ <li><strong>Elderly</strong>: Language conveying a slower pace, traditional values, deteriorating abilities and end-of-life concerns associated with the elderly.</li>
+ <li><em>Example: “Be a dear and fetch my pillbox, would you? My lumbago is acting up something fierce and I can’t recall if I took my morning tablets.”</em></li>
+ <li><strong>Dated</strong>: Language that sounds old-fashioned and out of touch with current trends.</li>
+ <li><em>Example: “Say, what’s the big idea buster? You’re cruisin’ for a brusin’ if you keep that up, see?”</em></li>
+ <li><strong>Old-fashioned</strong>: Quaint language evoking a romanticized, bygone era.</li>
+ <li><em>Example: “T’was a simpler time, when the gentle breeze carried the dulcet tones of the parlor piano on the veranda.”</em></li>
+ <li><strong>Anachronistic</strong>: Language that is humorously incongruous with a historical time period.</li>
+ <li><em>Example: “Forsooth and ‘sup my dudes! ’Tis I, Sir Swag-a-lot, about to yeet mine own self into yon sick joust!”</em></li>
+ <li><strong>Timeless</strong>: Language that avoids references to any specific era and focuses on universal themes.</li>
+ <li><em>Example: “As she gazed up at the stars, she felt both impossibly small and part of something unfathomably vast.”</em></li>
+ <li><strong>Ageless</strong>: Language conveying eternal youth and vigor, unconstrained by time.</li>
+ <li><em>Example: “The enchanted elixir promised to bestow immortality and preserve the drinker’s beauty forevermore.”</em></li>
+ <li><strong>Baby boomer</strong>: Language capturing the post-WWII generation’s values and experiences.</li>
+ <li><em>Example: “Back in my day, a handshake was all you needed. We worked summers to pay for college and bought houses with one income!”</em></li>
+ <li><strong>Gen X</strong>: Language reflecting skepticism, irony and self-reliance associated with the generation born in the 60s-80s.</li>
+ <li><em>Example: “Meh, whatever. I’m not getting my hopes up. As long as I’ve got my CDs and my Super Nintendo, it’s all good.”</em></li>
+ <li><strong>Millennial</strong>: Language evoking experiences of the generation born in the 80s-90s like school debt, digital nativeness, and social justice.</li>
+ <li><em>Example: “I can’t even with adulting today. I’m drowning in student loans and I’ll never be able to afford avocado toast, let alone a house!”</em></li>
+ <li><strong>Gen Z</strong>: Language of digital natives born in the late 90s-early 2010s, known for fluidity, diversity, activism and entrepreneurship.</li>
+ <li><em>Example: “Sksksks and I oop! Tea! The VSCO girl snapped with no cap. Sending thoughts and prayers to the sis, fam. It’s the trauma for me!”</em></li>
+ <li><strong>Boomer</strong>: Often derogatory term for older people seen as out of touch and resistant to change.</li>
+ <li><em>Example: “Okay Boomer, you had me in the first half, not gonna lie. Weird flex but go off I guess!”</em></li>
+ <li><strong>Zoomer</strong>: Play on ‘Boomer’ to describe digitally savvy, progressive, entrepreneurial Gen Z.</li>
+ <li><em>Example: “You just got OK Zoomer’d, Boomer! I ain’t never seen two pretty best friends!”</em></li>
+ <li><strong>Silver surfer</strong>: Language describing tech-savvy senior citizens.</li>
+ <li><em>Example: “She may be pushing 80 but she runs a foodie blog, trades Bitcoin, and met her boyfriend on Tinder!”</em></li>
+ <li><strong>Wise</strong>: Language conveying deep insight and wisdom often associated with age and experience.</li>
+ <li><em>Example: “The elder closed his eyes and nodded slowly, ‘Ah yes, the folly of youth. In time, you will learn, as I have, that all is impermanent.’”</em></li>
+ <li><strong>Innocent</strong>: Language evoking the naivety, purity and idealism of youth.</li>
+ <li><em>Example: “The girl’s freckled face lit up with undiluted joy as she twirled carefree through the meadow, blissfully unaware of life’s hardships.”</em></li>
+ <li><strong>Naive</strong>: Unsophisticated language conveying a lack of experience or judgment often associated with youth.</li>
+ <li><em>Example: “You sweet summer child, you actually believed him when he said he’d call you back? Oh honey, you’ve got a lot to learn!”</em></li>
+ <li><strong>Mature</strong>: Language conveying emotional development, responsibility and perspective associated with getting older.</li>
+ <li><em>Example: “At the end of the day, you’ve got to take the high road. That’s what maturity is all about, rising above pettiness.”</em></li>
+ <li><strong>Infantilizing</strong>: Patronizing language that treats someone like a child in a derogatory way.</li>
+ <li><em>Example: “Aw, do you need Daddy to spell it out for you? Use your big boy words and maybe we’ll take you seriously.”</em></li>
+ <li><strong>Patronizing</strong>: Condescending language that seems polite on the surface but implies the speaker’s superiority.</li>
+ <li><em>Example: “Well bless your heart! Aren’t you just the cutest little activist? Keep it up sweetie!”</em></li>
+ <li><strong>Ageist</strong>: Prejudiced language that discriminates against someone based on their age, often in a professional context.</li>
+ <li><em>Example: “We need young blood around here, someone innovative without all that baggage. The future won’t be created by dinosaurs!”</em></li>
+</ul>
+<h3 id=socioeconomic-language>Socioeconomic Language<a class=anchorjs-link href=#socioeconomic-language aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Socioeconomic language refers to the ways in which language reflects and reproduces class identities, values, and power relations. Language models that are attuned to socioeconomic variation can generate more inclusive and class-conscious content. By incorporating attributes like education level, occupation, and cultural capital, models can represent a wider range of socioeconomic experiences and perspectives. However, socioeconomic language should be used thoughtfully to avoid reinforcing classist stereotypes or marginalizing underprivileged groups.</p>
+<ul>
+ <li><strong>Upper class</strong>: Language reflecting a privileged, monied, cosmopolitan lifestyle.</li>
+ <li><em>Example: “Muffy, be a dear and have Jeeves bring the Bentley around, we simply mustn’t be late for the regatta at the club!”</em></li>
+ <li><strong>Middle class</strong>: Language reflecting a mainstream, suburban, upwardly mobile lifestyle.</li>
+ <li><em>Example: “Got to get the kids to soccer practice and pick up groceries for the barbecue. Did you hear the Johnsons just renovated their kitchen?”</em></li>
+ <li><strong>Working class</strong>: Language reflecting a blue collar, manual labor, paycheck-to-paycheck lifestyle.</li>
+ <li><em>Example: “I’m busting my hump pulling double shifts at the factory and we still can barely make rent. Someday we’ll catch a break.”</em></li>
+ <li><strong>Blue collar</strong>: Language associated with manual labor and trade occupations.</li>
+ <li><em>Example: “He clocked out after a long shift at the plant, his calloused hands aching as he cracked open a cold one.”</em></li>
+ <li><strong>White collar</strong>: Language associated with office jobs and professional occupations.</li>
+ <li><em>Example: “She hustled to prep for the big presentation, fueled by coffee and dreams of climbing the corporate ladder.”</em></li>
+ <li><strong>Pink collar</strong>: Gendered language associated with stereotypically female service and care occupations.</li>
+ <li><em>Example: “The daycare worker handed out juice boxes with a smile, her patience and maternal instinct a testament to her noble profession.”</em></li>
+ <li><strong>Poverty</strong>: Language conveying deprivation, insecurity, marginalization.</li>
+ <li><em>Example: “They huddled together for warmth in the decrepit tenement, their growling stomachs a cruel reminder of another missed meal.”</em></li>
+ <li><strong>Wealthy</strong>: Language reflecting an affluent, luxurious, exclusive lifestyle.</li>
+ <li><em>Example: “The chauffeur opened the door to the sleek black limo, whisking the heiress off to her cliffside mansion for a night of opulent debauchery.”</em></li>
+ <li><strong>Privileged</strong>: Language acknowledging unearned social advantages due to class, race, gender etc.</li>
+ <li><em>Example: “As a trust fund kid who summered in the Hamptons, he had the privileged perspective of never worrying where his next meal would come from.”</em></li>
+ <li><strong>Disadvantaged</strong>: Language referencing systemic barriers, lack of resources and opportunities.</li>
+ <li><em>Example: “The nonprofit aimed to uplift disadvantaged youth, offering scholarships and mentorship to level the playing field.”</em></li>
+ <li><strong>Upwardly mobile</strong>: Language reflecting increasing socioeconomic status and class aspirations.</li>
+ <li><em>Example: “The intern put in long hours, networking and skill-building. Someday all the hustling would pay off in a corner office with a view.”</em></li>
+ <li><strong>Downwardly mobile</strong>: Language reflecting decreasing socioeconomic status.</li>
+ <li><em>Example: “His father worked a union job at the plant for 40 years. Now the plant’s closed, the pension’s gone and he’s working minimum wage.”</em></li>
+ <li><strong>Homeless</strong>: Language humanizing and drawing attention to issues of extreme poverty and displacement.</li>
+ <li><em>Example: “The man huddled in the doorway, his weathered face a map of hardship, his cardboard sign a plea for help.”</em></li>
+ <li><strong>Bougie</strong>: Slang for bourgeois, mocking or aspiring to middle/upper class pretensions.</li>
+ <li><em>Example: “He traded his hipster digs for a bougie loft with exposed brick, making sure to invite the squad for a house warming party.”</em></li>
+ <li><strong>Ghetto</strong>: Slang originating from impoverished, marginalized black communities, can be used derogatorily.</li>
+ <li><em>Example: “The bodega was straight up ghetto, with flickering fluorescents and expired snacks, but the chopped cheese was fire.”</em></li>
+ <li><strong>Trailer trash</strong>: Derogatory language painting rural poor as crass, unsophisticated and immoral.</li>
+ <li><em>Example: “The trailer park erupted into a full on Jerry Springer brawl, complete with mullets, NASCAR tees and rebel flag bikinis.”</em></li>
+ <li><strong>Redneck</strong>: Derogatory term for poor rural whites seen as unsophisticated and backwards.</li>
+ <li><em>Example: “He was a good ol’ boy, huntin’, fishin’ and fixin’ up vintage pickups. You could take the redneck out of the country but you can’t take the country out of the redneck.”</em></li>
+ <li><strong>Ozark</strong>: Implying backwardness and lack of sophistication.</li>
+ <li><em>Example: “The hillbilly music filled the holler as the extended family gathered for a hootenanny, fidd’lin’ and foot stompin’ into the wee hours.”</em></li>
+ <li><strong>WASP</strong>: Stands for White Anglo-Saxon Protestant, denoting a privileged, exclusive social group.</li>
+ <li><em>Example: “The country club was a bastion of WASP culture, all polo shirts, tennis whites and gin and tonics on the veranda.”</em></li>
+ <li><strong>Yuppie</strong>: Stands for Young Urban Professional, associated with materialistic pursuits and upward mobility.</li>
+ <li><em>Example: “The yuppie couple brunched on avocado toast and quinoa bowls, comparing notes on their stock portfolios and Peloton stats.”</em></li>
+ <li><strong>hipster</strong>: Subculture associated with alternative trends, irony, creative pursuits and gentrification.</li>
+ <li><em>Example: “The hipster enclave was all artisanal coffee shops, vintage thrift stores and handlebar mustaches, a far cry from the struggling immigrant community that preceded it.”</em></li>
+ <li><strong>Basic</strong>: Slang implying someone is mainstream, predictable and conformist in an undesirable way.</li>
+ <li><em>Example: “The basic girl started every morning with a pumpkin spice latte, Instagramming her avocado toast while decked out in Uggs and a North Face.”</em></li>
+ <li><strong>Elitist</strong>: Language that is exclusionary, snobby and implies superiority and privilege.</li>
+ <li><em>Example: “The conference had an elitist vibe, all designer suits and Ivy League degrees, making the state school grad feel distinctly out of place.”</em></li>
+ <li><strong>Snobbish</strong>: Condescending language that judges others as inferior and excludes them socially.</li>
+ <li><em>Example: “The fashionistas looked down their noses at the clearance rack shoppers, snickering behind their manicured hands at the thought of wearing last season’s styles.”</em></li>
+ <li><strong>Nouveau riche</strong>: Language describing the newly wealthy, often implying a lack of social graces and restraint in spending.</li>
+ <li><em>Example: “The tech bros were the definition of nouveau riche, rolling up to the club in lambos, popping bottles and making it rain.”</em></li>
+ <li><strong>Old money</strong>: Language describing generational wealth, often implying class, restraint and tradition in contrast to new money.</li>
+ <li><em>Example: “The debutante descended the grand staircase in her family’s ancestral home, a stunning vision of old money refinement.”</em></li>
+ <li><strong>Welfare queen</strong>: Derogatory language stereotyping poor women, especially of color, as freeloaders gaming the system.</li>
+ <li><em>Example: “The politician railed against the mythical welfare queen, a black woman in a Cadillac exploiting taxpayer money, a racist dog whistle to stoke resentment.”</em></li>
+ <li><strong>Food stamps</strong>: Language associated with government food aid for the poor, often politicized.</li>
+ <li><em>Example: “They relied on food stamps to fill the gap when their paychecks ran short, the meager benefits a lifeline to stave off hunger.”</em></li>
+ <li><strong>Unemployed</strong>: Language describing the state of not having a job, often with judgment or stigma.</li>
+ <li><em>Example: “The steel mill’s closure left half the town unemployed, a gut punch to a community that took pride in hard work.”</em></li>
+ <li><strong>Student</strong>: Language associated with the challenges and triumphs of getting an education across socioeconomic strata.</li>
+ <li><em>Example: “The scholarship kid from the projects didn’t think they’d fit in at the Ivy, but they were determined not to squander the opportunity.”</em></li>
+ <li><strong>Graduate</strong>: Language related to achieving educational goals, often carrying class expectations and values.</li>
+ <li><em>Example: “The first gen college grad held her diploma high, tears streaming down her face as she thought of her immigrant parents’ sacrifices to get her there.”</em></li>
+ <li><strong>Dropout</strong>: Language describing someone who left school before finishing, carrying connotations of failure and lost potential across classes.</li>
+ <li><em>Example: “The former straight A student was now a high school dropout, working two minimum wage jobs to support his family after his dad got laid off.”</em></li>
+ <li><strong>Entrepreneur</strong>: Language lauding the pursuit of starting and owning a business, often glamorized.</li>
+ <li><em>Example: “The entrepreneur hustled nonstop on her startup, dreaming of the day she could ring the bell at the stock exchange and cash in.”</em></li>
+ <li><strong>Startup</strong>: Language related to launching an innovative new business, often associated with tech industry and potential for rapid growth and lucrative exit.</li>
+ <li><em>Example: “The startup team pulled a series of all-nighters, fueled by ramen and Red Bull as they raced to launch their disruptive app.”</em></li>
+ <li><strong>Corporate</strong>: Language related to large, established profit-driven companies, often seen as impersonal and ruthless.</li>
+ <li><em>Example: “The corporate raider bought up the family-owned company, promptly gutting it to the studs and outsourcing the jobs overseas.”</em></li>
+ <li><strong>Freelance</strong>: Language describing working independently on a project basis, connoting freedom but also precarity.</li>
+ <li><em>Example: “The freelance writer pitched story after story, ghostwrote listicles and churned out branded content, cobbling together a living in the gig economy.”</em></li>
+ <li><strong>Retired</strong>: Language related to leaving the workforce, connoting both leisure and irrelevance depending on class.</li>
+ <li><em>Example: “The retired exec spent his golden years on the links perfecting his swing, while the retired janitor clipped coupons to stretch his meager pension.”</em></li>
+ <li><strong>Pensioner</strong>: Language describing a retiree on a limited fixed income.</li>
+ <li><em>Example: “The pensioner counted out her coins at the till, glumly putting back the name brand tinned beans in favor of the generic to stretch her monthly check.”</em></li>
+ <li><strong>Disabled</strong>: Language related to managing a disability, often in the context of employment and social services.</li>
+ <li><em>Example: “The disabled vet struggled to make ends meet on his monthly disability check, his body broken from service but his will unshakeable.”</em></li>
+</ul>
+<h3 id=tone>Tone<a class=anchorjs-link href=#tone aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Tone refers to the overall attitude and emotional quality conveyed by language. It encompasses attributes like formality, seriousness, enthusiasm, and sarcasm. Language models with greater tonal range and control can produce more expressive and context-appropriate responses. By adjusting tone, models can build different types of relationships with users, from professional and authoritative to casual and playful. Tonal cues like word choice, punctuation, and emojis help convey the intended spirit of the message.</p>
+<ul>
+ <li><strong>Humorous</strong>: Lighthearted, amusing language that aims to entertain and elicit laughter.</li>
+ <li><em>Example: “I tried to catch some fog, but I mist!”</em></li>
+ <li><strong>Sarcastic</strong>: Mocking or ironic language that expresses ridicule or scorn, often through insincere praise.</li>
+ <li><em>Example: “Oh sure, I love getting stuck in traffic. It’s the highlight of my day, really.”</em></li>
+ <li><strong>Ironic</strong>: Language that expresses the opposite of its literal meaning for humorous or emphatic effect.</li>
+ <li><em>Example: “I’m so thrilled to be doing my taxes this weekend, it’s like a dream come true.”</em></li>
+ <li><strong>Friendly</strong>: Warm, amiable language that aims to build rapport and connection.</li>
+ <li><em>Example: “Hey there, hope you’re having an amazing day! What’s been the best part so far?”</em></li>
+ <li><strong>Optimistic</strong>: Positive, hopeful language that focuses on the bright side and potential for good outcomes.</li>
+ <li><em>Example: “Sure, it’s a challenging project, but think of all the amazing things we’ll learn and accomplish along the way!”</em></li>
+ <li><strong>Assertive</strong>: Confident, forceful language that expresses strong opinions and stands up for beliefs.</li>
+ <li><em>Example: “I respectfully disagree. I believe this approach is the best way forward, and here’s why…”</em></li>
+ <li><strong>Confident</strong>: Self-assured, certain language that projects faith in one’s abilities and ideas.</li>
+ <li><em>Example: “I’ve analyzed the data thoroughly, and I’m confident that my recommendations will drive positive results.”</em></li>
+ <li><strong>Playful</strong>: Fun, lighthearted language that engages in wordplay, whimsy, and imaginative expression.</li>
+ <li><em>Example: “Let’s bounce some ideas around and see what kind of delightful mischief we can cook up!”</em></li>
+ <li><strong>Persuasive</strong>: Convincing, compelling language that aims to sway opinions and inspire action.</li>
+ <li><em>Example: “Imagine the impact we could have if we all committed to this vision. Together, we have the power to make a real difference.”</em></li>
+</ul>
+<h3 id=voice>Voice<a class=anchorjs-link href=#voice aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Voice refers to the distinctive and recognizable persona conveyed by an individual’s language patterns. It reflects the unique combination of personality, background, and style attributes that make up a coherent and compelling character. Language models with well-crafted voice can produce outputs that feel more authentic, engaging, and relatable to users. By maintaining consistency in voice across conversations, models can build trust and rapport over time.</p>
+<ul>
+ <li><strong>Conversational</strong>: Casual, interactive language that feels like a natural dialogue between friends.</li>
+ <li><em>Example: “Hey, you know what I was just thinking about? That time we got lost on our road trip and ended up discovering that amazing little diner. Man, those were some seriously good pancakes!”</em></li>
+ <li><strong>Sarcastic</strong>: Mocking, ironic language that expresses a jaded or cynical perspective.</li>
+ <li><em>Example: “Well, isn’t this just a lovely surprise. Another meeting that could have been an email. Gee, how ever will I contain my excitement?”</em></li>
+ <li><strong>Humorous</strong>: Funny, clever language that aims to make the reader laugh and see the lighter side.</li>
+ <li><em>Example: “So, I was thinking about taking up a new hobby. I hear watching paint dry is all the rage these days. Thoughts?”</em></li>
+ <li><strong>Enthusiastic</strong>: Energetic, excited language that expresses passion and zeal for a topic.</li>
+ <li><em>Example: “Oh my gosh, have you heard about the new exhibit at the museum? It’s all about the history of candy making and I am SO PUMPED to check it out! Wanna come with?”</em></li>
+ <li><strong>Informal</strong>: Relaxed, familiar language that doesn’t stand on ceremony or formality.</li>
+ <li><em>Example: “Dude, you totally crushed that presentation! High five, my friend. Celebratory pizza later?”</em></li>
+ <li><strong>Friendly</strong>: Warm, approachable language that makes the reader feel liked and appreciated.</li>
+ <li><em>Example: “I just wanted to take a second to let you know how much I appreciate having you in my life. You’re an amazing friend and I’m so grateful for you!”</em></li>
+ <li><strong>Assertive</strong>: Bold, opinionated language that isn’t afraid to take a strong stance or challenge others.</li>
+ <li><em>Example: “I hear what you’re saying, but I completely disagree. I think we need to take a stand on this issue, even if it’s unpopular. Who’s with me?”</em></li>
+ <li><strong>Confident</strong>: Assured, authoritative language that projects credibility and conviction.</li>
+ <li><em>Example: “I’ve given this a lot of thought, and I’m absolutely certain that this is the right path forward. Trust me, I’ve got this.”</em></li>
+ <li><strong>Optimistic</strong>: Cheerful, positive language that always looks on the bright side and sees the potential in people and situations.</li>
+ <li><em>Example: “I know things have been tough lately, but I really believe that everything happens for a reason and that great things are just around the corner. Hang in there, better days are coming!”</em></li>
+ <li><strong>Persuasive</strong>: Compelling, influential language that aims to win others over to a point of view.</li>
+ <li><em>Example: “I get that you’re hesitant, but just imagine for a second the incredible impact we could have if we took this leap. We have a real opportunity here to make a difference. Are you ready to seize it with me?”</em></li>
+ <li><strong>Playful</strong>: Silly, mischievous language that doesn’t take itself too seriously and likes to have fun with words and ideas.</li>
+ <li><em>Example: “I double dog dare you to do a cartwheel in the middle of the office right now. Bonus points if you can get the boss to join in!”</em></li>
+ <li><strong>Ironic</strong>: Wry, sarcastic language that says the opposite of what it means in order to make a point or critique.</li>
+ <li><em>Example: “Absolutely, I’m sure our competitors will be quaking in their boots when they see our mediocre sales numbers this quarter. We’re really showing them who’s boss, huh?”</em></li>
+</ul>
+<h3 id=narrative-style>Narrative Style<a class=anchorjs-link href=#narrative-style aria-label=Anchor data-anchorjs-icon= style="font:1em/1 anchorjs-icons;padding-left:0.375em"></a></h3>
+<p>Narrative style refers to the techniques and conventions used to tell a story or convey a sequence of events through language. It encompasses attributes like point of view, pacing, description, and dialogue. Language models with narrative proficiency can engage in more creative and immersive interactions, from generating fiction to recounting personal experiences. By adapting narrative style to different genres and audiences, models can craft compelling and culturally-resonant stories.</p>
+<ul>
+ <li><strong>First-person</strong>: Narration from the point of view of an “I” character, sharing their direct thoughts, feelings, and experiences.</li>
+ <li><em>Example: “I woke up that morning with a pounding headache and a sinking feeling in my gut. Little did I know, it was about to be the craziest day of my life.”</em></li>
+ <li><strong>Stream of consciousness</strong>: Free-flowing narration of a character’s continuous thoughts and impressions, without structure or filter.</li>
+ <li><em>Example: “Late for work again, coffee stain on my shirt, keys where did I put my keys, oh god the big presentation is today I’m not ready what if I make a fool of myself what if…”</em></li>
+ <li><strong>Nonlinear</strong>: Narration that departs from a straight chronological progression, often jumping around in time and storylines.</li>
+ <li><em>Example: “The old man sat on the porch, rocking gently back and forth. His mind drifted to his childhood, to the day he met his wife, to the war that changed everything. In his hand, he clutched the faded photograph, a bittersweet reminder of all he had loved and lost.”</em></li>
+ <li><strong>Flashback</strong>: Interruption of the present narrative to depict events from the past, often to provide context or reveal character backstory.</li>
+ <li><em>Example: “Maria stared at the letter in disbelief. Suddenly, she was transported back to that fateful summer, the summer everything changed. She could almost feel the hot sun on her skin, hear the laughter echoing across the lake…”</em></li>
+ <li><strong>Foreshadowing</strong>: Subtle hints or clues about future events in the narrative, often creating a sense of tension or anticipation.</li>
+ <li><em>Example: “As they set off on their journey, a strange chill ran down Sarah’s spine. She couldn’t shake the feeling that something was about to go terribly wrong.”</em></li>
+ <li><strong>Cliffhanger</strong>: Abrupt ending to a section of the narrative that leaves the reader in suspense, often at a crucial or exciting moment.</li>
+ <li><em>Example: “John burst into the room, his heart pounding. He couldn’t believe what he was seeing. There, standing in the corner, was the one person he never expected to see again…”</em></li>
+ <li><strong>Plot twist</strong>: Unexpected turn of events that subverts the reader’s expectations and assumptions, often shifting the entire direction or meaning of the narrative.</li>
+ <li><em>Example: “As the detective finally cornered the killer, the truth came spilling out in a frantic confession. But the real shock was yet to come. The detective slowly reached up and peeled off his own face, revealing the true mastermind behind it all.”</em></li>
+ <li><strong>Irony</strong>: Contrast or discrepancy between what is said or expected and what actually happens, often for humorous or dramatic effect.</li>
+ <li><em>Example: “The fire safety instructor droned on about the importance of keeping exits clear, unaware of the blocked doorways and cluttered hallways all around him.”</em></li>
+ <li><strong>Metaphor</strong>: Figurative comparison that describes one thing in terms of another, often to make an abstract idea more vivid or relatable.</li>
+ <li><em>Example: “The news hit me like a freight train, shattering my carefully constructed illusions and leaving me reeling in its wake.”</em></li>
+ <li><strong>Simile</strong>: Figurative comparison using “like” or “as” to describe one thing by comparing it to another, often to make description more vivid or emphatic.</li>
+ <li><em>Example: “Her laughter was like sunshine, brightening up the room and warming everyone in its glow.”</em></li>
+ <li><strong>Satire</strong>: Humorous or ironic critique that exposes and mocks human vices, follies, and societal issues, often through exaggeration or ridicule.</li>
+ <li><em>Example: “In other news, local politician caught in bribery scandal expresses shock that there’s gambling going on in this establishment, just as his ill-gotten gains are being wheeled out behind him.”</em></li>
+ <li><strong>Unreliable narrator</strong>: Narrator whose credibility is compromised, often because they are lying, delusional, or have limited knowledge, forcing the reader to question the accuracy of the narrative.</li>
+ <li><em>Example: “I’ve always been a good husband, a model citizen. Sure, my wife and I had our disagreements, but I would never hurt her. I don’t know how that knife ended up in my hand…”</em></li>
+ <li><strong>Vignette</strong>: Brief, evocative description or scene that captures a moment, mood, or character, often without a full plot arc.</li>
+ <li><em>Example: “The old guitarist sat on the corner, his weathered hands coaxing a bittersweet melody from the strings. A lifetime of love and loss, joy and sorrow, flowed through his fingers and out into the night air.”</em></li>
+</ul>
+<hr>
+<p>The key is to choose attributes that serve the purpose and content of the piece, and to apply them consistently to create a cohesive and compelling whole. Whether the goal is to inform, entertain, persuade, or provoke thought, the right combination of tone, voice, and narrative style can make all the difference in how the message is received by the reader.</p>
+ 
+ </div>
+ 
+ 
+ 
+<a class="ijg-link ijg-ghPagesToRepo" href=https://www.github.com/viktorbezdek/definitive-llm-writing-style-guide><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII=" title="Go to this project's repo"></a><div class=altq-root><div class=qr-toast></div></div><contextsearch-widgets id=contextsearch-widgets style=--cs-zoom:2;--cs-scale:calc(1/var(--cs-zoom,1)*var(--cs-custom-scale,1))><template shadowrootmode=open><style class="darkreader darkreader--inline sf-hidden" media=screen>[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--override sf-hidden" media=screen>.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #977314) !important;
+    border-color: var(--darkreader-background-c59d00, #dbb314) !important;
+    color: var(--darkreader-text-302505, #ffffff) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #367083) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #275d6e) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #3a3d3e) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #694c20) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #428aa2) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select {
+    --darkreader-bg--form-control-background-color: rgba(22, 22, 22, 0) !important;
+}
+select * {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}</style><style class="darkreader darkreader--invert sf-hidden" media=screen>.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
+    filter: invert(100%) hue-rotate(180deg) brightness(150%) contrast(74%) !important;
+}</style>
+ <style class=sf-hidden>:host{all:initial!important}</style></template></contextsearch-widgets><script data-template-shadow-root>(()=>{document.currentScript.remove();processNode(document);function processNode(node){node.querySelectorAll("template[shadowrootmode]").forEach(element=>{let shadowRoot = element.parentElement.shadowRoot;if (!shadowRoot) {try {shadowRoot=element.parentElement.attachShadow({mode:element.getAttribute("shadowrootmode"),delegatesFocus:element.getAttribute("shadowrootdelegatesfocus")!=null,clonable:element.getAttribute("shadowrootclonable")!=null,serializable:element.getAttribute("shadowrootserializable")!=null});shadowRoot.innerHTML=element.innerHTML;element.remove()} catch (error) {} if (shadowRoot) {processNode(shadowRoot)}}})}})()</script>
