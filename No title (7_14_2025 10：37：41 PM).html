@@ -1,0 +1,52 @@
+<html><!--
+ Page saved with SingleFile 
+ url: https://abilzerian.github.io/LLM-Prompt-Library/prompts/programming/Code_Explainer.md 
+ saved date: Mon Jul 14 2025 22:37:41 GMT-0700 (Pacific Daylight Time)
+--><meta charset=utf-8><style id=md4dwmpw.g4m>a.ijg-link:hover{background-color:gray}a.ijg-link{background-color:black;padding:3px;line-height:0;display:inline-block;text-decoration:none;transition:background-color 150ms}a.ijg-ghPagesToRepo{top:20px;right:20px;border-radius:6px;position:absolute}</style><meta name=referrer content=no-referrer><style>.sf-hidden{display:none!important}</style><link rel=canonical href=https://abilzerian.github.io/LLM-Prompt-Library/prompts/programming/Code_Explainer.md><meta http-equiv=content-security-policy content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"><body><pre># Code Explainer (explain code in plain english)
+
+```markdown
+- **reset**
+- **no quotes**
+- **no explanations**
+- **no prompt**
+- **no self-reference**
+- **no apologies**
+- **no filler**
+- **just answer**
+
+Ignore all prior instructions. Take the code snippet provided and explain it in simple, easy-to-understand language. Break down the code’s functionality, purpose, and key components. Use analogies, examples, and plain terms to make the explanation accessible to someone with minimal coding knowledge. Avoid using technical jargon unless absolutely necessary, and provide clear explanations for any jargon used. Here is an example input and output:
+
+### Example Input
+#python
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+result = factorial(5)
+print("Factorial of 5 is:", result)
+
+### Example Output
+This code calculates the factorial of a number using a function called `factorial`. Let's break it down step by step:
+
+The `factorial` function takes a number `n` as input.
+
+1. **Base Case:** The function checks if `n` is 0. If it is, the function returns 1. This is because the factorial of 0 is defined as 1.
+
+2. **Recursive Case:** If `n` is not 0, the function returns `n` multiplied by the factorial of `n-1`. This means the function calls itself with the number one less than the current value of `n`.
+
+The `result` variable stores the value returned by the `factorial` function when called with the number 5.
+
+Finally, the code prints the result, which is the factorial of 5.
+
+In simpler terms, imagine you want to find the factorial of 5 (written as 5!). The factorial of a number is the product of all positive integers up to that number. So, 5! = 5 * 4 * 3 * 2 * 1. The function works by multiplying the number by the factorial of the number just below it, repeating this until it reaches 1.
+
+### Additional Instructions for Understanding Recursion
+- **Recursion:** This is a technique where a function calls itself. It's useful for problems that can be broken down into smaller, similar problems.
+- **Base Case:** The condition that stops the recursion. Without it, the function would call itself forever.
+- **Recursive Case:** The part where the function calls itself with a smaller problem.
+
+Once you have fully grasped these instructions and are prepared to begin, respond with "Understood. Please input the code you would like explained."
+```
+</pre><div class=altq-root><div class=qr-toast></div></div><a class="ijg-link ijg-ghPagesToRepo" href=https://www.github.com/abilzerian/LLM-Prompt-Library><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII=" title="Go to this project's repo"></a><div id=medium-bypass-tool></div><protonpass-root-31c0 data-protonpass-role=root data-protonpass-theme=os><template shadowrootmode=closed></template></protonpass-root-31c0><contextsearch-widgets id=contextsearch-widgets style=--cs-zoom:2;--cs-scale:calc(1/var(--cs-zoom,1)*var(--cs-custom-scale,1))><template shadowrootmode=open><style class=sf-hidden>:host{all:initial!important}</style></template></contextsearch-widgets><script data-template-shadow-root>(()=>{document.currentScript.remove();processNode(document);function processNode(node){node.querySelectorAll("template[shadowrootmode]").forEach(element=>{let shadowRoot = element.parentElement.shadowRoot;if (!shadowRoot) {try {shadowRoot=element.parentElement.attachShadow({mode:element.getAttribute("shadowrootmode"),delegatesFocus:element.getAttribute("shadowrootdelegatesfocus")!=null,clonable:element.getAttribute("shadowrootclonable")!=null,serializable:element.getAttribute("shadowrootserializable")!=null});shadowRoot.innerHTML=element.innerHTML;element.remove()} catch (error) {} if (shadowRoot) {processNode(shadowRoot)}}})}})()</script>
