@@ -1,0 +1,299 @@
+<!DOCTYPE html> <html lang=en data-darkreader-mode=dynamic data-darkreader-scheme=dark autocopy=true style><!--
+ Page saved with SingleFile 
+ url: https://docs.zanity.xyz/ 
+ saved date: Sun Aug 17 2025 07:50:12 GMT-0700 (Pacific Daylight Time)
+--><meta charset=utf-8><style class="darkreader darkreader--user-agent" media=screen>@layer{html{background-color:var(--darkreader-background-ffffff,#181a1b)!important}html{color-scheme:dark!important}iframe{color-scheme:dark!important}html,body{background-color:var(--darkreader-background-ffffff,#181a1b)}html,body{border-color:var(--darkreader-border-4c4c4c,#736b5e);color:var(--darkreader-text-000000,#e8e6e3)}a{color:var(--darkreader-text-0040ff,#3391ff)}table{border-color:var(--darkreader-border-808080,#545b5e)}mark{color:var(--darkreader-text-000000,#e8e6e3)}::placeholder{color:var(--darkreader-text-a9a9a9,#b2aba1)}input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{background-color:var(--darkreader-background-faffbd,#404400)!important;color:var(--darkreader-text-000000,#e8e6e3)!important}::selection{background-color:var(--darkreader-background-0060d4,#004daa)!important;color:var(--darkreader-text-ffffff,#e8e6e3)!important}::-moz-selection{background-color:var(--darkreader-background-0060d4,#004daa)!important;color:var(--darkreader-text-ffffff,#e8e6e3)!important}}</style><style class="darkreader darkreader--variables" media=screen>:root{--darkreader-neutral-background:var(--darkreader-background-ffffff,#181a1b);--darkreader-neutral-text:var(--darkreader-text-000000,#e8e6e3);--darkreader-selection-background:var(--darkreader-background-0060d4,#004daa);--darkreader-selection-text:var(--darkreader-text-ffffff,#e8e6e3)}</style>
+<meta name=viewport content="width=device-width, initial-scale=1.0">
+<title>Zanity API Documentation</title>
+<style>@keyframes gradientBG{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}body{font-family:Arial,sans-serif;line-height:1.6;color:#fff;max-width:800px;margin:0 auto;padding:20px;background:linear-gradient(-45deg,#ee7752,#e73c7e,#23a6d5,#23d5ab);background-size:400% 400%;animation:gradientBG 15s ease infinite;border-radius:15px;box-shadow:0px 4px 15px rgba(0,0,0,0.2)}h1,h2{color:#ffffff;text-shadow:0 2px 4px rgba(0,0,0,0.2);animation:fadeIn 1s ease-out}code{background-color:rgba(44,62,80,0.7);border:none;border-radius:5px;padding:5px 10px;color:#ecf0f1;font-family:"Courier New",Courier,monospace}pre{background-color:rgba(52,73,94,0.7);border:none;border-radius:10px;padding:15px;overflow-x:auto;color:#ecf0f1;position:relative;transition:all 0.3s ease}pre:hover{transform:scale(1.02);box-shadow:0 5px 15px rgba(0,0,0,0.3)}.copy-btn{position:absolute;top:10px;right:10px;background-color:#3498db;color:#fff;border:none;border-radius:5px;padding:5px 10px;cursor:pointer;font-size:0.9em;transition:background-color 0.3s ease}.copy-btn:hover{background-color:#2980b9}.endpoint{background:linear-gradient(135deg,#3498db,#2ecc71);border-left:none;border-radius:10px;padding:15px;margin:15px 0;color:#ffffff;box-shadow:0px 4px 10px rgba(0,0,0,0.1);transition:all 0.3s ease;cursor:pointer;position:relative}.endpoint:hover{transform:translateY(-5px);box-shadow:0px 6px 15px rgba(0,0,0,0.2)}.endpoint::after{content:"Click to copy";position:absolute;top:50%;right:15px;transform:translateY(-50%);opacity:0;transition:opacity 0.3s ease}.endpoint:hover::after{opacity:1}.toggle-btn{background-color:#e74c3c;color:#fff;border:none;border-radius:5px;padding:10px 20px;cursor:pointer;margin-bottom:20px;display:inline-block;transition:all 0.3s ease}.toggle-btn:hover{background-color:#c0392b;transform:scale(1.05)}p,.endpoint{animation:fadeIn 1s ease-out}#toast{visibility:hidden;min-width:250px;margin-left:-125px;background-color:#333;color:#fff;text-align:center;border-radius:2px;padding:16px;position:fixed;z-index:1;left:50%;bottom:30px}@keyframes fadein{from{bottom:0;opacity:0}to{bottom:30px;opacity:1}}@keyframes fadeout{from{bottom:30px;opacity:1}to{bottom:0;opacity:0}}</style><style class="darkreader darkreader--sync" media=screen>body{color:var(--darkreader-text-ffffff,#e8e6e3);background-color:var(--darkreader-background-00000000,rgba(0,0,0,0));background-image:linear-gradient(-45deg,var(--darkreader-background-ee7752,#962f0f),var(--darkreader-background-e73c7e,#a2144b),var(--darkreader-background-23a6d5,#1c85aa),var(--darkreader-background-23d5ab,#1caa89));box-shadow:var(--darkreader-background-00000033,rgba(0,0,0,0.2)) 0px 4px 15px}h1,h2{color:var(--darkreader-text-ffffff,#e8e6e3);text-shadow:var(--darkreader-background-00000033,rgba(0,0,0,0.2)) 0px 2px 4px}code{background-color:var(--darkreader-background-2c3e50b3,rgba(35,50,64,0.7));border-color:currentcolor;color:var(--darkreader-text-ecf0f1,#dedbd6)}pre{background-color:var(--darkreader-background-34495eb3,rgba(42,58,75,0.7));border-color:currentcolor;color:var(--darkreader-text-ecf0f1,#dedbd6)}pre:hover{box-shadow:var(--darkreader-background-0000004d,rgba(0,0,0,0.3)) 0px 5px 15px}.copy-btn{background-color:var(--darkreader-background-3498db,#1d6fa5);color:var(--darkreader-text-ffffff,#e8e6e3);border-color:currentcolor}.copy-btn:hover{background-color:var(--darkreader-background-2980b9,#216694)}.endpoint{background-color:var(--darkreader-background-00000000,rgba(0,0,0,0));background-image:linear-gradient(135deg,var(--darkreader-background-3498db,#1d6fa5),var(--darkreader-background-2ecc71,#25a35a));border-left-color:currentcolor;color:var(--darkreader-text-ffffff,#e8e6e3);box-shadow:var(--darkreader-background-0000001a,rgba(0,0,0,0.1)) 0px 4px 10px}.endpoint:hover{box-shadow:var(--darkreader-background-00000033,rgba(0,0,0,0.2)) 0px 6px 15px}.toggle-btn{background-color:var(--darkreader-background-e74c3c,#a22114);color:var(--darkreader-text-ffffff,#e8e6e3);border-color:currentcolor}.toggle-btn:hover{background-color:var(--darkreader-background-c0392b,#9a2e22)}#toast{background-color:var(--darkreader-background-333333,#262a2b);color:var(--darkreader-text-ffffff,#e8e6e3)}</style>
+<meta name=darkreader content=58608b3f79424db78c47b1d494350227><style class="darkreader darkreader--override" media=screen>::placeholder{opacity:0.5!important}:host{--d2l-border-color:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-button-icon-background-color-hover:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-color-ferrite:var(--darkreader-neutral-text)!important;--d2l-color-sylvite:var(--darkreader-bg--d2l-color-sylvite)!important;--d2l-dropdown-background-color:var(--darkreader-neutral-background)!important;--d2l-dropdown-border-color:var(--darkreader-border--d2l-color-mica)!important;--d2l-input-backgroud-color:var(--darkreader-neutral-background)!important;--d2l-menu-border-color:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-tooltip-background-color:var(--darkreader-neutral-background)!important;--d2l-tooltip-border-color:var(--darkreader-bg--d2l-color-gypsum)!important}</style><meta name=referrer content=no-referrer><link type=image/x-icon rel="shortcut icon" href=data:,><style>.sf-hidden{display:none!important}</style><link rel=canonical href=https://docs.zanity.xyz/><meta http-equiv=content-security-policy content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"></head>
+<body>
+ <h1>Zanity API Documentation</h1>
+ <h2>Base URL</h2>
+ <div class=endpoint>https://api.zanity.net/v1</div>
+ <h2>BetterGPT endpoint</h2>
+ <div class=endpoint>https://api.zanity.net/v1/chat/completions</div>
+ <h2>Available Models</h2>
+ <p>To check the available models, make a GET request to the /v1/models endpoint:</p>
+ <div class=endpoint>https://api.zanity.net/v1/models</div>
+ <h2>Authentication</h2>
+ <p>Get your API key using the Zanity - API bot:</p>
+ <p>Use the <code>/getkey</code> slash command after you have the <code>@Zanity Premium #</code> role.</p>
+ <p>Include the API key in all request headers:</p>
+ <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+ <h2>Rate Limit</h2>
+ <p>Premium API: 15 requests per minute</p>
+ <h2>Example Usage</h2>
+ <button class=toggle-btn>Show Python Example</button>
+ <pre id=code-block>        <code id=code-content>const API_KEY = 'your_api_key_here';
+const API_URL = 'https://api.zanity.net/v1/chat/completions';
+
+const requestBody = {
+  model: 'gpt-4o',
+  messages: [
+    { role: 'system', content: 'You are a helpful assistant.' },
+    { role: 'user', content: 'Hello, how are you?' }
+  ]
+};
+
+async function callZanityAPI() {
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody)
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data.choices[0].message.content);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+callZanityAPI();</code>
+        <button class=copy-btn>Copy</button>
+    </pre>
+ <h2>JSON Mode</h2>
+ <p>JSON mode is available on all chat models but the performance may vary depending on the model. Just include the following in your request body:</p>
+ <pre><code>response_format: { type: 'json_object' }</code></pre>
+ <div id=toast>Copied to clipboard!</div>
+ 
+<div class=altq-root><div class=qr-toast></div></div><div class="autocopy-notification hide sf-hidden"></div><protonpass-root-34fb data-protonpass-role=root data-protonpass-theme=dark><template shadowrootmode=closed></template></protonpass-root-34fb><div><template shadowrootmode=closed><style class=sf-hidden>;</style><style class=sf-hidden>;</style><style class=sf-hidden>;</style></template></div><contextsearch-widgets id=contextsearch-widgets style=--cs-zoom:2;--cs-scale:calc(1/var(--cs-zoom,1)*var(--cs-custom-scale,1))><template shadowrootmode=open><style class="darkreader darkreader--inline sf-hidden" media=screen>[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--override sf-hidden" media=screen>.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #684b00) !important;
+    border-color: var(--darkreader-background-c59d00, #9e7e00) !important;
+    color: var(--darkreader-text-302505, #d7d4cf) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #1b4958) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #0f3a47) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #1e2021) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #432c09) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #245d70) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select {
+    --darkreader-bg--form-control-background-color: rgba(22, 22, 22, 0) !important;
+}
+select * {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style><style class="darkreader darkreader--invert sf-hidden" media=screen>.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style>
+ <style class=sf-hidden>:host{all:initial!important}</style></template></contextsearch-widgets><script data-template-shadow-root>(()=>{document.currentScript.remove();processNode(document);function processNode(node){node.querySelectorAll("template[shadowrootmode]").forEach(element=>{let shadowRoot = element.parentElement.shadowRoot;if (!shadowRoot) {try {shadowRoot=element.parentElement.attachShadow({mode:element.getAttribute("shadowrootmode"),delegatesFocus:element.getAttribute("shadowrootdelegatesfocus")!=null,clonable:element.getAttribute("shadowrootclonable")!=null,serializable:element.getAttribute("shadowrootserializable")!=null});shadowRoot.innerHTML=element.innerHTML;element.remove()} catch (error) {} if (shadowRoot) {processNode(shadowRoot)}}})}})()</script>
