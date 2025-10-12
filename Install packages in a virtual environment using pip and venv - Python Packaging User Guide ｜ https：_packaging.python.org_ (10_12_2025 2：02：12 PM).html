@@ -1,0 +1,917 @@
+<!DOCTYPE html> <html class lang=en data-content_root=../../ autocopy=true data-readthedocs-tool=sphinx data-readthedocs-tool-theme=furo style><!--
+ Page saved with SingleFile 
+ url: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/ 
+ saved date: Sun Oct 12 2025 14:02:12 GMT-0700 (Pacific Daylight Time)
+--><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=viewport content="width=device-width, initial-scale=1"><title>Install packages in a virtual environment using pip and venv - Python Packaging User Guide | https://packaging.python.org/</title><meta name=readthedocs-project-slug content=python-packaging-user-guide><meta name=readthedocs-version-slug content=latest><meta name=readthedocs-resolver-filename content=/guides/installing-using-pip-and-virtual-environments/><meta name=readthedocs-http-status content=200><meta name=referrer content=no-referrer><link rel="shortcut icon" href="data:image/webp;base64,UklGRk4CAABXRUJQVlA4TEICAAAvD8ADEK/kqJEkR8runjW/5c/pPIRD4TvPkIAbSZKtKHffexH4gNc4hSNISEj/uy1XkWS7yux98YAG/BvAAXjAQ/7L3F2n1bYty/38/w98DUlUdtBMZCRmYA26dnfdwJK7OwKSBAfUDiAgIGABGwgICHiAgAVs4AD9ARs4wAEGCNjABgIC9v8J6B8AFpAlu7fDlcfr37PHR6vH2/NSDEXZkP+lZV/HeXzr0ynRHr9kbj0UU4EgICACpAWIABAQvfpjKGLKhAaEi8eYiwkNiFIEgMi1PnI2c3sOxf7P+fo4NbbzOR0Tg4CAgQAvTxAUEHbXR8o/9F7ocdknevVEZ3p1zAgsmJF21gNmFDpDPBSDYMGMwIyFzlhA6IIZBQoKaI/uj8UgECh0xkwXzJgfMVRqvijkmBdjElz37Te21l63TRgKr8fanfb615Q3jaPz7RC/3I8Z+woQbds23cS2bdt2Utu2bbs9tZv2/HDSf4jo/wQgIn4vrmztnz/TSVh/1r65d3wNYvo/S+u7Rxd3oGHV/Hx9vr++PN0CmNiIODk9v7J9cHoDAKbGYpg2Nbe8uXdyDQBVXSkdFc0sbeweXd7BfdUWzMT6VQurO4cPfxaTUdNdiPePGta2Dx6tXe0tTeVsvG/EafzYO/nt7GhtKucSfSMOt+bt7Mrc0dZcySV6RxyOcSlFqJS1NVcCfp/X4xnTCIhUJqO5kk8ODDs0MgmPjojYkE8NDtmdag6VTKgJRXqGHK4JBQPrU7gyrVEv51MQEQ=="><style>.sf-hidden{display:none!important}</style><link rel=canonical href=https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/><meta http-equiv=content-security-policy content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"><body data-theme=auto><div style=position:fixed;z-index:2147483647;opacity:0.9;display:none;top:10px;right:10px><template shadowrootmode=open><style class="darkreader darkreader--invert" media=screen>.jfk-bubble.gtx-bubble,.captcheck_answer_label>input+img,span#closed_text>img[src^="https://www.gstatic.com/images/branding/googlelogo"],span[data-href^="https://www.hcaptcha.com/"]>#icon,img.Wirisformula,a[data-testid="headerMediumLogo"]>svg,.d2l-navigation-link-image-container,.d2l-iframe-loading-container{filter:invert(100%) hue-rotate(180deg) contrast(90%)!important}</style><div data-shown=true class=sf-hidden><style>.number-indicator{position:relative;background:rgb(0 0 0/80%)!important}.number-indicator::after{content:attr(data-number);position:absolute;bottom:0;right:0;color:#40a9ff;font-size:14px;font-weight:bold;background:rgb(0 0 0/80%);border-radius:10px;padding:3px 5px}.copy-link:active{color:#ccc}.download-btn:hover{text-decoration:none}.download-btn:active{opacity:0.9}.m3u8-item{color:white;font-family:"Arial";margin-bottom:5px;display:flex;flex-direction:row;background:rgb(0 0 0/80%);padding:3px 10px;border-radius:3px;font-size:13px;user-select:none}[data-shown="false"]{opacity:0.8;zoom:0.8}[data-shown="false"]:hover{opacity:1}[data-shown="false"] .m3u8-item{display:none}</style></div></template></div>
+ 
+ 
+<style>:root,:host{--fa-font-solid:normal 900 1em/1"Font Awesome 7 Free";--fa-font-regular:normal 400 1em/1"Font Awesome 7 Free";--fa-font-light:normal 300 1em/1"Font Awesome 7 Pro";--fa-font-thin:normal 100 1em/1"Font Awesome 7 Pro";--fa-font-duotone:normal 900 1em/1"Font Awesome 7 Duotone";--fa-font-duotone-regular:normal 400 1em/1"Font Awesome 7 Duotone";--fa-font-duotone-light:normal 300 1em/1"Font Awesome 7 Duotone";--fa-font-duotone-thin:normal 100 1em/1"Font Awesome 7 Duotone";--fa-font-brands:normal 400 1em/1"Font Awesome 7 Brands";--fa-font-sharp-solid:normal 900 1em/1"Font Awesome 7 Sharp";--fa-font-sharp-regular:normal 400 1em/1"Font Awesome 7 Sharp";--fa-font-sharp-light:normal 300 1em/1"Font Awesome 7 Sharp";--fa-font-sharp-thin:normal 100 1em/1"Font Awesome 7 Sharp";--fa-font-sharp-duotone-solid:normal 900 1em/1"Font Awesome 7 Sharp Duotone";--fa-font-sharp-duotone-regular:normal 400 1em/1"Font Awesome 7 Sharp Duotone";--fa-font-sharp-duotone-light:normal 300 1em/1"Font Awesome 7 Sharp Duotone";--fa-font-sharp-duotone-thin:normal 100 1em/1"Font Awesome 7 Sharp Duotone";--fa-font-slab-regular:normal 400 1em/1"Font Awesome 7 Slab";--fa-font-slab-press-regular:normal 400 1em/1"Font Awesome 7 Slab Press";--fa-font-whiteboard-semibold:normal 600 1em/1"Font Awesome 7 Whiteboard";--fa-font-thumbprint-light:normal 300 1em/1"Font Awesome 7 Thumbprint";--fa-font-notdog-solid:normal 900 1em/1"Font Awesome 7 Notdog";--fa-font-notdog-duo-solid:normal 900 1em/1"Font Awesome 7 Notdog Duo";--fa-font-etch-solid:normal 900 1em/1"Font Awesome 7 Etch";--fa-font-jelly-regular:normal 400 1em/1"Font Awesome 7 Jelly";--fa-font-jelly-fill-regular:normal 400 1em/1"Font Awesome 7 Jelly Fill";--fa-font-jelly-duo-regular:normal 400 1em/1"Font Awesome 7 Jelly Duo";--fa-font-chisel-regular:normal 400 1em/1"Font Awesome 7 Chisel"}.svg-inline--fa{box-sizing:content-box;overflow:visible;vertical-align:-0.125em}@media (prefers-reduced-motion:reduce){}@keyframes fa-beat{0%,90%{transform:scale(1)}45%{transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-bounce{0%{transform:scale(1,1) translateY(0)}10%{transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,0.9)) translateY(0)}30%{transform:scale(var(--fa-bounce-jump-scale-x,0.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-0.5em))}50%{transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,0.95)) translateY(0)}57%{transform:scale(1,1) translateY(var(--fa-bounce-rebound,-0.125em))}64%{transform:scale(1,1) translateY(0)}100%{transform:scale(1,1) translateY(0)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,0.4)}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,0.4);transform:scale(1)}50%{opacity:1;transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-flip{50%{transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-shake{0%{transform:rotate(-15deg)}4%{transform:rotate(15deg)}8%,24%{transform:rotate(-18deg)}12%,28%{transform:rotate(18deg)}16%{transform:rotate(-22deg)}20%{transform:rotate(22deg)}32%{transform:rotate(-12deg)}36%{transform:rotate(12deg)}40%,100%{transform:rotate(0deg)}}@keyframes fa-spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}</style><link rel=index title=Index href=https://packaging.python.org/en/latest/genindex/><link rel=search title=Search href=https://packaging.python.org/en/latest/search/><link rel=next title="Installing packages using virtualenv" href=https://packaging.python.org/en/latest/guides/installing-using-virtualenv/><link rel=prev title=Installation href=https://packaging.python.org/en/latest/guides/section-install/>
+ 
+ 
+ <style>.highlight{background:#f8f8f8}.highlight .o{color:#CE5C00;font-weight:bold}.highlight .nb{color:#204A87}.highlight .w{color:#F8F8F8}.highlight .s1{color:#4E9A06}@media not print{@media (prefers-color-scheme:dark){body:not([data-theme="light"]) .highlight pre{line-height:125%}body:not([data-theme="light"]) .highlight{background:#202020;color:#D0D0D0}body:not([data-theme="light"]) .highlight .o{color:#D0D0D0}body:not([data-theme="light"]) .highlight .nb{color:#2FBCCD}body:not([data-theme="light"]) .highlight .w{color:#666}body:not([data-theme="light"]) .highlight .s1{color:#ED9D13}}}</style>
+ <style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}strong{font-weight:bolder}img{border-style:none}button,input{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button{text-transform:none}button{-webkit-appearance:button}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}[type=radio]{box-sizing:border-box;padding:0}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}template{display:none}.visually-hidden{height:1px!important;margin:-1px!important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important;clip:rect(0,0,0,0)!important;background:var(--color-background-primary);border:0!important;color:var(--color-foreground-primary);white-space:nowrap!important}:-moz-focusring{outline:auto}body{--font-stack:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;--font-stack--monospace:"SFMono-Regular",Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace;--font-stack--headings:var(--font-stack);--font-size--normal:100%;--font-size--small:87.5%;--font-size--small--2:81.25%;--font-size--small--3:75%;--font-size--small--4:62.5%;--sidebar-caption-font-size:var(--font-size--small--2);--sidebar-item-font-size:var(--font-size--small);--sidebar-search-input-font-size:var(--font-size--small);--toc-font-size:var(--font-size--small--3);--toc-font-size--mobile:var(--font-size--normal);--toc-title-font-size:var(--font-size--small--4);--admonition-font-size:0.8125rem;--admonition-title-font-size:0.8125rem;--code-font-size:var(--font-size--small--2);--api-font-size:var(--font-size--small);--header-height:calc(var(--sidebar-item-line-height) + var(--sidebar-item-spacing-vertical)*4);--header-padding:0.5rem;--sidebar-tree-space-above:1.5rem;--sidebar-caption-space-above:1rem;--sidebar-item-line-height:1rem;--sidebar-item-spacing-vertical:0.5rem;--sidebar-item-spacing-horizontal:1rem;--sidebar-item-height:calc(var(--sidebar-item-line-height) + var(--sidebar-item-spacing-vertical)*2);--sidebar-expander-width:var(--sidebar-item-height);--sidebar-search-space-above:0.5rem;--sidebar-search-input-spacing-vertical:0.5rem;--sidebar-search-input-spacing-horizontal:0.5rem;--sidebar-search-input-height:1rem;--sidebar-search-icon-size:var(--sidebar-search-input-height);--toc-title-padding:0.25rem 0;--toc-spacing-vertical:1.5rem;--toc-spacing-horizontal:1.5rem;--toc-item-spacing-vertical:0.4rem;--toc-item-spacing-horizontal:1rem;--icon-search:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ fill=\"none\"\ stroke=\"currentColor\"\ stroke-linecap=\"round\"\ stroke-linejoin=\"round\"\ stroke-width=\"1.5\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ stroke=\"none\"\ d=\"M0\ 0h24v24H0z\"\/><circle\ cx=\"10\"\ cy=\"10\"\ r=\"7\"\/><path\ d=\"m21\ 21-6-6\"\/><\/svg>);--icon-pencil:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ d=\"M20.71\ 7.04c.39-.39.39-1.04\ 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41\ 0l-1.84\ 1.83\ 3.75\ 3.75M3\ 17.25V21h3.75L17.81\ 9.93l-3.75-3.75z\"\/><\/svg>);--icon-abstract:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ d=\"M4\ 5h16v2H4zm0\ 4h16v2H4zm0\ 4h16v2H4zm0\ 4h10v2H4z\"\/><\/svg>);--icon-info:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ d=\"M13\ 9h-2V7h2m0\ 10h-2v-6h2m-1-9A10\ 10\ 0\ 0\ 0\ 2\ 12a10\ 10\ 0\ 0\ 0\ 10\ 10\ 10\ 10\ 0\ 0\ 0\ 10-10A10\ 10\ 0\ 0\ 0\ 12\ 2\"\/><\/svg>);--icon-flame:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ d=\"M17.55\ 11.2c-.23-.3-.5-.56-.76-.82-.65-.6-1.4-1.03-2.03-1.66C13.3\ 7.26\ 13\ 4.85\ 13.91\ 3c-.91.23-1.75.75-2.45\ 1.32-2.54\ 2.08-3.54\ 5.75-2.34\ 8.9.04.1.08.2.08.33\ 0\ .22-.15.42-.35.5-.22.1-.46.04-.64-.12a.8.8\ 0\ 0\ 1-.15-.17c-1.1-1.43-1.28-3.48-.53-5.12C5.89\ 10\ 5\ 12.3\ 5.14\ 14.47c.04.5.1\ 1\ .27\ 1.5.14.6.4\ 1.2.72\ 1.73\ 1.04\ 1.73\ 2.87\ 2.97\ 4.84\ 3.22\ 2.1.27\ 4.35-.12\ 5.96-1.6\ 1.8-1.66\ 2.45-4.32\ 1.5-6.6l-.13-.26c-.2-.46-.47-.87-.8-1.25zm-3.1\ 6.3c-.28.24-.73.5-1.08.6-1.1.4-2.2-.16-2.87-.82\ 1.19-.28\ 1.89-1.16\ 2.09-2.05.17-.8-.14-1.46-.27-2.23-.12-.74-.1-1.37.18-2.06.17.38.37.76.6\ 1.06.76\ 1\ 1.95\ 1.44\ 2.2\ 2.8.04.14.06.28.06.43.03.82-.32\ 1.72-.92\ 2.27z\"\/><\/svg>);--icon-question:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ d=\"m15.07\ 11.25-.9.92C13.45\ 12.89\ 13\ 13.5\ 13\ 15h-2v-.5c0-1.11.45-2.11\ 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2\ 2\ 0\ 0\ 0-2-2\ 2\ 2\ 0\ 0\ 0-2\ 2H8a4\ 4\ 0\ 0\ 1\ 4-4\ 4\ 4\ 0\ 0\ 1\ 4\ 4\ 3.2\ 3.2\ 0\ 0\ 1-.93\ 2.25M13\ 19h-2v-2h2M12\ 2A10\ 10\ 0\ 0\ 0\ 2\ 12a10\ 10\ 0\ 0\ 0\ 10\ 10\ 10\ 10\ 0\ 0\ 0\ 10-10c0-5.53-4.5-10-10-10\"\/><\/svg>);--icon-warning:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ d=\"M13\ 14h-2v-4h2m0\ 8h-2v-2h2M1\ 21h22L12\ 2z\"\/><\/svg>);--icon-failure:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ d=\"M12\ 2c5.53\ 0\ 10\ 4.47\ 10\ 10s-4.47\ 10-10\ 10S2\ 17.53\ 2\ 12\ 6.47\ 2\ 12\ 2m3.59\ 5L12\ 10.59\ 8.41\ 7\ 7\ 8.41\ 10.59\ 12\ 7\ 15.59\ 8.41\ 17\ 12\ 13.41\ 15.59\ 17\ 17\ 15.59\ 13.41\ 12\ 17\ 8.41z\"\/><\/svg>);--icon-spark:url(data:image/svg+xml;charset=utf-8,<svg\ xmlns=\"http://www.w3.org/2000/svg\"\ viewBox=\"0\ 0\ 24\ 24\"><path\ d=\"m11.5\ 20\ 4.86-9.73H13V4l-5\ 9.73h3.5zM12\ 2c2.75\ 0\ 5.1\ 1\ 7.05\ 2.95S22\ 9.25\ 22\ 12s-1\ 5.1-2.95\ 7.05S14.75\ 22\ 12\ 22s-5.1-1-7.05-2.95S2\ 14.75\ 2\ 12s1-5.1\ 2.95-7.05S9.25\ 2\ 12\ 2\"\/><\/svg>);--color-admonition-title--caution:#ff9100;--color-admonition-title-background--caution:rgba(255,145,0,.2);--color-admonition-title--warning:#ff9100;--color-admonition-title-background--warning:rgba(255,145,0,.2);--color-admonition-title--danger:#ff5252;--color-admonition-title-background--danger:rgba(255,82,82,.2);--color-admonition-title--attention:#ff5252;--color-admonition-title-background--attention:rgba(255,82,82,.2);--color-admonition-title--error:#ff5252;--color-admonition-title-background--error:rgba(255,82,82,.2);--color-admonition-title--hint:#00c852;--color-admonition-title-background--hint:rgba(0,200,82,.2);--color-admonition-title--tip:#00c852;--color-admonition-title-background--tip:rgba(0,200,82,.2);--color-admonition-title--important:#00bfa5;--color-admonition-title-background--important:rgba(0,191,165,.2);--color-admonition-title--note:#00b0ff;--color-admonition-title-background--note:rgba(0,176,255,.2);--color-admonition-title--seealso:#448aff;--color-admonition-title-background--seealso:rgba(68,138,255,.2);--color-admonition-title--admonition-todo:grey;--color-admonition-title-background--admonition-todo:hsla(0,0%,50%,.2);--color-admonition-title:#651fff;--color-admonition-title-background:rgba(101,31,255,.2);--icon-admonition-default:var(--icon-abstract);--color-topic-title:#14b8a6;--color-topic-title-background:rgba(20,184,166,.2);--icon-topic-default:var(--icon-pencil);--color-problematic:#b30000;--color-foreground-primary:#000;--color-foreground-secondary:#5a5c63;--color-foreground-muted:#6b6f76;--color-foreground-border:#878787;--color-background-primary:#fff;--color-background-secondary:#f8f9fb;--color-background-hover:#efeff4;--color-background-hover--transparent:#efeff400;--color-background-border:#eeebee;--color-background-item:#ccc;--color-announcement-background:#000000dd;--color-announcement-text:#eeebee;--color-brand-primary:#0a4bff;--color-brand-content:#2757dd;--color-brand-visited:#872ee0;--color-api-background:var(--color-background-hover--transparent);--color-api-background-hover:var(--color-background-hover);--color-api-overall:var(--color-foreground-secondary);--color-api-name:var(--color-problematic);--color-api-pre-name:var(--color-problematic);--color-api-paren:var(--color-foreground-secondary);--color-api-keyword:var(--color-foreground-primary);--color-api-added:#21632c;--color-api-added-border:#38a84d;--color-api-changed:#046172;--color-api-changed-border:#06a1bc;--color-api-deprecated:#605706;--color-api-deprecated-border:#f0d90f;--color-api-removed:#b30000;--color-api-removed-border:#ff5c5c;--color-highlight-on-target:#ffc;--color-inline-code-background:var(--color-background-secondary);--color-highlighted-background:#def;--color-highlighted-text:var(--color-foreground-primary);--color-guilabel-background:#ddeeff80;--color-guilabel-border:#bedaf580;--color-guilabel-text:var(--color-foreground-primary);--color-admonition-background:transparent;--color-table-header-background:var(--color-background-secondary);--color-table-border:var(--color-background-border);--color-card-border:var(--color-background-secondary);--color-card-background:transparent;--color-card-marginals-background:var(--color-background-secondary);--color-header-background:var(--color-background-primary);--color-header-border:var(--color-background-border);--color-header-text:var(--color-foreground-primary);--color-sidebar-background:var(--color-background-secondary);--color-sidebar-background-border:var(--color-background-border);--color-sidebar-brand-text:var(--color-foreground-primary);--color-sidebar-caption-text:var(--color-foreground-muted);--color-sidebar-link-text:var(--color-foreground-secondary);--color-sidebar-link-text--top-level:var(--color-brand-primary);--color-sidebar-item-background:var(--color-sidebar-background);--color-sidebar-item-background--current:var(--color-sidebar-item-background);--color-sidebar-item-background--hover:linear-gradient(90deg,var(--color-background-hover--transparent) 0%,var(--color-background-hover) var(--sidebar-item-spacing-horizontal),var(--color-background-hover) 100%);--color-sidebar-item-expander-background:transparent;--color-sidebar-item-expander-background--hover:var(--color-background-hover);--color-sidebar-search-text:var(--color-foreground-primary);--color-sidebar-search-background:var(--color-background-secondary);--color-sidebar-search-background--focus:var(--color-background-primary);--color-sidebar-search-border:var(--color-background-border);--color-sidebar-search-icon:var(--color-foreground-muted);--color-toc-background:var(--color-background-primary);--color-toc-title-text:var(--color-foreground-muted);--color-toc-item-text:var(--color-foreground-secondary);--color-toc-item-text--hover:var(--color-foreground-primary);--color-toc-item-text--active:var(--color-brand-primary);--color-content-foreground:var(--color-foreground-primary);--color-content-background:transparent;--color-link:var(--color-brand-content);--color-link-underline:var(--color-background-border);--color-link--hover:var(--color-brand-content);--color-link-underline--hover:var(--color-foreground-border);--color-link--visited:var(--color-brand-visited);--color-link-underline--visited:var(--color-background-border);--color-link--visited--hover:var(--color-brand-visited);--color-link-underline--visited--hover:var(--color-foreground-border)}@media not print{@media (prefers-color-scheme:dark){body:not([data-theme=light]){--color-problematic:#ee5151;--color-foreground-primary:#cfd0d0;--color-foreground-secondary:#9ca0a5;--color-foreground-muted:#81868d;--color-foreground-border:#666;--color-background-primary:#131416;--color-background-secondary:#1a1c1e;--color-background-hover:#1e2124;--color-background-hover--transparent:#1e212400;--color-background-border:#303335;--color-background-item:#444;--color-announcement-background:#000000dd;--color-announcement-text:#eeebee;--color-brand-primary:#3d94ff;--color-brand-content:#5ca5ff;--color-brand-visited:#b27aeb;--color-highlighted-background:#083563;--color-guilabel-background:#08356380;--color-guilabel-border:#13395f80;--color-api-keyword:var(--color-foreground-secondary);--color-highlight-on-target:#330;--color-api-added:#3db854;--color-api-added-border:#267334;--color-api-changed:#09b0ce;--color-api-changed-border:#056d80;--color-api-deprecated:#b1a10b;--color-api-deprecated-border:#6e6407;--color-api-removed:#ff7575;--color-api-removed-border:#b03b3b;--color-admonition-background:#18181a;--color-card-border:var(--color-background-secondary);--color-card-background:#18181a;--color-card-marginals-background:var(--color-background-hover)}}}body[data-theme=auto] .theme-toggle svg.theme-icon-when-auto-light{display:block}@media (prefers-color-scheme:dark){body[data-theme=auto] .theme-toggle svg.theme-icon-when-auto-dark{display:block}body[data-theme=auto] .theme-toggle svg.theme-icon-when-auto-light{display:none}}body{font-family:var(--font-stack)}code,pre{font-family:var(--font-stack--monospace)}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}article{line-height:1.5}h1,h2,h3{border-radius:.5rem;font-family:var(--font-stack--headings);font-weight:700;line-height:1.25;margin:.5rem -.5rem;padding-left:.5rem;padding-right:.5rem}h1+p,h2+p,h3+p{margin-top:0}h1{font-size:2.5em;margin-bottom:1rem}h1,h2{margin-top:1.75rem}h2{font-size:2em}h3{font-size:1.5em}p{margin-bottom:.75rem;margin-top:.5rem}a{color:var(--color-link);text-decoration:underline;text-decoration-color:var(--color-link-underline)}a:visited{color:var(--color-link--visited);text-decoration-color:var(--color-link-underline--visited)}a:visited:hover{color:var(--color-link--visited--hover);text-decoration-color:var(--color-link-underline--visited--hover)}a:hover{color:var(--color-link--hover);text-decoration-color:var(--color-link-underline--hover)}a.muted-link{color:inherit}a.muted-link:hover{color:var(--color-link--hover);text-decoration-color:var(--color-link-underline--hover)}a.muted-link:hover:visited{color:var(--color-link--visited--hover);text-decoration-color:var(--color-link-underline--visited--hover)}html{overflow-x:hidden;overflow-y:scroll;scroll-behavior:smooth}.sidebar-scroll,.toc-scroll,article[role=main] *{scrollbar-color:var(--color-foreground-border) transparent;scrollbar-width:thin}.sidebar-scroll::-webkit-scrollbar,.toc-scroll::-webkit-scrollbar,article[role=main] ::-webkit-scrollbar{height:.25rem;width:.25rem}.sidebar-scroll::-webkit-scrollbar-thumb,.toc-scroll::-webkit-scrollbar-thumb,article[role=main] ::-webkit-scrollbar-thumb{background-color:var(--color-foreground-border);border-radius:.125rem}body,html{height:100%}.skip-to-content,body,html{background:var(--color-background-primary);color:var(--color-foreground-primary)}.skip-to-content{border-radius:1rem;left:.25rem;padding:1rem;position:fixed;top:.25rem;transform:translateY(-200%);transition:transform .3s ease-in-out;z-index:40}.skip-to-content:focus-within{transform:translateY(0)}article{background:var(--color-content-background);color:var(--color-content-foreground);overflow-wrap:break-word}.page{display:flex;min-height:100%}.main{display:flex;flex:1}.sidebar-drawer{background:var(--color-sidebar-background);border-right:1px solid var(--color-sidebar-background-border);box-sizing:border-box;display:flex;justify-content:flex-end;min-width:15em;width:calc(50% - 26em)}.sidebar-container,.toc-drawer{box-sizing:border-box;width:15em}.toc-drawer{background:var(--color-toc-background);padding-right:1rem}.sidebar-sticky,.toc-sticky{display:flex;flex-direction:column;height:100vh;position:sticky;top:0}.sidebar-scroll,.toc-scroll{flex-grow:1;flex-shrink:1;overflow:auto;scroll-behavior:smooth}.content{display:flex;flex-direction:column;justify-content:space-between;padding:0 3em;width:46em}.icon{display:inline-block;height:1rem;width:1rem}.icon svg{height:100%;width:100%}.theme-toggle-container{display:flex}.theme-toggle{background:transparent;border:none;cursor:pointer;display:flex;padding:0}.theme-toggle svg{color:var(--color-foreground-primary);display:none;height:1.25rem;width:1.25rem}.content-icon-container{display:flex;float:right;gap:.5rem;margin-bottom:1rem;margin-left:1rem;margin-top:1.5rem}.content-icon-container .edit-this-page svg,.content-icon-container .view-this-page svg{color:inherit;height:1.25rem;width:1.25rem}.sidebar-drawer{transition:left .25s ease-in-out;z-index:30}.toc-drawer{transition:right .25s ease-in-out;z-index:50}#__navigation:checked~.page .sidebar-drawer{left:0;top:0}#__toc:checked~.page .toc-drawer{right:0;top:0}.back-to-top svg{height:1rem;width:1rem;fill:currentColor;display:inline-block}@media (min-width:97em){html{font-size:110%}}@media (max-width:82em){.toc-drawer{border-left:1px solid var(--color-background-muted);height:100vh;position:fixed;right:-15em;top:0}.toc-tree{border-left:none;font-size:var(--toc-font-size--mobile)}.sidebar-drawer{width:calc(50% - 18.5em)}}@media (max-width:67em){.content{margin-left:auto;margin-right:auto;padding:0 1em}}@media (max-width:63em){.sidebar-drawer{height:100vh;left:-15em;position:fixed;top:0;width:15em}.theme-toggle-content{display:none}.theme-toggle svg{height:1.5rem;width:1.5rem}:target{scroll-margin-top:calc(var(--header-height) + 2.5rem)}.page{flex-direction:column;justify-content:center}}@media (max-width:48em){.content{overflow-x:auto;width:100%}}@media (max-width:46em){}.admonition{background:var(--color-admonition-background);border-radius:.2rem;box-shadow:0 .2rem .5rem rgba(0,0,0,.05),0 0 .0625rem rgba(0,0,0,.1);font-size:var(--admonition-font-size);margin:1rem auto;overflow:hidden;padding:0 .5rem .5rem;page-break-inside:avoid}.admonition>:nth-child(2),.topic>:nth-child(2){margin-top:0}.admonition>:last-child,.topic>:last-child{margin-bottom:0}.admonition p.admonition-title{font-size:var(--admonition-title-font-size);font-weight:500;line-height:1.3;margin:0-.5rem .5rem;padding:.4rem .5rem .4rem 2rem;position:relative}.admonition p.admonition-title:before,p.topic-title:before{content:"";height:1rem;left:.5rem;position:absolute;width:1rem}p.admonition-title:before{background-color:var(--color-admonition-title);-webkit-mask-image:var(--icon-admonition-default);mask-image:var(--icon-admonition-default);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}.admonition{border-left:.2rem solid var(--color-admonition-title)}.admonition.tip{border-left-color:var(--color-admonition-title--tip)}.admonition.tip>.admonition-title{background-color:var(--color-admonition-title-background--tip)}.admonition.tip>.admonition-title:before{background-color:var(--color-admonition-title--tip);-webkit-mask-image:var(--icon-info);mask-image:var(--icon-info)}.admonition.important{border-left-color:var(--color-admonition-title--important)}.admonition.important>.admonition-title{background-color:var(--color-admonition-title-background--important)}.admonition.important>.admonition-title:before{background-color:var(--color-admonition-title--important);-webkit-mask-image:var(--icon-flame);mask-image:var(--icon-flame)}.admonition.note{border-left-color:var(--color-admonition-title--note)}.admonition.note>.admonition-title{background-color:var(--color-admonition-title-background--note)}.admonition.note>.admonition-title:before{background-color:var(--color-admonition-title--note);-webkit-mask-image:var(--icon-pencil);mask-image:var(--icon-pencil)}code.literal{background:var(--color-inline-code-background);border-radius:.2em;font-size:var(--font-size--small--2);padding:.1em .2em}p code.literal{border:1px solid var(--color-background-border)}div[class^=highlight-]{display:flex;margin:1em 0}pre{margin:0}pre{overflow:auto}article[role=main] .highlight pre{line-height:1.5}.highlight pre{font-size:var(--code-font-size);padding:.625rem .875rem}.highlight{border-radius:.2rem;width:100%}img{box-sizing:border-box;height:auto;max-width:100%}ul{margin-bottom:1rem;margin-top:1rem;padding-left:1.2rem}ol li>p:first-child,ul li>p:first-child{margin-bottom:.25rem;margin-top:.25rem}ol li>p:last-child,ul li>p:last-child{margin-top:.25rem}:target{scroll-margin-top:2.5rem}@media (max-width:67em){:target{scroll-margin-top:calc(2.5rem + var(--header-height))}}.headerlink{font-weight:100;-webkit-user-select:none;-moz-user-select:none;user-select:none}h1>.headerlink,h2>.headerlink,h3>.headerlink{margin-left:.5rem;visibility:hidden}.code-block-caption:hover>.headerlink,dl dt:hover>.headerlink,figcaption p:hover>.headerlink,h1:hover>.headerlink,h2:hover>.headerlink,h3:hover>.headerlink,h4:hover>.headerlink,h5:hover>.headerlink,h6:hover>.headerlink,p.caption:hover>.headerlink,table>caption:hover>.headerlink{visibility:visible}:target>h1:first-of-type,:target>h2:first-of-type,:target>h3:first-of-type,:target>h4:first-of-type,:target>h5:first-of-type,:target>h6:first-of-type,span:target~h1:first-of-type,span:target~h2:first-of-type,span:target~h3:first-of-type,span:target~h4:first-of-type,span:target~h5:first-of-type,span:target~h6:first-of-type{background-color:var(--color-highlight-on-target)}footer{display:flex;flex-direction:column;font-size:var(--font-size--small);margin-top:2rem}.bottom-of-page{align-items:center;border-top:1px solid var(--color-background-border);color:var(--color-foreground-secondary);display:flex;justify-content:space-between;line-height:1.5;margin-top:1rem;padding-bottom:1rem;padding-top:1rem}@media (max-width:46em){.bottom-of-page{flex-direction:column-reverse;gap:.25rem;text-align:center}}.bottom-of-page .left-details{font-size:var(--font-size--small)}.bottom-of-page .right-details{display:flex;flex-direction:column;gap:.25rem;text-align:right}.related-pages a{align-items:center;display:flex;text-decoration:none}.related-pages a:hover .page-info .title{color:var(--color-link);text-decoration:underline;text-decoration-color:var(--color-link-underline)}.related-pages a svg.furo-related-icon,.related-pages a svg.furo-related-icon>use{color:var(--color-foreground-border);flex-shrink:0;height:.75rem;margin:0 .5rem;width:.75rem}.related-pages a.next-page{clear:right;float:right;max-width:50%;text-align:right}.related-pages a.prev-page{clear:left;float:left;max-width:50%}.related-pages a.prev-page svg{transform:rotate(180deg)}.page-info{display:flex;flex-direction:column;overflow-wrap:anywhere}.next-page .page-info{align-items:flex-end}.page-info .context{align-items:center;color:var(--color-foreground-muted);display:flex;font-size:var(--font-size--small);padding-bottom:.1rem;text-decoration:none}.sidebar-brand{display:flex;flex-direction:column;flex-shrink:0;padding:var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);text-decoration:none}.sidebar-brand-text{color:var(--color-sidebar-brand-text);font-size:1.5rem;overflow-wrap:break-word}.sidebar-brand-text{margin:var(--sidebar-item-spacing-vertical)0}.sidebar-search-container{align-items:center;background:var(--color-sidebar-search-background);display:flex;margin-top:var(--sidebar-search-space-above);position:relative}.sidebar-search-container:focus-within,.sidebar-search-container:hover{background:var(--color-sidebar-search-background--focus)}.sidebar-search-container:before{background-color:var(--color-sidebar-search-icon);content:"";height:var(--sidebar-search-icon-size);left:var(--sidebar-item-spacing-horizontal);-webkit-mask-image:var(--icon-search);mask-image:var(--icon-search);position:absolute;width:var(--sidebar-search-icon-size)}.sidebar-search{background:transparent;border:none;border-bottom:1px solid var(--color-sidebar-search-border);border-top:1px solid var(--color-sidebar-search-border);box-sizing:border-box;color:var(--color-sidebar-search-foreground);padding:var(--sidebar-search-input-spacing-vertical) var(--sidebar-search-input-spacing-horizontal) var(--sidebar-search-input-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) + var(--sidebar-search-input-spacing-horizontal) + var(--sidebar-search-icon-size));width:100%;z-index:10}.sidebar-search:focus{outline:none}.sidebar-search::-moz-placeholder{font-size:var(--sidebar-search-input-font-size)}.sidebar-search::placeholder{font-size:var(--sidebar-search-input-font-size)}.sidebar-tree{font-size:var(--sidebar-item-font-size);margin-bottom:var(--sidebar-item-spacing-vertical);margin-top:var(--sidebar-tree-space-above)}.sidebar-tree ul{display:flex;flex-direction:column;list-style:none;margin-bottom:0;margin-top:0;padding:0}.sidebar-tree li{margin:0;position:relative}.sidebar-tree li>ul{margin-left:var(--sidebar-item-spacing-horizontal)}.sidebar-tree .icon,.sidebar-tree .reference{color:var(--color-sidebar-link-text)}.sidebar-tree .reference{box-sizing:border-box;display:inline-block;height:100%;line-height:var(--sidebar-item-line-height);overflow-wrap:anywhere;padding:var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);text-decoration:none;width:100%}.sidebar-tree .reference:hover{background:var(--color-sidebar-item-background--hover);color:var(--color-sidebar-link-text)}.sidebar-tree .current-page>.reference{font-weight:700}.sidebar-tree label{align-items:center;cursor:pointer;display:flex;height:var(--sidebar-item-height);justify-content:center;position:absolute;right:0;top:0;-webkit-user-select:none;-moz-user-select:none;user-select:none;width:var(--sidebar-expander-width)}.sidebar-tree li.has-children>.reference{padding-right:var(--sidebar-expander-width)}.sidebar-tree .toctree-l1>.reference,.sidebar-tree .toctree-l1>label .icon{color:var(--color-sidebar-link-text--top-level)}.sidebar-tree label{background:var(--color-sidebar-item-expander-background)}.sidebar-tree label:hover{background:var(--color-sidebar-item-expander-background--hover)}.sidebar-tree .current>.reference{background:var(--color-sidebar-item-background--current)}.sidebar-tree .current>.reference:hover{background:var(--color-sidebar-item-background--hover)}.toctree-checkbox~ul{display:none}.toctree-checkbox~label .icon svg{transform:rotate(90deg)}.toctree-checkbox:checked~ul{display:block}.toctree-checkbox:checked~label .icon svg{transform:rotate(-90deg)}.toc-title-container{padding:var(--toc-title-padding);padding-top:var(--toc-spacing-vertical)}.toc-title{color:var(--color-toc-title-text);font-size:var(--toc-title-font-size);padding-left:var(--toc-spacing-horizontal);text-transform:uppercase}.toc-tree-container{padding-bottom:var(--toc-spacing-vertical)}.toc-tree{border-left:1px solid var(--color-background-border);font-size:var(--toc-font-size);line-height:1.3;padding-left:calc(var(--toc-spacing-horizontal) - var(--toc-item-spacing-horizontal))}.toc-tree>ul>li:first-child{padding-top:0}.toc-tree>ul>li:first-child>ul{padding-left:0}.toc-tree ul{list-style-type:none;margin-bottom:0;margin-top:0;padding-left:var(--toc-item-spacing-horizontal)}.toc-tree li{padding-top:var(--toc-item-spacing-vertical)}.toc-tree li.scroll-current>.reference{color:var(--color-toc-item-text--active);font-weight:700}.toc-tree a.reference{color:var(--color-toc-item-text);overflow-wrap:anywhere;text-decoration:none}.toc-scroll{max-height:100vh;overflow-y:scroll}</style>
+ <style>:root{--tabs--label-text:#4b5563;--tabs--label-text--hover:#4b5563;--tabs--label-text--active:#0ea5e9;--tabs--label-text--active--hover:#0ea5e9;--tabs--label-background:transparent;--tabs--label-background--hover:transparent;--tabs--label-background--active:transparent;--tabs--label-background--active--hover:transparent;--tabs--label-border:transparent;--tabs--label-border--hover:#d1d5db;--tabs--label-border--active:#0ea5e9;--tabs--label-border--active--hover:#0ea5e9;--tabs--padding-x:1.25em;--tabs--margin-x:0;--tabs--border:#e6e6e6}.tab-set>input{position:absolute;opacity:0}.tab-set{border-radius:2px;display:flex;flex-wrap:wrap;margin:0.75em 0;position:relative}.tab-set>label{z-index:1;width:auto;border-bottom:2px solid var(--tabs--label-border);padding:1em var(--tabs--padding-x) 0.5em;margin-left:var(--tabs--margin-x);color:var(--tabs--label-text);background:var(--tabs--label-background);transition:color 250ms;cursor:pointer;font-size:0.875em;font-weight:700}.tab-set>label:nth-child(2){margin-left:0}.tab-set>label:hover{color:var(--tabs--label-text--hover);background:var(--tabs--label-background--hover);border-color:var(--tabs--label-border--hover)}.tab-set>input:checked+label{color:var(--tabs--label-text--active);background:var(--tabs--label-background--active);border-color:var(--tabs--label-border--active)}.tab-set>input:checked+label:hover{color:var(--tabs--label-text--active--hover);background:var(--tabs--label-background--active--hover);border-color:var(--tabs--label-border--active--hover)}.tab-content{order:99;display:none;width:100%;box-shadow:0-0.0625rem var(--tabs--border)}.tab-set>input:checked+label+.tab-content{display:block}.tab-content>p:first-child{margin-top:0.75rem}.tab-content>[class^="highlight-"]:first-child .highlight{border-top:none;border-top-left-radius:0;border-top-right-radius:0}.tab-content>*:first-child{margin-top:0}.tab-content>*:last-child{margin-bottom:0}</style>
+ <style>button.copybtn{position:absolute;display:flex;opacity:0;user-select:none;padding:0;outline:none;border-radius:0.4em}button.copybtn svg{stroke:currentColor;width:1.5em;height:1.5em}div.highlight{position:relative}.highlight:hover button.copybtn,button.copybtn.success{opacity:1}.highlight button.copybtn:hover{background-color:rgb(235,235,235)}.highlight button.copybtn:active{background-color:rgb(187,187,187)}.o-tooltip--left:after{opacity:0;visibility:hidden;position:absolute;content:attr(data-tooltip);padding:.2em;font-size:.8em;left:-.2em;background:grey;color:white;white-space:nowrap;z-index:2;border-radius:2px;transform:translateX(-102%) translateY(0);transition:opacity 0.2s cubic-bezier(0.64,0.09,0.08,1),transform 0.2s cubic-bezier(0.64,0.09,0.08,1)}.o-tooltip--left:hover:after{display:block;opacity:1;visibility:visible;transform:translateX(-100%) translateY(0);transition:opacity 0.2s cubic-bezier(0.64,0.09,0.08,1),transform 0.2s cubic-bezier(0.64,0.09,0.08,1);transition-delay:.5s}</style>
+ <style>.highlight:hover button.copybtn{color:var(--color-code-foreground)}.highlight button.copybtn{align-items:center;background-color:var(--color-code-background);border:none;color:var(--color-background-item);cursor:pointer;height:1.25em;right:.5rem;top:.625rem;transition:color .3s,opacity .3s;width:1.25em}.highlight button.copybtn:hover{background-color:var(--color-code-background);color:var(--color-brand-content)}.highlight button.copybtn:after{background-color:transparent;color:var(--color-code-foreground);display:none}.highlight button.copybtn svg{padding:0}body{--sd-color-primary:var(--color-brand-primary);--sd-color-primary-highlight:var(--color-brand-content);--sd-color-primary-text:var(--color-background-primary);--sd-color-shadow:rgba(0,0,0,.05);--sd-color-card-border:var(--color-card-border);--sd-color-card-border-hover:var(--color-brand-content);--sd-color-card-background:var(--color-card-background);--sd-color-card-text:var(--color-foreground-primary);--sd-color-card-header:var(--color-card-marginals-background);--sd-color-card-footer:var(--color-card-marginals-background);--sd-color-tabs-label-active:var(--color-brand-content);--sd-color-tabs-label-hover:var(--color-foreground-muted);--sd-color-tabs-label-inactive:var(--color-foreground-muted);--sd-color-tabs-underline-active:var(--color-brand-content);--sd-color-tabs-underline-hover:var(--color-foreground-border);--sd-color-tabs-underline-inactive:var(--color-background-border);--sd-color-tabs-overline:var(--color-background-border);--sd-color-tabs-underline:var(--color-background-border)}body{--tabs--label-text:var(--color-foreground-muted);--tabs--label-text--hover:var(--color-foreground-muted);--tabs--label-text--active:var(--color-brand-content);--tabs--label-text--active--hover:var(--color-brand-content);--tabs--label-background:transparent;--tabs--label-background--hover:transparent;--tabs--label-background--active:transparent;--tabs--label-background--active--hover:transparent;--tabs--padding-x:0.25em;--tabs--margin-x:1em;--tabs--border:var(--color-background-border);--tabs--label-border:transparent;--tabs--label-border--hover:var(--color-foreground-muted);--tabs--label-border--active:var(--color-brand-content);--tabs--label-border--active--hover:var(--color-brand-content)}[role=main] .container{max-width:none;padding-left:0;padding-right:0}</style>
+ 
+ 
+<style>body{--color-code-background:#f8f8f8;--color-code-foreground:black}@media not print{@media (prefers-color-scheme:dark){body:not([data-theme="light"]){--color-code-background:#202020;--color-code-foreground:#d0d0d0}}}</style>
+ 
+ 
+ 
+ 
+<svg xmlns=http://www.w3.org/2000/svg style=display:none>
+ <symbol id=svg-toc viewBox="0 0 24 24">
+ <title>Contents</title>
+ <svg stroke=currentColor fill=currentColor stroke-width=0 viewBox="0 0 1024 1024" style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"></path>
+ </svg>
+ </symbol>
+ <symbol id=svg-menu viewBox="0 0 24 24">
+ <title>Menu</title>
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class=feather-menu style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <line x1=3 y1=12 x2=21 y2=12></line>
+ <line x1=3 y1=6 x2=21 y2=6></line>
+ <line x1=3 y1=18 x2=21 y2=18></line>
+ </svg>
+ </symbol>
+ <symbol id=svg-arrow-right viewBox="0 0 24 24">
+ <title>Expand</title>
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class=feather-chevron-right style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <polyline points="9 18 15 12 9 6"></polyline>
+ </svg>
+ </symbol>
+ <symbol id=svg-sun viewBox="0 0 24 24">
+ <title>Light mode</title>
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=1 stroke-linecap=round stroke-linejoin=round class=feather-sun style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <circle cx=12 cy=12 r=5></circle>
+ <line x1=12 y1=1 x2=12 y2=3></line>
+ <line x1=12 y1=21 x2=12 y2=23></line>
+ <line x1=4.22 y1=4.22 x2=5.64 y2=5.64></line>
+ <line x1=18.36 y1=18.36 x2=19.78 y2=19.78></line>
+ <line x1=1 y1=12 x2=3 y2=12></line>
+ <line x1=21 y1=12 x2=23 y2=12></line>
+ <line x1=4.22 y1=19.78 x2=5.64 y2=18.36></line>
+ <line x1=18.36 y1=5.64 x2=19.78 y2=4.22></line>
+ </svg>
+ </symbol>
+ <symbol id=svg-moon viewBox="0 0 24 24">
+ <title>Dark mode</title>
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=1 stroke-linecap=round stroke-linejoin=round class=icon-tabler-moon style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+ </svg>
+ </symbol>
+ <symbol id=svg-sun-with-moon viewBox="0 0 24 24">
+ <title>Auto light/dark, in light mode</title>
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=1 stroke-linecap=round stroke-linejoin=round class=icon-custom-derived-from-feather-sun-and-tabler-moon style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <path style=opacity:50% d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"></path>
+ <line x1=14.5 y1=3.25 x2=14.5 y2=1.25></line>
+ <line x1=14.5 y1=15.85 x2=14.5 y2=17.85></line>
+ <line x1=10.044 y1=5.094 x2=8.63 y2=3.68></line>
+ <line x1=19 y1=14.05 x2=20.414 y2=15.464></line>
+ <line x1=8.2 y1=9.55 x2=6.2 y2=9.55></line>
+ <line x1=20.8 y1=9.55 x2=22.8 y2=9.55></line>
+ <line x1=10.044 y1=14.006 x2=8.63 y2=15.42></line>
+ <line x1=19 y1=5.05 x2=20.414 y2=3.636></line>
+ <circle cx=14.5 cy=9.55 r=3.6></circle>
+ </svg>
+ </symbol>
+ <symbol id=svg-moon-with-sun viewBox="0 0 24 24">
+ <title>Auto light/dark, in dark mode</title>
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=1 stroke-linecap=round stroke-linejoin=round class=icon-custom-derived-from-feather-sun-and-tabler-moon style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"></path>
+ <line style=opacity:50% x1=18 y1=3.705 x2=18 y2=2.5></line>
+ <line style=opacity:50% x1=18 y1=11.295 x2=18 y2=12.5></line>
+ <line style=opacity:50% x1=15.316 y1=4.816 x2=14.464 y2=3.964></line>
+ <line style=opacity:50% x1=20.711 y1=10.212 x2=21.563 y2=11.063></line>
+ <line style=opacity:50% x1=14.205 y1=7.5 x2=13.001 y2=7.5></line>
+ <line style=opacity:50% x1=21.795 y1=7.5 x2=23 y2=7.5></line>
+ <line style=opacity:50% x1=15.316 y1=10.184 x2=14.464 y2=11.036></line>
+ <line style=opacity:50% x1=20.711 y1=4.789 x2=21.563 y2=3.937></line>
+ <circle style=opacity:50% cx=18 cy=7.5 r=2.169></circle>
+ </svg>
+ </symbol>
+ <symbol id=svg-pencil viewBox="0 0 24 24">
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=1 stroke-linecap=round stroke-linejoin=round class=icon-tabler-pencil-code style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"></path>
+ <path d="M13.5 6.5l4 4"></path>
+ <path d="M20 21l2 -2l-2 -2"></path>
+ <path d="M17 17l-2 2l2 2"></path>
+ </svg>
+ </symbol>
+ <symbol id=svg-eye viewBox="0 0 24 24">
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=1 stroke-linecap=round stroke-linejoin=round class=icon-tabler-eye-code style=--darkreader-inline-stroke:currentColor data-darkreader-inline-stroke>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+ <path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008"></path>
+ <path d="M20 21l2 -2l-2 -2"></path>
+ <path d="M17 17l-2 2l2 2"></path>
+ </svg>
+ </symbol>
+</svg>
+<input type=checkbox class="sidebar-toggle sf-hidden" name=__navigation id=__navigation value=on>
+<input type=checkbox class="sidebar-toggle sf-hidden" name=__toc id=__toc value=on>
+<label class="overlay sidebar-overlay sf-hidden" for=__navigation>
+ 
+</label>
+<label class="overlay toc-overlay sf-hidden" for=__toc>
+ 
+</label>
+<a class="skip-to-content muted-link" href=#furo-main-content>Skip to content</a>
+<div class=page>
+ <header class="mobile-header scrolled sf-hidden">
+ 
+ 
+ 
+ </header>
+ <aside class=sidebar-drawer>
+ <div class=sidebar-container>
+ 
+ <div class=sidebar-sticky><a class=sidebar-brand href=https://packaging.python.org/en/latest/>
+ 
+ 
+ <span class=sidebar-brand-text>Python Packaging User Guide</span>
+ 
+</a><form class=sidebar-search-container action=../../search/ role=search>
+ <input class=sidebar-search placeholder=Search name=q aria-label=Search value>
+ 
+ 
+</form>
+<div id=searchbox></div><div class=sidebar-scroll><div class=sidebar-tree>
+ <ul class=current>
+<li class=toctree-l1><a class="reference internal" href=https://packaging.python.org/en/latest/overview/>Overview of Python Packaging</a></li>
+<li class=toctree-l1><a class="reference internal" href=https://packaging.python.org/en/latest/flow/>The Packaging Flow</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href=https://packaging.python.org/en/latest/tutorials/>Tutorials</a><input class="toctree-checkbox sf-hidden" id=toctree-checkbox-1 name=toctree-checkbox-1 role=switch type=checkbox value=on><label for=toctree-checkbox-1><div class=visually-hidden>Toggle navigation of Tutorials</div><i class=icon><svg><use href=#svg-arrow-right></use></svg></i></label><ul class=sf-hidden>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href=https://packaging.python.org/en/latest/guides/>Guides</a><input checked class="toctree-checkbox sf-hidden" id=toctree-checkbox-2 name=toctree-checkbox-2 role=switch type=checkbox value=on><label for=toctree-checkbox-2><div class=visually-hidden>Toggle navigation of Guides</div><i class=icon><svg><use href=#svg-arrow-right></use></svg></i></label><ul class=current>
+<li class="toctree-l2 current has-children"><a class="reference internal" href=https://packaging.python.org/en/latest/guides/section-install/>Installation</a><input checked class="toctree-checkbox sf-hidden" id=toctree-checkbox-3 name=toctree-checkbox-3 role=switch type=checkbox value=on><label for=toctree-checkbox-3><div class=visually-hidden>Toggle navigation of Installation</div><i class=icon><svg><use href=#svg-arrow-right></use></svg></i></label><ul class=current>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href=#>Install packages in a virtual environment using pip and venv</a></li>
+<li class=toctree-l3><a class="reference internal" href=https://packaging.python.org/en/latest/guides/installing-using-virtualenv/>Installing packages using virtualenv</a></li>
+<li class=toctree-l3><a class="reference internal" href=https://packaging.python.org/en/latest/guides/installing-stand-alone-command-line-tools/>Installing stand alone command line tools</a></li>
+<li class=toctree-l3><a class="reference internal" href=https://packaging.python.org/en/latest/guides/installing-using-linux-tools/>Installing pip/setuptools/wheel with Linux Package Managers</a></li>
+<li class=toctree-l3><a class="reference internal" href=https://packaging.python.org/en/latest/guides/installing-scientific-packages/>Installing scientific packages</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href=https://packaging.python.org/en/latest/guides/section-build-and-publish/>Building and Publishing</a><input class="toctree-checkbox sf-hidden" id=toctree-checkbox-4 name=toctree-checkbox-4 role=switch type=checkbox value=on><label for=toctree-checkbox-4><div class=visually-hidden>Toggle navigation of Building and Publishing</div><i class=icon><svg><use href=#svg-arrow-right></use></svg></i></label><ul class=sf-hidden>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href=https://packaging.python.org/en/latest/guides/section-hosting/>Hosting</a><input class="toctree-checkbox sf-hidden" id=toctree-checkbox-5 name=toctree-checkbox-5 role=switch type=checkbox value=on><label for=toctree-checkbox-5><div class=visually-hidden>Toggle navigation of Hosting</div><i class=icon><svg><use href=#svg-arrow-right></use></svg></i></label><ul class=sf-hidden>
+</ul>
+</li>
+<li class=toctree-l2><a class="reference internal" href=https://packaging.python.org/en/latest/guides/tool-recommendations/>Tool recommendations</a></li>
+<li class=toctree-l2><a class="reference internal" href=https://packaging.python.org/en/latest/guides/analyzing-pypi-package-downloads/>Analyzing PyPI package downloads</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href=https://packaging.python.org/en/latest/discussions/>Discussions</a><input class="toctree-checkbox sf-hidden" id=toctree-checkbox-6 name=toctree-checkbox-6 role=switch type=checkbox value=on><label for=toctree-checkbox-6><div class=visually-hidden>Toggle navigation of Discussions</div><i class=icon><svg><use href=#svg-arrow-right></use></svg></i></label><ul class=sf-hidden>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href=https://packaging.python.org/en/latest/specifications/>PyPA specifications</a><input class="toctree-checkbox sf-hidden" id=toctree-checkbox-7 name=toctree-checkbox-7 role=switch type=checkbox value=on><label for=toctree-checkbox-7><div class=visually-hidden>Toggle navigation of PyPA specifications</div><i class=icon><svg><use href=#svg-arrow-right></use></svg></i></label><ul class=sf-hidden>
+</ul>
+</li>
+<li class=toctree-l1><a class="reference internal" href=https://packaging.python.org/en/latest/key_projects/>Project Summaries</a></li>
+<li class=toctree-l1><a class="reference internal" href=https://packaging.python.org/en/latest/glossary/>Glossary</a></li>
+<li class=toctree-l1><a class="reference internal" href=https://packaging.python.org/en/latest/support/>How to Get Support</a></li>
+<li class=toctree-l1><a class="reference internal" href=https://packaging.python.org/en/latest/contribute/>Contribute to this guide</a></li>
+<li class=toctree-l1><a class="reference internal" href=https://packaging.python.org/en/latest/news/>News</a></li>
+</ul>
+</div>
+</div>
+ </div>
+ 
+ </div>
+ </aside>
+ <div class=main>
+ <div class=content>
+ <div class=article-container>
+ <a href=# class="back-to-top muted-link sf-hidden">
+ <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
+ <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+ </svg>
+ 
+ </a>
+ <div class=content-icon-container>
+ <div class=view-this-page>
+ <a class=muted-link href="https://github.com/pypa/packaging.python.org/blob/main/source/guides/installing-using-pip-and-virtual-environments.rst?plain=true" title="View this page">
+ <svg><use href=#svg-eye></use></svg>
+ <span class=visually-hidden>View this page</span>
+ </a>
+</div><div class=edit-this-page>
+ <a class=muted-link href=https://github.com/pypa/packaging.python.org/edit/main/source/guides/installing-using-pip-and-virtual-environments.rst title="Edit this page">
+ <svg><use href=#svg-pencil></use></svg>
+ <span class=visually-hidden>Edit this page</span>
+ </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+ <button class=theme-toggle>
+ <div class=visually-hidden>Toggle Light / Dark / Auto color theme</div>
+ <svg class=theme-icon-when-auto-light><use href=#svg-sun-with-moon></use></svg>
+ <svg class=theme-icon-when-auto-dark><use href=#svg-moon-with-sun></use></svg>
+ <svg class=theme-icon-when-dark><use href=#svg-moon></use></svg>
+ <svg class=theme-icon-when-light><use href=#svg-sun></use></svg>
+ </button>
+ </div>
+ <label class="toc-overlay-icon toc-content-icon sf-hidden" for=__toc>
+ 
+ 
+ </label>
+ </div>
+ <article role=main id=furo-main-content>
+ <section id=install-packages-in-a-virtual-environment-using-pip-and-venv>
+<h1>Install packages in a virtual environment using pip and venv<a class=headerlink href=#install-packages-in-a-virtual-environment-using-pip-and-venv title="Link to this heading">¶</a></h1>
+<p>This guide discusses how to create and activate a virtual environment using
+the standard library’s virtual environment tool <a class="reference internal" href=https://packaging.python.org/en/latest/key_projects/#venv><span class="std std-ref">venv</span></a> and install packages.
+The guide covers how to:</p>
+<ul class=simple>
+<li><p>Create and activate a virtual environment</p></li>
+<li><p>Prepare pip</p></li>
+<li><p>Install packages into a virtual environment using the <code class="docutils literal notranslate"><span class=pre>pip</span></code> command</p></li>
+<li><p>Use and create a requirements file</p></li>
+</ul>
+<div class="admonition note">
+<p class=admonition-title>Note</p>
+<p>This guide applies to supported versions of Python, currently 3.8
+and higher.</p>
+</div>
+<div class="admonition note">
+<p class=admonition-title>Note</p>
+<p>This guide uses the term <strong>package</strong> to refer to a
+<a class="reference internal" href=https://packaging.python.org/en/latest/glossary/#term-Distribution-Package><span class="xref std std-term">Distribution Package</span></a>, which commonly is installed from an external
+host. This differs from the term <a class="reference internal" href=https://packaging.python.org/en/latest/glossary/#term-Import-Package><span class="xref std std-term">Import Package</span></a> which refers to
+import modules in your Python source code.</p>
+</div>
+<div class="admonition important">
+<p class=admonition-title>Important</p>
+<p>This guide has the prerequisite that you are using an official Python version obtained from
+&lt;<a class="reference external" href=https://www.python.org/downloads/>https://www.python.org/downloads/</a>&gt;. If you are using your operating
+system’s package manager to install Python, please ensure that Python is
+installed before proceeding with these steps.</p>
+</div>
+<section id=create-and-use-virtual-environments>
+<h2>Create and Use Virtual Environments<a class=headerlink href=#create-and-use-virtual-environments title="Link to this heading">¶</a></h2>
+<section id=create-a-new-virtual-environment class=active>
+<h3>Create a new virtual environment<a class=headerlink href=#create-a-new-virtual-environment title="Link to this heading">¶</a></h3>
+<p><a class="reference internal" href=https://packaging.python.org/en/latest/key_projects/#venv><span class="std std-ref">venv</span></a> (for Python 3) allows you to manage separate package installations for
+different projects. It creates a “virtual” isolated Python installation. When
+you switch projects, you can create a new virtual environment which is isolated
+from other virtual environments. You benefit from the virtual environment
+since packages can be installed confidently and will not interfere with
+another project’s environment.</p>
+<div class="admonition tip">
+<p class=admonition-title>Tip</p>
+<p>It is recommended to use a virtual environment when working with third
+party packages.</p>
+</div>
+<p>To create a virtual environment, go to your project’s directory and run the
+following command. This will create a new virtual environment in a local folder
+named <code class="docutils literal notranslate"><span class=pre>.venv</span></code>:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--0-input--1 name=tab-set--0 type=radio value=on><label class=tab-label for=tab-set--0-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell0><span></span>python3<span class=w> </span>-m<span class=w> </span>venv<span class=w> </span>.venv
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell0>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--0-input--2 name=tab-set--0 type=radio value=on><label class=tab-label for=tab-set--0-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>The second argument is the location to create the virtual environment. Generally, you
+can just create this in your project and call it <code class="docutils literal notranslate"><span class=pre>.venv</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class=pre>venv</span></code> will create a virtual Python installation in the <code class="docutils literal notranslate"><span class=pre>.venv</span></code> folder.</p>
+<div class="admonition note">
+<p class=admonition-title>Note</p>
+<p>You should exclude your virtual environment directory from your version
+control system using <code class="docutils literal notranslate"><span class=pre>.gitignore</span></code> or similar.</p>
+</div>
+</section>
+<section id=activate-a-virtual-environment>
+<h3>Activate a virtual environment<a class=headerlink href=#activate-a-virtual-environment title="Link to this heading">¶</a></h3>
+<p>Before you can start installing or using packages in your virtual environment you’ll
+need to <code class="docutils literal notranslate"><span class=pre>activate</span></code> it. Activating a virtual environment will put the
+virtual environment-specific <code class="docutils literal notranslate"><span class=pre>python</span></code> and <code class="docutils literal notranslate"><span class=pre>pip</span></code> executables into your
+shell’s <code class="docutils literal notranslate"><span class=pre>PATH</span></code>.</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--1-input--1 name=tab-set--1 type=radio value=on><label class=tab-label for=tab-set--1-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell2><span></span><span class=nb>source</span><span class=w> </span>.venv/bin/activate
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell2>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--1-input--2 name=tab-set--1 type=radio value=on><label class=tab-label for=tab-set--1-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>To confirm the virtual environment is activated, check the location of your
+Python interpreter:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--2-input--1 name=tab-set--2 type=radio value=on><label class=tab-label for=tab-set--2-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell4><span></span>which<span class=w> </span>python
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell4>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--2-input--2 name=tab-set--2 type=radio value=on><label class=tab-label for=tab-set--2-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>While the virtual environment is active, the above command will output a
+filepath that includes the <code class="docutils literal notranslate"><span class=pre>.venv</span></code> directory, by ending with the following:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--3-input--1 name=tab-set--3 type=radio value=on><label class=tab-label for=tab-set--3-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell6><span></span>.venv/bin/python
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell6>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--3-input--2 name=tab-set--3 type=radio value=on><label class=tab-label for=tab-set--3-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>While a virtual environment is activated, pip will install packages into that
+specific environment. This enables you to import and use packages in your
+Python application.</p>
+</section>
+<section id=deactivate-a-virtual-environment>
+<h3>Deactivate a virtual environment<a class=headerlink href=#deactivate-a-virtual-environment title="Link to this heading">¶</a></h3>
+<p>If you want to switch projects or leave your virtual environment,
+<code class="docutils literal notranslate"><span class=pre>deactivate</span></code> the environment:</p>
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell8><span></span>deactivate
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell8>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+<div class="admonition note">
+<p class=admonition-title>Note</p>
+<p>Closing your shell will deactivate the virtual environment. If
+you open a new shell window and want to use the virtual environment,
+reactivate it.</p>
+</div>
+</section>
+<section id=reactivate-a-virtual-environment>
+<h3>Reactivate a virtual environment<a class=headerlink href=#reactivate-a-virtual-environment title="Link to this heading">¶</a></h3>
+<p>If you want to reactivate an existing virtual environment, follow the same
+instructions about activating a virtual environment. There’s no need to create
+a new virtual environment.</p>
+</section>
+</section>
+<section id=prepare-pip>
+<h2>Prepare pip<a class=headerlink href=#prepare-pip title="Link to this heading">¶</a></h2>
+<p><a class="reference internal" href=https://packaging.python.org/en/latest/key_projects/#pip><span class="std std-ref">pip</span></a> is the reference Python package manager.
+It’s used to install and update packages into a virtual environment.</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--4-input--1 name=tab-set--4 type=radio value=on><label class=tab-label for=tab-set--4-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<p>The Python installers for macOS include pip. On Linux, you may have to install
+an additional package such as <code class="docutils literal notranslate"><span class=pre>python3-pip</span></code>. You can make sure that pip is
+up-to-date by running:</p>
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell9><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>--upgrade<span class=w> </span>pip
+python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>--version
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell9>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+<p>Afterwards, you should have the latest version of pip installed in your
+user site:</p>
+<div class="highlight-text notranslate"><div class=highlight><pre id=codecell10><span></span>pip 23.3.1 from .../.venv/lib/python3.9/site-packages (python 3.9)
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell10>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--4-input--2 name=tab-set--4 type=radio value=on><label class=tab-label for=tab-set--4-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+</section>
+<section id=install-packages-using-pip>
+<h2>Install packages using pip<a class=headerlink href=#install-packages-using-pip title="Link to this heading">¶</a></h2>
+<p>When your virtual environment is activated, you can install packages. Use the
+<code class="docutils literal notranslate"><span class=pre>pip</span> <span class=pre>install</span></code> command to install packages.</p>
+<section id=install-a-package>
+<h3>Install a package<a class=headerlink href=#install-a-package title="Link to this heading">¶</a></h3>
+<p>For example, let’s install the
+<a class="reference external" href=https://pypi.org/project/requests/>Requests</a> library from the <a class="reference internal" href=https://packaging.python.org/en/latest/glossary/#term-Python-Package-Index-PyPI><span class="xref std std-term">Python Package Index (PyPI)</span></a>:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--5-input--1 name=tab-set--5 type=radio value=on><label class=tab-label for=tab-set--5-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell13><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>requests
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell13>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--5-input--2 name=tab-set--5 type=radio value=on><label class=tab-label for=tab-set--5-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>pip should download requests and all of its dependencies and install them:</p>
+<div class="highlight-text notranslate"><div class=highlight><pre id=codecell15><span></span>Collecting requests
+  Using cached requests-2.18.4-py2.py3-none-any.whl
+Collecting chardet&lt;3.1.0,&gt;=3.0.2 (from requests)
+  Using cached chardet-3.0.4-py2.py3-none-any.whl
+Collecting urllib3&lt;1.23,&gt;=1.21.1 (from requests)
+  Using cached urllib3-1.22-py2.py3-none-any.whl
+Collecting certifi&gt;=2017.4.17 (from requests)
+  Using cached certifi-2017.7.27.1-py2.py3-none-any.whl
+Collecting idna&lt;2.7,&gt;=2.5 (from requests)
+  Using cached idna-2.6-py2.py3-none-any.whl
+Installing collected packages: chardet, urllib3, certifi, idna, requests
+Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell15>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</section>
+<section id=install-a-specific-package-version>
+<h3>Install a specific package version<a class=headerlink href=#install-a-specific-package-version title="Link to this heading">¶</a></h3>
+<p>pip allows you to specify which version of a package to install using
+<a class="reference internal" href=https://packaging.python.org/en/latest/glossary/#term-Version-Specifier><span class="xref std std-term">version specifiers</span></a>. For example, to install
+a specific version of <code class="docutils literal notranslate"><span class=pre>requests</span></code>:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--6-input--1 name=tab-set--6 type=radio value=on><label class=tab-label for=tab-set--6-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell16><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span><span class=s1>'requests==2.18.4'</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell16>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--6-input--2 name=tab-set--6 type=radio value=on><label class=tab-label for=tab-set--6-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>To install the latest <code class="docutils literal notranslate"><span class=pre>2.x</span></code> release of requests:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--7-input--1 name=tab-set--7 type=radio value=on><label class=tab-label for=tab-set--7-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell18><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span><span class=s1>'requests&gt;=2.0.0,&lt;3.0.0'</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell18>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--7-input--2 name=tab-set--7 type=radio value=on><label class=tab-label for=tab-set--7-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>To install pre-release versions of packages, use the <code class="docutils literal notranslate"><span class=pre>--pre</span></code> flag:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--8-input--1 name=tab-set--8 type=radio value=on><label class=tab-label for=tab-set--8-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell20><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>--pre<span class=w> </span>requests
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell20>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--8-input--2 name=tab-set--8 type=radio value=on><label class=tab-label for=tab-set--8-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+</section>
+<section id=install-extras>
+<h3>Install extras<a class=headerlink href=#install-extras title="Link to this heading">¶</a></h3>
+<p>Some packages have optional <a class="reference external" href=https://setuptools.readthedocs.io/en/latest/userguide/dependency_management.html#optional-dependencies>extras</a>. You can tell pip to install these by
+specifying the extra in brackets:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--9-input--1 name=tab-set--9 type=radio value=on><label class=tab-label for=tab-set--9-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell22><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span><span class=s1>'requests[security]'</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell22>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--9-input--2 name=tab-set--9 type=radio value=on><label class=tab-label for=tab-set--9-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+</section>
+<section id=install-a-package-from-source>
+<h3>Install a package from source<a class=headerlink href=#install-a-package-from-source title="Link to this heading">¶</a></h3>
+<p>pip can install a package directly from its source code. For example, to install
+the source code in the <code class="docutils literal notranslate"><span class=pre>google-auth</span></code> directory:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--10-input--1 name=tab-set--10 type=radio value=on><label class=tab-label for=tab-set--10-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell24><span></span><span class=nb>cd</span><span class=w> </span>google-auth
+python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>.
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell24>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--10-input--2 name=tab-set--10 type=radio value=on><label class=tab-label for=tab-set--10-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>Additionally, pip can install packages from source in
+<a class="reference external" href=https://setuptools.pypa.io/en/latest/userguide/development_mode.html title="(in setuptools v80.9.0)"><span class="xref std std-doc">development mode</span></a>,
+meaning that changes to the source directory will immediately affect the
+installed package without needing to re-install:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--11-input--1 name=tab-set--11 type=radio value=on><label class=tab-label for=tab-set--11-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell26><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>--editable<span class=w> </span>.
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell26>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--11-input--2 name=tab-set--11 type=radio value=on><label class=tab-label for=tab-set--11-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+</section>
+<section id=install-from-version-control-systems>
+<h3>Install from version control systems<a class=headerlink href=#install-from-version-control-systems title="Link to this heading">¶</a></h3>
+<p>pip can install packages directly from their version control system. For
+example, you can install directly from a git repository:</p>
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell28><span></span>google-auth<span class=w> </span>@<span class=w> </span>git+https://github.com/GoogleCloudPlatform/google-auth-library-python.git
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell28>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+<p>For more information on supported version control systems and syntax, see pip’s
+documentation on <a class="reference external" href=https://pip.pypa.io/en/latest/topics/vcs-support/#vcs-support title="(in pip v25.3)"><span class="xref std std-ref">VCS Support</span></a>.</p>
+</section>
+<section id=install-from-local-archives>
+<h3>Install from local archives<a class=headerlink href=#install-from-local-archives title="Link to this heading">¶</a></h3>
+<p>If you have a local copy of a <a class="reference internal" href=https://packaging.python.org/en/latest/glossary/#term-Distribution-Package><span class="xref std std-term">Distribution Package</span></a>’s archive (a zip,
+wheel, or tar file) you can install it directly with pip:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--12-input--1 name=tab-set--12 type=radio value=on><label class=tab-label for=tab-set--12-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell29><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>requests-2.18.4.tar.gz
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell29>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--12-input--2 name=tab-set--12 type=radio value=on><label class=tab-label for=tab-set--12-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>If you have a directory containing archives of multiple packages, you can tell
+pip to look for packages there and not to use the
+<a class="reference internal" href=https://packaging.python.org/en/latest/glossary/#term-Python-Package-Index-PyPI><span class="xref std std-term">Python Package Index (PyPI)</span></a> at all:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--13-input--1 name=tab-set--13 type=radio value=on><label class=tab-label for=tab-set--13-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell31><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>--no-index<span class=w> </span>--find-links<span class=o>=</span>/local/dir/<span class=w> </span>requests
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell31>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--13-input--2 name=tab-set--13 type=radio value=on><label class=tab-label for=tab-set--13-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>This is useful if you are installing packages on a system with limited
+connectivity or if you want to strictly control the origin of distribution
+packages.</p>
+</section>
+<section id=install-from-other-package-indexes>
+<h3>Install from other package indexes<a class=headerlink href=#install-from-other-package-indexes title="Link to this heading">¶</a></h3>
+<p>If you want to download packages from a different index than the
+<a class="reference internal" href=https://packaging.python.org/en/latest/glossary/#term-Python-Package-Index-PyPI><span class="xref std std-term">Python Package Index (PyPI)</span></a>, you can use the <code class="docutils literal notranslate"><span class=pre>--index-url</span></code> flag:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--14-input--1 name=tab-set--14 type=radio value=on><label class=tab-label for=tab-set--14-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell33><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>--index-url<span class=w> </span>http://index.example.com/simple/<span class=w> </span>SomeProject
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell33>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--14-input--2 name=tab-set--14 type=radio value=on><label class=tab-label for=tab-set--14-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>If you want to allow packages from both the <a class="reference internal" href=https://packaging.python.org/en/latest/glossary/#term-Python-Package-Index-PyPI><span class="xref std std-term">Python Package Index (PyPI)</span></a>
+and a separate index, you can use the <code class="docutils literal notranslate"><span class=pre>--extra-index-url</span></code> flag instead:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--15-input--1 name=tab-set--15 type=radio value=on><label class=tab-label for=tab-set--15-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell35><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>--extra-index-url<span class=w> </span>http://index.example.com/simple/<span class=w> </span>SomeProject
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell35>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--15-input--2 name=tab-set--15 type=radio value=on><label class=tab-label for=tab-set--15-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+</section>
+</section>
+<section id=upgrading-packages>
+<h2>Upgrading packages<a class=headerlink href=#upgrading-packages title="Link to this heading">¶</a></h2>
+<p>pip can upgrade packages in-place using the <code class="docutils literal notranslate"><span class=pre>--upgrade</span></code> flag. For example, to
+install the latest version of <code class="docutils literal notranslate"><span class=pre>requests</span></code> and all of its dependencies:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--16-input--1 name=tab-set--16 type=radio value=on><label class=tab-label for=tab-set--16-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell37><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>--upgrade<span class=w> </span>requests
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell37>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--16-input--2 name=tab-set--16 type=radio value=on><label class=tab-label for=tab-set--16-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+</section>
+<section id=using-a-requirements-file>
+<h2>Using a requirements file<a class=headerlink href=#using-a-requirements-file title="Link to this heading">¶</a></h2>
+<p>Instead of installing packages individually, pip allows you to declare all
+dependencies in a <a class="reference external" href=https://pip.pypa.io/en/latest/user_guide/#requirements-files title="(in pip v25.3)"><span class="xref std std-ref">Requirements File</span></a>. For
+example you could create a <code class="file docutils literal notranslate"><span class=pre>requirements.txt</span></code> file containing:</p>
+<div class="highlight-text notranslate"><div class=highlight><pre id=codecell39><span></span>requests==2.18.4
+google-auth==1.1.0
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell39>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+<p>And tell pip to install all of the packages in this file using the <code class="docutils literal notranslate"><span class=pre>-r</span></code> flag:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--17-input--1 name=tab-set--17 type=radio value=on><label class=tab-label for=tab-set--17-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell40><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>install<span class=w> </span>-r<span class=w> </span>requirements.txt
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell40>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--17-input--2 name=tab-set--17 type=radio value=on><label class=tab-label for=tab-set--17-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+</section>
+<section id=freezing-dependencies>
+<h2>Freezing dependencies<a class=headerlink href=#freezing-dependencies title="Link to this heading">¶</a></h2>
+<p>Pip can export a list of all installed packages and their versions using the
+<code class="docutils literal notranslate"><span class=pre>freeze</span></code> command:</p>
+<div class="tab-set docutils container">
+<input checked class=tab-input id=tab-set--18-input--1 name=tab-set--18 type=radio value=on><label class=tab-label for=tab-set--18-input--1>Unix/macOS</label><div class="tab-content docutils container">
+<div class="highlight-bash notranslate"><div class=highlight><pre id=codecell42><span></span>python3<span class=w> </span>-m<span class=w> </span>pip<span class=w> </span>freeze
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell42>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+</div>
+<input class=tab-input id=tab-set--18-input--2 name=tab-set--18 type=radio value=on><label class=tab-label for=tab-set--18-input--2>Windows</label><div class="tab-content docutils container sf-hidden">
+</div>
+</div>
+<p>Which will output a list of package specifiers such as:</p>
+<div class="highlight-text notranslate"><div class=highlight><pre id=codecell44><span></span>cachetools==2.0.1
+certifi==2017.7.27.1
+chardet==3.0.4
+google-auth==1.1.1
+idna==2.6
+pyasn1==0.3.6
+pyasn1-modules==0.1.4
+requests==2.18.4
+rsa==3.4.2
+six==1.11.0
+urllib3==1.22
+</pre><button class="copybtn o-tooltip--left" data-tooltip=Copy data-clipboard-target=#codecell44>
+ <svg xmlns=http://www.w3.org/2000/svg class="icon icon-tabler icon-tabler-copy" width=44 height=44 viewBox="0 0 24 24" stroke-width=1.5 stroke=#000000 fill=none stroke-linecap=round stroke-linejoin=round style=--darkreader-inline-stroke:var(--darkreader-text-000000,#e8e6e3) data-darkreader-inline-stroke>
+ <title>Copy to clipboard</title>
+ <path stroke=none d="M0 0h24v24H0z" fill=none style=--darkreader-inline-stroke:none data-darkreader-inline-stroke></path>
+ <rect x=8 y=8 width=12 height=12 rx=2></rect>
+ <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+ </button></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class=pre>pip</span> <span class=pre>freeze</span></code> command is useful for creating <a class="reference external" href=https://pip.pypa.io/en/latest/user_guide/#requirements-files title="(in pip v25.3)"><span>Requirements Files</span></a>
+that can re-create the exact versions of all packages installed in an environment.</p>
+</section>
+</section>
+ <div class="raised adaptive-css" data-ea-type=text data-ea-manual=true data-ea-publisher=readthedocs-psf data-ea-keywords=packaging|pypi|python|readthedocs-project-6774|readthedocs-project-python-packaging-user-guide data-ea-campaign-types=community|house|paid id=readthedocs-ea-text-nostyle-sphinx></div></article>
+ </div>
+ <footer>
+ 
+ <div class=related-pages>
+ <a class=next-page href=https://packaging.python.org/en/latest/guides/installing-using-virtualenv/>
+ <div class=page-info>
+ <div class=context>
+ <span>Next</span>
+ </div>
+ <div class=title>Installing packages using virtualenv</div>
+ </div>
+ <svg class=furo-related-icon><use href=#svg-arrow-right></use></svg>
+ </a>
+ <a class=prev-page href=https://packaging.python.org/en/latest/guides/section-install/>
+ <svg class=furo-related-icon><use href=#svg-arrow-right></use></svg>
+ <div class=page-info>
+ <div class=context>
+ <span>Previous</span>
+ </div>
+ 
+ <div class=title>Installation</div>
+ 
+ </div>
+ </a>
+ </div>
+ <div class=bottom-of-page>
+ <div class=left-details>
+ <div class=copyright>
+ Copyright © 2013–2020, PyPA
+ </div>
+ Made with <a href=https://www.sphinx-doc.org/>Sphinx</a> and <a class=muted-link href=https://pradyunsg.me/>@pradyunsg</a>'s
+ 
+ <a href=https://github.com/pradyunsg/furo>Furo</a>
+ <div class=last-updated>
+ Last updated on Oct 10, 2025</div>
+ </div>
+ <div class=right-details>
+ 
+ </div>
+ </div>
+ 
+ </footer>
+ </div>
+ <aside class=toc-drawer>
+ 
+ 
+ <div class="toc-sticky toc-scroll">
+ <div class=toc-title-container>
+ <span class=toc-title>
+ On this page
+ </span>
+ </div>
+ <div class=toc-tree-container>
+ <div class=toc-tree>
+ <ul>
+<li><a class="reference internal sf-hidden" href=#>Install packages in a virtual environment using pip and venv</a><ul>
+<li><a class="reference internal" href=#create-and-use-virtual-environments>Create and Use Virtual Environments</a><ul>
+<li class=scroll-current><a class="reference internal" href=#create-a-new-virtual-environment>Create a new virtual environment</a></li>
+<li><a class="reference internal" href=#activate-a-virtual-environment>Activate a virtual environment</a></li>
+<li><a class="reference internal" href=#deactivate-a-virtual-environment>Deactivate a virtual environment</a></li>
+<li><a class="reference internal" href=#reactivate-a-virtual-environment>Reactivate a virtual environment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href=#prepare-pip>Prepare pip</a></li>
+<li><a class="reference internal" href=#install-packages-using-pip>Install packages using pip</a><ul>
+<li><a class="reference internal" href=#install-a-package>Install a package</a></li>
+<li><a class="reference internal" href=#install-a-specific-package-version>Install a specific package version</a></li>
+<li><a class="reference internal" href=#install-extras>Install extras</a></li>
+<li><a class="reference internal" href=#install-a-package-from-source>Install a package from source</a></li>
+<li><a class="reference internal" href=#install-from-version-control-systems>Install from version control systems</a></li>
+<li><a class="reference internal" href=#install-from-local-archives>Install from local archives</a></li>
+<li><a class="reference internal" href=#install-from-other-package-indexes>Install from other package indexes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href=#upgrading-packages>Upgrading packages</a></li>
+<li><a class="reference internal" href=#using-a-requirements-file>Using a requirements file</a></li>
+<li><a class="reference internal" href=#freezing-dependencies>Freezing dependencies</a></li>
+</ul>
+</li>
+</ul>
+ </div>
+ </div>
+ </div>
+ 
+ 
+ </aside>
+ </div>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<div class=altq-root><div class=qr-toast></div></div><readthedocs-flyout><template shadowrootmode=open><style>@layer defaults{:root{--readthedocs-flyout-max-width:25em;--readthedocs-flyout-font-family:var(--readthedocs-font-family);--readthedocs-flyout-font-size:calc(var(--readthedocs-font-size)*0.8);--readthedocs-flyout-header-font-size:1.125em;--readthedocs-flyout-dt-font-size:1.125em;--readthedocs-flyout-dd-font-size:1.125em;--readthedocs-flyout-line-height:1.25em;--readthedocs-flyout-color:rgb(128,128,128);--readthedocs-flyout-background-color:rgb(39,39,37);--readthedocs-flyout-current-version-color:#27ae60;--readthedocs-flyout-section-heading-color:rgb(128,128,128);--readthedocs-flyout-item-link-color:rgb(252,252,252);--readthedocs-flyout-divider-color:#413d3d;--readthedocs-flyout-link-color:rgb(42,128,185)}}.container{position:fixed;max-width:var(--readthedocs-flyout-max-width);width:auto;height:auto;max-height:calc(100% - 100px);overflow-y:auto;line-height:var(--readthedocs-flyout-line-height)}.container.bottom-right{right:20px;bottom:50px}.container.bottom-left{left:20px;bottom:50px}.container.top-left{left:20px;top:50px}.container.top-right{right:20px;top:50px}:host>div{font-family:var(--readthedocs-flyout-font-family);font-size:var(--readthedocs-flyout-font-size);color:var(--readthedocs-flyout-color);background-color:var(--readthedocs-flyout-background-color);line-height:var(--readthedocs-flyout-line-height);z-index:3000;padding:0px 10px;overflow-y:auto}header{display:flex;flex-flow:row;gap:0.5em;align-items:center;cursor:pointer;background-color:var(--readthedocs-flyout-background-color);position:sticky;top:0px;font-size:var(--readthedocs-flyout-header-font-size)}header>img.logo{max-height:1.5em;width:auto;padding:0.5em 0em;margin-right:0.75em;flex:0 1 auto}header>span{color:var(--readthedocs-flyout-current-version-color);font-size:var(--readthedocs-flyout-header-font-size);margin-left:10px;padding:0.75em 0em;line-height:1em;flex:0 0 auto;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}header>span.version{flex:0 1 auto}header>span:first-of-type{margin-left:auto}header>span svg.icon{color:rgb(128,128,128);height:var(--readthedocs-flyout-header-font-size);padding-right:0.25em;vertical-align:middle}main{padding:5px 5px 15px;margin-top:5px}main.closed{display:none}dl{margin:0px;padding:0px}dl>dt{font-size:var(--readthedocs-flyout-dt-font-size);color:var(--readthedocs-flyout-section-heading-color)}dl>dd{display:inline-block;margin:0px;font-size:var(--readthedocs-flyout-dd-font-size)}dd a{text-decoration:none;color:var(--readthedocs-flyout-item-link-color);padding:6px;display:inline-block}dd form{padding:6px;margin:0px}dd input{padding:6px;font-size:80%}hr{display:block;height:1px;border-width:1px 0px 0px;border-style:solid none none;border-right:0px;border-bottom:0px;border-left:0px;border-image:none;margin:20px 0px;padding:0px;border-top-color:var(--readthedocs-flyout-divider-color)}small a{text-decoration:none;color:var(--readthedocs-flyout-link-color)}</style><div class="floating container bottom-right">
+ 
+ <header>
+ <img class=logo alt="Read the Docs" src=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmc6c3ZnCiAgIHZlcnNpb249IjEuMSIKICAgaWQ9InN2ZyIKICAgeD0iMHB4IgogICB5PSIwcHgiCiAgIHZpZXdCb3g9IjY5NCAxOTcgMzQ2LjY5ODU1IDM5OS45ODQ3NyIKICAgc29kaXBvZGk6ZG9jbmFtZT0ibG9nby1saWdodC5zdmciCiAgIHdpZHRoPSIzNDYuNjk4NTUiCiAgIGhlaWdodD0iMzk5Ljk4NDc3IgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjMuMiAoMDkxZTIwZWYwZiwgMjAyMy0xMS0yNSwgY3VzdG9tKSIKICAgeG1sbnM6aW5rc2NhcGU9Imh0dHA6Ly93d3cuaW5rc2NhcGUub3JnL25hbWVzcGFjZXMvaW5rc2NhcGUiCiAgIHhtbG5zOnNvZGlwb2RpPSJodHRwOi8vc29kaXBvZGkuc291cmNlZm9yZ2UubmV0L0RURC9zb2RpcG9kaS0wLmR0ZCIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHN2ZzpkZWZzCiAgICAgaWQ9ImRlZnMxMiIgLz4KICA8c29kaXBvZGk6bmFtZWR2aWV3CiAgICAgaWQ9Im5hbWVkdmlldzEyIgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzAwMDAwMCIKICAgICBib3JkZXJvcGFjaXR5PSIwLjI1IgogICAgIGlua3NjYXBlOnNob3dwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBpbmtzY2FwZTpkZXNrY29sb3I9IiNkMWQxZDEiCiAgICAgaW5rc2NhcGU6em9vbT0iMS4yNTIiCiAgICAgaW5rc2NhcGU6Y3g9Ijk5OC40MDI1NiIKICAgICBpbmtzY2FwZTpjeT0iMTk5LjY4MDUxIgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMzQ0MCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMzg5IgogICAgIGlua3NjYXBlOndpbmRvdy14PSIwIgogICAgIGlua3NjYXBlOndpbmRvdy15PSIyNyIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZyIgLz4KICA8c3ZnOmcKICAgICBpZD0ibG9nbyIKICAgICB0cmFuc2Zvcm09Im1hdHJpeCgwLjU1NzUzNjQ0LDAsMCwwLjU1NzUzNjQ0LDY2LjUzMTgxMiwxMDUwLjEyNjIpIj4KICAgIDxzdmc6cGF0aAogICAgICAgc3R5bGU9ImZpbGw6I2ZjZmNmYyIKICAgICAgIGQ9Im0gMTQwOC4xLC0xMTgxLjcgYyAtNy41LDEgLTEyLjcsNy44IC0xMS43LDE1LjMgMC43LDUuNCA0LjYsOS45IDkuOSwxMS4zIDAsMCAzMy4yLDExIDg5LjcsMTUuNiA0NS40LDMuNyA5Ni45LC0zLjIgOTYuOSwtMy4yIDcuNSwtMC4yIDEzLjUsLTYuNSAxMy4yLC0xNCAtMC4zLC03LjUgLTYuNSwtMTMuNSAtMTQsLTEzLjIgLTAuOSwwIC0xLjgsMC4xIC0yLjYsMC4zIDAsMCAtNTAuNCw2LjIgLTkxLjMsMi45IC01NCwtNC40IC04My40LC0xNC4zIC04My40LC0xNC4zIC0yLjIsLTAuNyAtNC41LC0xIC02LjcsLTAuNyB6IG0gMCwtNjcuNiBjIC03LjUsMSAtMTIuNyw3LjggLTExLjcsMTUuMyAwLjcsNS40IDQuNiw5LjkgOS45LDExLjMgMCwwIDMzLjIsMTEgODkuNywxNS42IDQ1LjQsMy43IDk2LjksLTMuMiA5Ni45LC0zLjIgNy41LC0wLjIgMTMuNSwtNi41IDEzLjIsLTE0IC0wLjMsLTcuNSAtNi41LC0xMy41IC0xNCwtMTMuMiAtMC45LDAgLTEuOCwwLjEgLTIuNiwwLjMgMCwwIC01MC40LDYuMiAtOTEuMywyLjkgLTU0LC00LjQgLTgzLjQsLTE0LjMgLTgzLjQsLTE0LjMgLTIuMiwtMC43IC00LjUsLTEgLTYuNywtMC43IHogbSAwLC02Ny42IGMgLTcuNSwxIC0xMi43LDcuOCAtMTEuNywxNS4zIDAuNyw1LjQgNC42LDkuOSA5LjksMTEuMyAwLDAgMzMuMiwxMSA4OS43LDE1LjYgNDUuNCwzLjcgOTYuOSwtMy4yIDk2LjksLTMuMiA3LjUsLTAuMiAxMy41LC02LjUgMTMuMiwtMTQgLTAuMywtNy41IC02LjUsLTEzLjUgLTE0LC0xMy4yIC0wLjksMCAtMS44LDAuMSAtMi42LDAuMyAwLDAgLTUwLjQsNi4yIC05MS4zLDIuOSAtNTQsLTQuNCAtODMuNCwtMTQuMyAtODMuNCwtMTQuMyAtMi4yLC0wLjcgLTQuNSwtMSAtNi43LC0wLjcgeiBtIDAsLTY3LjUgYyAtNy41LDEgLTEyLjcsNy44IC0xMS43LDE1LjMgMC43LDUuNCA0LjYsOS45IDkuOSwxMS4zIDAsMCAzMy4yLDExIDg5LjcsMTUuNiA0NS40LDMuNyA5Ni45LC0zLjIgOTYuOSwtMy4yIDcuNSwtMC4yIDEzLjUsLTYuNSAxMy4yLC0xNCAtMC4zLC03LjUgLTYuNSwtMTMuNSAtMTQsLTEzLjIgLTAuOSwwIC0xLjgsMC4xIC0yLjYsMC4zIDAsMCAtNTAuNCw2LjIgLTkxLjMsMi45IC01NCwtNC40IC04My40LC0xNC4zIC04My40LC0xNC4zIC0yLjIsLTAuOCAtNC41LC0xIC02LjcsLTAuNyB6IG0gLTk0LjcsLTcxLjMgYyAtNzEsMC41IC05Ny41LDIyLjMgLTk3LjUsMjIuMyB2IDUzMC4zIGMgMCwwIDI1LjgsLTIyLjMgMTA5LC0xOC45IDgzLjIsMy40IDEwMC4zLDMyLjYgMjAyLjUsMzQuNiAxMDIuMiwyLjEgMTI3LjksLTE1LjcgMTI3LjksLTE1LjcgbCAxLjUsLTU0MC42IGMgMCwwIC00NiwxMyAtMTM1LjUsMTMuNyAtODkuNSwwLjcgLTExMSwtMjIuOCAtMTkzLjIsLTI1LjUgLTUuMSwtMC4xIC0xMCwtMC4yIC0xNC43LC0wLjIgeiBtIDU5LjQsMzQuNiBjIDAsMCA0MywxNC4yIDEyMi41LDE4LjIgNjcuMiwzLjMgMTM0LjUsLTYuNiAxMzQuNSwtNi42IFYgLTkyOSBjIDAsMCAtMzQuMSwxNy45IC0xMTkuMywxMS44IC02NiwtNC43IC0xMzguNywtMjkuNyAtMTM4LjcsLTI5LjcgeiBtIC00MS41LDEyLjUgYyA3LjYsMCAxMy43LDYuMiAxMy43LDEzLjcgMCw3LjUgLTYuMiwxMy43IC0xMy43LDEzLjcgMCwwIC0yMi4zLDAuMSAtMzUuOCwxLjUgLTIyLjgsMi4zIC0zOC4zLDEwLjYgLTM4LjMsMTAuNiAtNi43LDMuNSAtMTUsMSAtMTguNSwtNS43IC0zLjUsLTYuNyAtMSwtMTUgNS43LC0xOC41IDAsMCAwLDAgMCwwIDAsMCAyMC4yLC0xMC43IDQ4LjQsLTEzLjUgMTYuMywtMS43IDM4LjUsLTEuOCAzOC41LC0xLjggeiBtIC0xMy4yLDY3LjggYyA3LjYsLTAuMiAxMy4zLDAgMTMuMywwIDcuNSwwLjkgMTIuOSw3LjggMTIsMTUuMyAtMC44LDYuMyAtNS43LDExLjIgLTEyLDEyIDAsMCAtMjIuMywwLjEgLTM1LjgsMS41IC0yMi44LDIuMyAtMzguMywxMC42IC0zOC4zLDEwLjYgLTYuNywzLjUgLTE1LDAuOSAtMTguNSwtNS44IC0zLjUsLTYuNyAtMC45LC0xNSA1LjgsLTE4LjUgMCwwIDIwLjIsLTEwLjcgNDguNCwtMTMuNSA3LjksLTAuOSAxNy41LC0xLjQgMjUuMSwtMS42IHogbSAxMy4yLDY3LjUgYyA3LjYsMCAxMy43LDYuMiAxMy43LDEzLjcgMCw3LjYgLTYuMiwxMy43IC0xMy43LDEzLjcgMCwwIC0yMi4zLC0wLjEgLTM1LjgsMS4yIC0yMi44LDIuMyAtMzguMywxMC42IC0zOC4zLDEwLjYgLTYuNywzLjUgLTE1LDAuOSAtMTguNSwtNS44IC0zLjUsLTYuNyAtMC45LC0xNSA1LjgsLTE4LjUgMCwwIDIwLjIsLTEwLjcgNDguNCwtMTMuNSAxNi4yLC0xLjUgMzguNCwtMS40IDM4LjQsLTEuNCB6IgogICAgICAgaWQ9InBhdGgxIiAvPgogIDwvc3ZnOmc+CiAgPGRpdgogICAgIGlkPSJzYWthLWd1aS1yb290Ij4KICAgIDxkaXY+CiAgICAgIDxkaXY+CiAgICAgICAgPHN0eWxlIC8+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgPC9kaXY+Cjwvc3ZnOnN2Zz4K>
+ <span class=language>
+ <svg data-prefix=fas data-icon=language class="svg-inline--fa fa-language icon" role=img viewBox="0 0 576 512" aria-hidden=true><path fill=currentColor d="M160 0c17.7 0 32 14.3 32 32l0 32 128 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-9.6 0-8.4 23.1c-16.4 45.2-41.1 86.5-72.2 122 14.2 8.8 29 16.6 44.4 23.5l50.4 22.4 62.2-140c5.1-11.6 16.6-19 29.2-19s24.1 7.4 29.2 19l128 288c7.2 16.2-.1 35.1-16.2 42.2s-35.1-.1-42.2-16.2l-20-45-157.5 0-20 45c-7.2 16.2-26.1 23.4-42.2 16.2s-23.4-26.1-16.2-42.2l39.8-89.5-50.4-22.4c-23-10.2-45-22.4-65.8-36.4-21.3 17.2-44.6 32.2-69.5 44.7L78.3 380.6c-15.8 7.9-35 1.5-42.9-14.3s-1.5-35 14.3-42.9l34.5-17.3c16.3-8.2 31.8-17.7 46.4-28.3-13.8-12.7-26.8-26.4-38.9-40.9L81.6 224.7c-11.3-13.6-9.5-33.8 4.1-45.1s33.8-9.5 45.1 4.1l10.2 12.2c11.5 13.9 24.1 26.8 37.4 38.7 27.5-30.4 49.2-66.1 63.5-105.4l.5-1.2-210.3 0C14.3 128 0 113.7 0 96S14.3 64 32 64l96 0 0-32c0-17.7 14.3-32 32-32zM416 270.8L365.7 384 466.3 384 416 270.8z"></path></svg>
+ en</span> <span class=version>
+ <svg data-prefix=fas data-icon=code-branch class="svg-inline--fa fa-code-branch icon" role=img viewBox="0 0 448 512" aria-hidden=true><path fill=currentColor d="M80 104a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm80-24c0 32.8-19.7 61-48 73.3l0 70.7 176 0c26.5 0 48-21.5 48-48l0-22.7c-28.3-12.3-48-40.5-48-73.3 0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3l0 22.7c0 61.9-50.1 112-112 112l-176 0 0 70.7c28.3 12.3 48 40.5 48 73.3 0 44.2-35.8 80-80 80S0 476.2 0 432c0-32.8 19.7-61 48-73.3l0-205.3C19.7 141 0 112.8 0 80 0 35.8 35.8 0 80 0s80 35.8 80 80zm232 0a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM80 456a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path></svg> latest
+ </span> 
+ <span class=caret><svg data-prefix=fas data-icon=caret-down class="svg-inline--fa fa-caret-down icon" role=img viewBox="0 0 384 512" aria-hidden=true><path fill=currentColor d="M352 160c12.9 0 24.6 7.8 29.6 19.8s2.2 25.7-6.9 34.9l-160 160c-12.5 12.5-32.8 12.5-45.3 0l-160-160c-9.2-9.2-11.9-22.9-6.9-34.9S19.1 160 32 160l320 0z"></path></svg></span>
+ </header>
+ 
+ <main class="closed sf-hidden">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </main>
+ </div>
+ </template></readthedocs-flyout><readthedocs-notification class="raised toast"><template shadowrootmode=open><style>@layer defaults{:root{--readthedocs-notification-font-size:calc(var(--readthedocs-font-size)*0.85);--readthedocs-notification-font-family:var(--readthedocs-font-family);--readthedocs-notification-color:rgb(64,64,64);--readthedocs-notification-background-color:rgb(234,234,234);--readthedocs-notification-title-color:rgba(96,96,96);--readthedocs-notification-link-color:rgb(8,140,219);--readthedocs-notification-inverted-color:rgb(234,234,234);--readthedocs-notification-inverted-background-color:rgb(64,64,64);--readthedocs-notification-inverted-title-color:rgba(255,255,255,0.9);--readthedocs-notification-title-background-color:rgb(48,48,48);--readthedocs-notification-inverted-link-color:rgb(134,203,243)}}:host>div{margin:1rem 0rem;padding-top:var(--readthedocs-notification-font-size);padding-bottom:var(--readthedocs-notification-font-size);overflow:auto;border-radius:0.5rem;font-family:var(--readthedocs-notification-font-family);font-size:var(--readthedocs-notification-font-size);color:var(--readthedocs-notification-color);background-color:var(--readthedocs-notification-background-color)}:host(.floating)>div{position:fixed;top:2rem;left:20%;width:60%;z-index:1750}:host(.toast)>div{position:fixed;padding-top:0.75em;padding-bottom:0.75em;margin:0.75rem 0rem;top:2rem;right:2rem;z-index:1750;width:35rem;max-width:calc(-4rem + 100vw)}@media (max-width:640px){:host(.toast)>div{right:0.5rem}:host(.floating)>div{width:95%;left:2%}}:host(.raised)>div{box-shadow:rgba(34,36,38,0.12) 0px 2px 4px 0px,rgba(34,36,38,0.15) 0px 2px 10px 0px}:host(.titled)>div{padding:0rem;text-align:center}:host>div>svg.header.icon{height:2em;padding:0.5rem 1.5rem;float:left}:host(.toast)>div>svg.header.icon{height:1.5em}:host(.titled)>div>svg.header.icon{display:none}:host(.inverted)>div{color:var(--readthedocs-notification-inverted-color);background-color:var(--readthedocs-notification-inverted-background-color)}:host>div a{color:var(--readthedocs-notification-link-color);text-decoration:none}:host(.inverted)>div a{color:var(--readthedocs-notification-inverted-link-color)}:host>div>.title{padding:0.25rem 1em;margin-bottom:0.25rem;line-height:1em;font-weight:bold}:host>div>div.content{line-height:1.2em;padding:0px 1.5em}:host(.toast)>div>.title{padding:0rem 1em}:host(.titled)>div>.title{display:block;margin:0rem;padding:0.1rem 1em;line-height:2em;border-radius:0.5rem 0.5rem 0px 0px;color:var(--readthedocs-notification-title-color);background-color:var(--readthedocs-notification-title-background-color);vertical-align:middle;font-weight:bold}:host(.titled)>div>div.content{margin-top:1rem;margin-bottom:1rem;padding:0rem 0.65rem}:host(.inverted)>div>.title{color:var(--readthedocs-notification-inverted-title-color)}:host(.inverted.titled)>div>.title{background-color:var(--readthedocs-notification-title-background-color)}:host>div>.title>.right{float:right}:host>div>.title>.right>svg{display:inline-block;height:1em;vertical-align:middle;cursor:pointer;color:var(--readthedocs-notification-title-color);font-weight:normal}:host(.inverted)>div>.title>.right>svg{color:var(--readthedocs-notification-inverted-title-color)}:host(.titled)>div>.title>.right>svg{margin:0.5rem 0rem}</style></template></readthedocs-notification><readthedocs-search class="raised floating"><template shadowrootmode=open><style>@layer defaults{:root{--readthedocs-search-font-family:var(--readthedocs-font-family);--readthedocs-search-font-size:var(--readthedocs-font-size);--readthedocs-search-code-font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--readthedocs-search-code-font-size:0.9em;--readthedocs-search-backdrop-color:rgba(0,0,0,0.3);--readthedocs-search-color:rgb(64,64,64);--readthedocs-search-link-color:rgb(64,64,64);--readthedocs-search-content-background-color:#fcfcfc;--readthedocs-search-content-border-color:#e0e0e0;--readthedocs-search-filters-border-color:#e0e0e0;--readthedocs-search-footer-background-color:rgb(234,234,234);--readthedocs-search-footer-color:#404040;--readthedocs-search-footer-code-background-color:#fff;--readthedocs-search-footer-code-border-color:#e1e4e5;--readthedocs-search-input-background-color:#eaeaea;--readthedocs-search-result-highlight-color:var(--readthedocs-search-result-section-highlight-color,#6ea0ec);--readthedocs-search-result-background-color:initial;--readthedocs-search-result-color:var(--readthedocs-search-result-section-color,rgba(0,0,0,0.54));--readthedocs-search-result-icon-color:rgba(0,0,0,0.54);--readthedocs-search-result-heading-color:rbg(0,0,0);--readthedocs-search-result-subheading-color:var(--readthedocs-search-result-section-subheading-color,rgba(0,0,0,0.64));--readthedocs-search-result-active-background-color:rgb(245,245,245);--readthedocs-search-result-border-color:rgb(224,224,224)}}:host>div{font-family:var(--readthedocs-search-font-family);font-size:var(--readthedocs-search-font-size);color:var(--readthedocs-search-color);position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:3000;line-height:1rem}:host>div a{color:var(--readthedocs-search-link-color);text-decoration:none;cursor:pointer}:host>div code{background:var(--readthedocs-search-footer-code-background-color);padding:2px 5px;border:solid 1px var(--readthedocs-search-footer-code-border-color);color:var(--readthedocs-search-color);white-space:pre-wrap;overflow-wrap:break-word;font-family:var(--readthedocs-search-code-font-family);font-size:var(--readthedocs-search-code-font-size);border-radius:0px}:host>div .background{position:fixed;top:0px;left:0px;z-index:1250;width:100%;height:100%;background-color:var(--readthedocs-search-backdrop-color);backdrop-filter:blur(3px)}:host>div>div.content{margin:5em auto auto;position:absolute;inset:0px;z-index:100000;height:80%;width:60%;max-width:43em;overflow-y:hidden;display:flex;flex-direction:column;border:1px solid var(--readthedocs-search-content-border-color);border-radius:0.7rem;line-height:1.75rem;background-color:var(--readthedocs-search-content-background-color);box-shadow:rgba(0,0,0,0.05) 5px 5px 5px 5px,rgba(0,0,0,0.05) -5px -5px 5px 5px;text-align:left}:host>div form{background-color:var(--readthedocs-search-input-background-color);margin:0.5em;border-radius:0.25em;font-size:1.05em;padding:5px;display:flex}:host>div form.focus{outline:rgb(110,160,236) solid 2px}:host>div form>label{font-size:1.15em;padding-left:5px;color:var(--readthedocs-search-color)}:host>div form label svg{height:1em;position:relative;top:5px}:host>div form>input{border:0px;outline:none;background:inherit;font-size:1.15em;box-shadow:none;width:100%;padding:6px;line-height:1;color:var(--readthedocs-search-color,rgb(64,64,64))}:host>div .results{margin-top:10px;padding:0.5em;overflow-y:scroll;height:100%;hyphens:auto}div.hit-block{padding-top:3px;border-top:1px solid var(--readthedocs-search-result-border-color);display:flex;flex-direction:column;margin-bottom:10px;background-color:var(--readthedocs-search-result-background-color)}div.hit-block a.hit-block-heading{display:flex;align-items:center}div.hit-block .hit-block-heading-container{display:flex;align-items:center;justify-content:space-between}div.hit-block a.hit-block-heading i,div.hit-block .hit-block-heading-container .close-icon{font-size:1.15em;width:1em;padding-right:10px;color:var(--readthedocs-search-result-icon-color);padding-top:5px}button.close-icon{border:medium;margin:0px 0px 15px;padding:0px 10px 0px 0px;overflow:visible;display:inline-block;width:1em;height:1em;vertical-align:middle;background:transparent;cursor:pointer}button.close-icon svg{pointer-events:none}div.hit-block a.hit-block-heading i svg,div.hit-block .hit-block-heading-container svg{width:1em}:host>div .results a.hit{width:100%;display:inline-block;padding:0.15em calc(1.15em + 10px);box-sizing:border-box}:host>div .results a.hit:hover,:host>div .results .hit .active{background-color:var(--readthedocs-search-result-active-background-color)}:host>div .results h2{display:inline-block;font-weight:700;margin-top:3px;margin-bottom:5px;font-size:1em;color:var(--readthedocs-search-result-heading-color);line-height:inherit}:host>div .results a.hit>div{display:flex;flex-direction:column}:host>div .results .hit .subheading{color:var(--readthedocs-search-result-subheading-color);font-weight:700;font-size:15px;overflow-x:hidden;margin:inherit;line-height:inherit}:host>div .results .hit .content{margin:0px;text-decoration:none;color:var(--readthedocs-search-result-color);font-size:15px;display:block;line-height:inherit;text-align:left}:host>div .results span{font-style:normal}:host>div .results .hit h2 span{background-color:rgb(229,246,255);padding-bottom:3px;border-bottom-color:black}:host>div .results .hit span{color:var(--readthedocs-search-result-highlight-color);font-style:italic;font-weight:bold}:host div.content>div.footer{width:100%;display:inline-block;height:30px;background-color:var(--readthedocs-search-footer-background-color);color:var(--readthedocs-search-footer-color)}:host>div .credits{float:right;margin:0px 15px;font-size:small;padding-top:3px}:host>div .credits a img{display:inline-block;width:100px;vertical-align:middle}:host>div .readthedocs-search-result-hit--domain-role{font-size:80%;letter-spacing:1px}:host>div .filters-title{display:block;font-size:0.9rem;position:absolute;top:0px;left:14px;background:rgb(252,252,252);margin:0px 5px;padding:0px 5px}:host>div .filters{position:relative;padding-top:0.9rem;margin:0px 0.5em}:host>div .filters ul{display:block;margin:0px;padding:5px 14px;border-radius:0.3rem;border-style:solid;border-width:1px;border-top-color:;border-right-color:;border-left-color:;border-bottom:1px solid rgb(224,224,224)}:host>div .filters li{display:inline-block;margin:0px 0px 0px 15px}:host>div .filters li label{padding:3px}:host>div .filters label{font-size:0.9rem}:host>div .no-results{text-align:center;padding:15px;margin:0px auto;width:80%}:host>div .no-results>p.title{margin-top:0px;margin-bottom:0.5em}:host>div .no-results>svg{height:5.5rem;margin-bottom:1.15em}:host>div .no-results>div.footer p{font-size:small}:host>div .no-results>.tips{padding:0px;text-align:left;font-size:15px;margin-bottom:1.15em}:host>div .no-results>.tips ul{padding:0px 0px 0px 0.7em;margin:0px}:host>div .no-results>.tips li{list-style-position:inside;list-style-type:"» ";margin:0px;color:var(--readthedocs-search-color)}:host>div .help{display:inline-block;font-size:small;margin:0px 15px;padding:0px}:host>div .help li{list-style:none;display:inline-block;margin:0px 0.4em}</style><div role=search hidden class=sf-hidden>
+ 
+ 
+ </div>
+ </template></readthedocs-search><readthedocs-hotkeys><template shadowrootmode=open></template></readthedocs-hotkeys><protonpass-root-e27d data-protonpass-role=root data-protonpass-theme=dark><template shadowrootmode=closed></template></protonpass-root-e27d><div data-wordglance style=position:fixed;top:0px;left:0px;width:0px;height:0px;z-index:999999;pointer-events:none><template shadowrootmode=open><style class=sf-hidden>.wordglance-tooltip{position:absolute;background:#ffffff;border:1px solid #e0e0e0;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);padding:16px;max-width:320px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.5;display:none;pointer-events:auto;transition:opacity 0.3s ease,transform 0.3s ease;word-wrap:break-word;overflow-wrap:break-word;opacity:0;transform:translateY(-10px) scale(0.95);will-change:transform,opacity;color:#2c3e50;contain:layout style paint;z-index:99999}.wordglance-tooltip.show{opacity:1;transform:translateY(0) scale(1)}.wordglance-tooltip.dark-mode{background:#1a1a1a;border-color:#333333;color:#e0e0e0;box-shadow:0 4px 12px rgba(0,0,0,0.4)}.wordglance-trigger-icon{position:absolute;background:#3498db;color:white;border:none;border-radius:50%;width:24px;height:24px;font-size:12px;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:transform 0.25s ease,background-color 0.25s ease;font-weight:bold;opacity:0;transform:scale(0.8);will-change:transform,opacity;pointer-events:auto;z-index:9999}@media (hover:none) and (pointer:coarse){.wordglance-trigger-icon{width:32px;height:32px;font-size:16px}}.wordglance-trigger-icon.show{opacity:1;transform:scale(1)}.wordglance-trigger-icon:hover{background:#2980b9;transform:scale(1.1)}.wordglance-trigger-icon.dark-mode{background:#ff6b6b}.wordglance-trigger-icon.dark-mode:hover{background:#ff5252}.wordglance-tooltip .definition-section{margin-bottom:16px}.wordglance-tooltip .translation-section{margin-bottom:0}.wordglance-tooltip .section-title{font-weight:600;color:#2c3e50;margin-bottom:8px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;display:flex;justify-content:space-between;align-items:center}.wordglance-tooltip.dark-mode .section-title{color:#cccccc}.wordglance-tooltip .slider-controls{display:flex;gap:4px;align-items:center}.wordglance-tooltip .slider-button{background:none;border:none;border-radius:3px;width:20px;height:20px;font-size:12px;cursor:pointer;color:#7f8c8d;display:flex;align-items:center;justify-content:center;transition:color 0.2s}.wordglance-tooltip .slider-button:hover{color:#2c3e50}.wordglance-tooltip .slider-button:disabled{opacity:0.4;cursor:not-allowed}.wordglance-tooltip.dark-mode .slider-button{color:#cccccc}.wordglance-tooltip.dark-mode .slider-button:hover:not(:disabled){color:#ffffff}.wordglance-tooltip .slider-info{font-size:11px;color:#7f8c8d;margin:0 4px;white-space:nowrap}.wordglance-tooltip .content-container{position:relative;overflow:hidden;height:auto;transition:height 0.4s cubic-bezier(0.25,0.46,0.45,0.94);will-change:height}.wordglance-tooltip .content-slider{display:flex;transition:transform 0.3s ease;width:100%;height:auto;will-change:transform}.wordglance-tooltip .content-page{min-width:100%;max-width:100%;flex-shrink:0;word-wrap:break-word;overflow-wrap:break-word;box-sizing:border-box;height:auto}.wordglance-tooltip .definition-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #f8f9fa;word-wrap:break-word;overflow-wrap:break-word}.wordglance-tooltip.dark-mode .definition-item{border-bottom-color:#333333}.wordglance-tooltip .definition-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.wordglance-tooltip .part-of-speech{color:#7f8c8d;font-style:italic;font-size:12px;margin-right:8px}.wordglance-tooltip.dark-mode .part-of-speech{color:#cccccc}.wordglance-tooltip .definition-text{color:#2c3e50;margin-bottom:4px;word-wrap:break-word;overflow-wrap:break-word}.wordglance-tooltip.dark-mode .definition-text{color:#e0e0e0}.wordglance-tooltip .translation-item{margin-bottom:4px;word-wrap:break-word;overflow-wrap:break-word}.wordglance-tooltip .translation-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;min-height:80px;position:relative;border-radius:4px;overflow:hidden}.wordglance-tooltip .translation-grid::before{content:"";position:absolute;top:50%;left:10%;right:10%;height:2px;background:#e0e0e0;transform:translateY(-1px);z-index:3}.wordglance-tooltip .translation-grid::after{content:"";position:absolute;top:5%;bottom:5%;left:50%;width:2px;background:#e0e0e0;transform:translateX(-1px);z-index:3}.wordglance-tooltip.dark-mode .translation-grid::before,.wordglance-tooltip.dark-mode .translation-grid::after{background:#333333}.wordglance-tooltip .translation-text{color:#27ae60;font-weight:500;font-size:14px;word-wrap:break-word;overflow-wrap:break-word;padding:12px 8px;display:flex;align-items:center;justify-content:center;text-align:center;min-height:20px;background:#ffffff;position:relative;z-index:2}.wordglance-tooltip.dark-mode .translation-text{color:#4fc3f7;background:#1a1a1a}.wordglance-tooltip .example{font-style:italic;color:#7f8c8d;font-size:12px;margin-top:4px}.wordglance-tooltip.dark-mode .example{color:#cccccc}.wordglance-tooltip .loading{color:#7f8c8d;font-style:italic}.wordglance-tooltip.dark-mode .loading{color:#cccccc}.wordglance-tooltip .error{color:#e74c3c;font-size:13px}.wordglance-tooltip.dark-mode .error{color:#ff6b6b}.wordglance-tooltip .info{color:rgb(0,60,170);font-size:14px;font-weight:600;text-align:center;padding:20px 16px;line-height:1.4;font-style:italic}.wordglance-tooltip.dark-mode .info{color:rgb(172,219,52)}.wordglance-tooltip .synonyms-antonyms-section{margin-top:12px}.wordglance-tooltip .synonyms,.wordglance-tooltip .antonyms{margin-top:4px}.wordglance-tooltip .synonyms-label,.wordglance-tooltip .antonyms-label{font-weight:600;color:#2c3e50}.wordglance-tooltip.dark-mode .synonyms-label,.wordglance-tooltip.dark-mode .antonyms-label{color:#cccccc}.wordglance-tooltip .synonyms-list,.wordglance-tooltip .antonyms-list{color:#7f8c8d;font-style:italic}.wordglance-tooltip.dark-mode .synonyms-list,.wordglance-tooltip.dark-mode .antonyms-list{color:#cccccc}</style><div class=wordglance-root style=position:fixed;pointer-events:none;top:0px;left:0px;width:100vw;height:100vh><button class=wordglance-trigger-icon aria-label="Look up word definition and translation" style=display:none>📖</button><div class=wordglance-tooltip style=display:none></div></div></template></div><div><template shadowrootmode=closed><style class=sf-hidden>;</style><style class=sf-hidden>;</style><style class=sf-hidden>;</style></template></div><contextsearch-widgets id=contextsearch-widgets style=--cs-zoom:2;--cs-scale:calc(1/var(--cs-zoom,1)*var(--cs-custom-scale,1))><template shadowrootmode=open><style class=sf-hidden>:host{all:initial!important}</style></template></contextsearch-widgets><script data-template-shadow-root>(()=>{document.currentScript.remove();processNode(document);function processNode(node){node.querySelectorAll("template[shadowrootmode]").forEach(element=>{let shadowRoot = element.parentElement.shadowRoot;if (!shadowRoot) {try {shadowRoot=element.parentElement.attachShadow({mode:element.getAttribute("shadowrootmode"),delegatesFocus:element.getAttribute("shadowrootdelegatesfocus")!=null,clonable:element.getAttribute("shadowrootclonable")!=null,serializable:element.getAttribute("shadowrootserializable")!=null});shadowRoot.innerHTML=element.innerHTML;element.remove()} catch (error) {} if (shadowRoot) {processNode(shadowRoot)}}})}})()</script>
