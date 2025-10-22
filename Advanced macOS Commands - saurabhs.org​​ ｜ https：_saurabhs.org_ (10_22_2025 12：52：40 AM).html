@@ -1,0 +1,466 @@
+<!DOCTYPE html> <html lang=en data-darkreader-mode=dynamic data-darkreader-scheme=dark autocopy=true style><!--
+ Page saved with SingleFile 
+ url: https://saurabhs.org/advanced-macos-commands 
+ saved date: Wed Oct 22 2025 00:52:40 GMT-0700 (Pacific Daylight Time)
+--><meta charset=utf-8><style class="darkreader darkreader--user-agent" media=screen>@layer{html{background-color:var(--darkreader-background-ffffff,#181a1b)!important}html{color-scheme:dark!important}iframe{color-scheme:dark!important}html,body{background-color:var(--darkreader-background-ffffff,#181a1b)}html,body{border-color:var(--darkreader-border-4c4c4c,#736b5e);color:var(--darkreader-text-000000,#e8e6e3)}a{color:var(--darkreader-text-0040ff,#3391ff)}table{border-color:var(--darkreader-border-808080,#545b5e)}mark{color:var(--darkreader-text-000000,#e8e6e3)}::placeholder{color:var(--darkreader-text-a9a9a9,#b2aba1)}input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{background-color:var(--darkreader-background-faffbd,#404400)!important;color:var(--darkreader-text-000000,#e8e6e3)!important}::selection{background-color:var(--darkreader-background-0060d4,#004daa)!important;color:var(--darkreader-text-ffffff,#e8e6e3)!important}::-moz-selection{background-color:var(--darkreader-background-0060d4,#004daa)!important;color:var(--darkreader-text-ffffff,#e8e6e3)!important}}</style><style class="darkreader darkreader--variables" media=screen>:root{--darkreader-neutral-background:var(--darkreader-background-ffffff,#181a1b);--darkreader-neutral-text:var(--darkreader-text-000000,#e8e6e3);--darkreader-selection-background:var(--darkreader-background-0060d4,#004daa);--darkreader-selection-text:var(--darkreader-text-ffffff,#e8e6e3)}</style>
+<meta name=viewport content="width=device-width,initial-scale=1"> <meta name=description content="A comprehensive reference for advanced command-line utilities that provide unique macOS functionality."> <meta name=generator content="Eleventy v3.1.1">
+<link rel=canonical href=https://saurabhs.org/advanced-macos-commands> <title>Advanced macOS Commands - saurabhs.org​​ | https://saurabhs.org/</title> <style>/*! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com*/*,:after,:before{border:0 solid #e5e7eb;box-sizing:border-box}:after,:before{--tw-content:""}html{-webkit-text-size-adjust:100%;line-height:1.5;-moz-tab-size:4;tab-size:4}body{line-height:inherit;margin:0}h4{font-size:inherit}a{color:inherit;text-decoration:inherit}code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-size:1em}button{color:inherit;font-family:inherit;font-size:100%;line-height:inherit;margin:0;padding:0}button{text-transform:none}button{-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}h1,h4,p{margin:0}button{cursor:pointer}:disabled{cursor:default}*,:after,:before{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0#0000;--tw-ring-shadow:0 0#0000;--tw-shadow:0 0#0000;--tw-shadow-colored:0 0#0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: }.mt-8{margin-top:2rem}.mb-4{margin-bottom:1rem}.italic{font-style:italic}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,avenir next,avenir,segoe ui,helvetica neue,helvetica,Cantarell,Ubuntu,roboto,noto,arial,sans-serif;font-size:calc(13.50847px + .59322vw)}@media screen and (min-width:1600px){html{font-size:23px}}@media screen and (max-width:420px){html{font-size:16px}}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-wrap:break-word;transition-duration:.1s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (prefers-color-scheme:dark){body{--tw-bg-opacity:1;background-color:rgb(31 32 34/var(--tw-bg-opacity))}}h1{--tw-text-opacity:1;color:rgb(52 58 64/var(--tw-text-opacity));font-family:ui-rounded,system-ui,-apple-system,BlinkMacSystemFont,avenir next,avenir,segoe ui,helvetica neue,helvetica,Cantarell,Ubuntu,roboto,noto,arial,sans-serif;font-size:1.5rem;font-weight:500;line-height:2rem}@media (prefers-color-scheme:dark){h1{--tw-text-opacity:1;color:rgb(255 212 121/var(--tw-text-opacity))}}.RootContainer{margin-left:auto;margin-right:auto;margin-top:32px;padding:1.25rem}.RootContainer--large-width{max-width:70ch}@media (prefers-color-scheme:dark){}@media (prefers-color-scheme:dark){}@media (prefers-color-scheme:dark){}.advanced-macos-commands h4{--tw-text-opacity:1;color:rgb(52 58 64/var(--tw-text-opacity));font-weight:500}@media (prefers-color-scheme:dark){.advanced-macos-commands h4{--tw-text-opacity:1;color:rgb(255 212 121/var(--tw-text-opacity))}}.advanced-macos-commands h4{margin-top:1.5rem}.advanced-macos-commands h4+p{margin-top:.5rem}.advanced-macos-commands p{font-size:.875rem;line-height:1.25rem;margin-top:.75rem}.advanced-macos-commands p code{background:hsla(44,6%,50%,.15);border-radius:2px;padding:.1em .2em}@media (prefers-color-scheme:dark){}@media (prefers-color-scheme:dark){}@media (prefers-color-scheme:dark){.dark\:text-tania-dark-title-text{--tw-text-opacity:1;color:rgb(206 212 218/var(--tw-text-opacity))}.dark\:text-tania-dark-body-text{--tw-text-opacity:1;color:rgb(179 185 197/var(--tw-text-opacity))}}</style><style class="darkreader darkreader--sync" media=screen>*,::after,::before{border-top-color:var(--darkreader-border-e5e7eb,#363b3d);border-right-color:var(--darkreader-border-e5e7eb,#363b3d);border-bottom-color:var(--darkreader-border-e5e7eb,#363b3d);border-left-color:var(--darkreader-border-e5e7eb,#363b3d)}::after,::before{--tw-content:""}a{color:inherit;text-decoration-color:inherit}button{color:inherit}button{background-color:transparent;background-image:none}:focus-visible{outline-color:currentcolor}:user-invalid{box-shadow:none}*,::after,::before{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-scroll-snap-strictness:proximity;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0#0000;--tw-ring-shadow:0 0#0000;--tw-shadow:0 0#0000;--tw-shadow-colored:0 0#0000}@media (prefers-color-scheme:dark){body{--darkreader-bg--tw-bg-opacity:1;background-color:var(--darkreader-background-1f2022,#181b1c)}}h1{--darkreader-text--tw-text-opacity:1;color:var(--darkreader-text-343a40,#c3beb6)}@media (prefers-color-scheme:dark){h1{--darkreader-text--tw-text-opacity:1;color:var(--darkreader-text-ffd479,#ffd16e)}}@media (prefers-color-scheme:dark){}@media (prefers-color-scheme:dark){}@media (prefers-color-scheme:dark){}.advanced-macos-commands h4{--darkreader-text--tw-text-opacity:1;color:var(--darkreader-text-343a40,#c3beb6)}@media (prefers-color-scheme:dark){.advanced-macos-commands h4{--darkreader-text--tw-text-opacity:1;color:var(--darkreader-text-ffd479,#ffd16e)}}.advanced-macos-commands p code{background-color:var(--darkreader-background-87837826,rgba(96,104,108,0.15));background-image:none}@media (prefers-color-scheme:dark){}@media (prefers-color-scheme:dark){}@media (prefers-color-scheme:dark){.dark\:text-tania-dark-title-text{--darkreader-text--tw-text-opacity:1;color:var(--darkreader-text-ced4da,#cdc8c2)}.dark\:text-tania-dark-body-text{--darkreader-text--tw-text-opacity:1;color:var(--darkreader-text-b3b9c5,#beb8b0)}}</style> <style>@view-transition{navigation:auto}</style> <meta name=darkreader content=ce1cdb7fea7b46298824ca847a864987><style class="darkreader darkreader--override" media=screen>::placeholder{opacity:0.5!important}:host{--d2l-border-color:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-button-icon-background-color-hover:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-color-ferrite:var(--darkreader-neutral-text)!important;--d2l-color-sylvite:var(--darkreader-bg--d2l-color-sylvite)!important;--d2l-dropdown-background-color:var(--darkreader-neutral-background)!important;--d2l-dropdown-border-color:var(--darkreader-border--d2l-color-mica)!important;--d2l-input-backgroud-color:var(--darkreader-neutral-background)!important;--d2l-menu-border-color:var(--darkreader-bg--d2l-color-gypsum)!important;--d2l-tooltip-background-color:var(--darkreader-neutral-background)!important;--d2l-tooltip-border-color:var(--darkreader-bg--d2l-color-gypsum)!important}</style><meta name=referrer content=no-referrer><link rel=icon href=data:,><style>.sf-hidden{display:none!important}</style><meta http-equiv=content-security-policy content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"></head> <body> <div class="RootContainer RootContainer--large-width dark:text-tania-dark-body-text"> <header> <a href=https://saurabhs.org/ class=dark:text-tania-dark-title-text>Saurabh <span>😎</span> </a></header> <main class="mt-8 advanced-macos-commands"> <h1 style=view-transition-name:title-advanced-macos-commands>Advanced macOS Command-Line Tools</h1> <div class="mb-4 italic">Last updated for macOS Sonoma</div> <p>macOS is fortunate to have access to the huge arsenal of standard Unix tools. There are also a good number of macOS-specific command-line utilities that provide unique macOS functionality. To view the full documentation for any of these commands, run <code>man &lt;command&gt;</code>.</p> <section> <h4 id=caffeinate><code>caffeinate</code> - set Mac sleep behavior</h4> <p>Running <code>caffeinate</code> with no flags or arguments prevents your Mac from going to sleep as long as the command continues to run.</p> <p><code>caffeinate -u -t &lt;seconds&gt;</code> prevents sleep for the specified number of seconds.</p> <p>Adding the <code>-d</code> flag also prevents the display from going to sleep.</p> <p>Specifying an existing process with <code>-w &lt;pid&gt;</code> automatically exits the caffeinate command once the specified process exits.</p> <p>Passing a command with <code>caffeinate &lt;command&gt;</code> starts the given command in a new process and prevents sleep until that process exits.</p> </section> <section> <h4 id=pbcopy><code>pbcopy</code>, <code>pbpaste</code> - interact with system clipboard</h4> <p><code>&lt;command&gt; | pbcopy</code> copies the output of the command to the clipboard.</p> <p><code>pbpaste</code> outputs the contents of the clipboard to stdout.</p> </section> <section> <h4 id=networkquality><code>networkQuality</code> - measure Internet speed</h4> <p>Run <code>networkQuality</code> to run an Internet speed test from your Mac.</p> <p>Add the <code>-v</code> flag to view more detailed information.</p> <p>Use the <code>-I</code> flag to run the network test on a specific network interface.</p> </section> <section> <h4 id=sips><code>sips</code> - image manipulation</h4> <p><code>sips -z &lt;height&gt; &lt;width&gt; &lt;image&gt;</code> resizes the specified image, ignoring the previous aspect ratio.</p> <p><code>sips -Z &lt;size&gt; &lt;image&gt;</code> resizes the largest side of the specified image, preserving the aspect ratio.</p> <p><code>sips -c &lt;height&gt; &lt;width&gt; &lt;image&gt;</code> crops the specified image to the given dimensions (relative to the center of the original image).</p> <p><code>sips -r &lt;degrees&gt; &lt;image&gt;</code> rotates the image by the specified degrees.</p> <p>By default, <code>sips</code> will destructively overwrite the input image. Use the <code>-o</code> flag to specify a different output file path (which must have the same file extension as the input image).</p> </section> <section> <h4 id=open><code>open</code> - open files and applications</h4> <p><code>open -a &lt;app&gt; &lt;file&gt;</code> opens the given file with the specified application.</p> <p>Add the <code>-g</code> flag to open the file in the background, without losing focus from the current application.</p> <p><code>open .</code> opens the current directory in a new Finder window.</p> <p><code>open -R &lt;file&gt;</code> reveals the given file in a new Finder window.</p> </section> <section> <h4 id=textutil><code>textutil</code> - document file converter</h4> <p><code>textutil</code> can convert files to and from Microsoft Word, plain text, rich text, and HTML formats.</p> <p><code>textutil -convert html journal.doc</code> converts <code>journal.doc</code> into <code>journal.html</code>.</p> <p>The possible values for <code>-convert</code> are: <code>txt</code>, <code>html</code>, <code>rtf</code>, <code>rtfd</code>, <code>doc</code>, <code>docx</code>.</p> </section> <section> <h4 id=mdfind><code>mdfind</code>, <code>mdls</code> - search with Spotlight</h4> <p><code>mdfind &lt;query&gt;</code> performs a keyword-based Spotlight search with the given query.</p> <p><code>mdfind kMDItemAppStoreHasReceipt=1</code> finds all apps installed from the Mac App Store.</p> <p><code>mdfind -name &lt;name&gt;</code> searches for all files matching the given name.</p> <p>The <code>-onlyin &lt;dir&gt;</code> flag restricts the search to the given directory.</p> <p><code>mdls &lt;file-path&gt;</code> prints all Spotlight metadata associated with the given file.</p> </section> <section> <h4 id=screencapture><code>screencapture</code> - take screenshots</h4> <p><code>screencapture -c</code> takes a screenshot and copies it to the clipboard.</p> <p><code>screencapture &lt;file&gt;</code> takes a screenshot and saves it to the given file.</p> <p>Add the <code>-T &lt;seconds&gt;</code> flag to take the screenshot after the given delay in seconds.</p> </section> <section> <h4 id=taskpolicy><code>taskpolicy</code> - control scheduling of processes</h4> <p><code>taskpolicy -b &lt;command&gt;</code> starts executing the given command in the background. On Apple silicon Macs, the process will only run on the efficiency cores.</p> <p><code>taskpolicy -b -p &lt;pid&gt;</code> downgrades an existing process to run in the background.</p> <p><code>taskpolicy -B -p &lt;pid&gt;</code> removes the specified process from running in the background. On Apple silicon Macs, the process may now run on the efficiency or performance cores. Note that this only works on processes that have been downgraded to the background, and not processes that started in the background.</p> <p><code>taskpolicy -s &lt;command&gt;</code> starts the given command in the suspended state. This is useful to allow a debugger to attach to the process right at the start of execution.</p> </section> <section> <h4 id=say><code>say</code> - text-to-speech engine</h4> <p><code>say &lt;message&gt;</code> announces the given message.</p> <p><code>say -f input.txt -o output.aiff</code> creates an audiobook from the given text file.</p> </section> <section> <h4 id=pmset><code>pmset</code> - configure power management</h4> <p><code>pmset -g</code> prints all available power configuration information.</p> <p><code>pmset -g assertions</code> displays information about power-related assertions made by other processes. This can be useful for finding a process that is preventing your Mac from going to sleep.</p> <p><code>pmset -g thermlog</code> displays information about any processes that have been throttled (useful when running benchmarks).</p> <p><code>pmset displaysleepnow</code> immediately puts the display to sleep without putting the rest of the system to sleep.</p> <p><code>pmset sleepnow</code> immediately puts the entire system to sleep.</p> </section> <section> <h4 id=networksetup><code>networksetup</code> - configure network settings</h4> <p><code>networksetup -listnetworkserviceorder</code> prints a list of available network services.</p> <p><code>networksetup -getinfo &lt;networkservice&gt;</code> prints information about the specified network service.</p> <p><code>networksetup -getdnsservers &lt;networkservice&gt;</code> prints the DNS servers for the specified network service.</p> <p><code>networksetup -setairportnetwork &lt;device&gt; &lt;network&gt; [password]</code> joins the specified Wi-Fi network. (In most cases, the <device> argument should be "en0".)</device></p> </section> <section> <h4 id=softwareupdate><code>softwareupdate</code> - manage OS updates</h4> <p><code>softwareupdate --list</code> prints out available software updates.</p> <p><code>sudo softwareupdate -ia</code> installs all available updates.</p> <p><code>softwareupdate --fetch-full-installer --full-installer-version &lt;version&gt;</code> tries to download the full installer of the specified macOS version to /Applications.</p> </section> <section> <h4 id=system-profiler><code>system_profiler</code> - view system information</h4> <p><code>system_profiler</code> by default prints all available system information, which is usually overwhelming.</p> <p><code>system_profiler &lt;datatype&gt;</code> only prints information about the given sub-system.</p> <p><code>system_profiler -listDataTypes</code> lists all available sub-systems to get information from.</p> <p>Some particularly useful ones:</p> <p><code>system_profiler SPHardwareDataType</code> prints an overview of the hardware of the current machine, including its model name and serial number.</p> <p><code>system_profiler SPSoftwareDataType</code> prints an overview of the software of the current machine, including the exact macOS version number.</p> <p><code>system_profiler SPPowerDataType</code> prints power and battery information, including the current AC wattage and battery cycle count.</p> <p><code>system_profiler SPDeveloperToolsDataType</code> prints the currently active version of the Xcode developer tools and SDK.</p> </section> </main> </div> <div class=altq-root><div class=qr-toast></div></div><protonpass-root-9ec7 data-protonpass-role=root data-protonpass-theme=dark><template shadowrootmode=closed></template></protonpass-root-9ec7><div><template shadowrootmode=closed><style class=sf-hidden>;</style><style class=sf-hidden>;</style><style class=sf-hidden>;</style></template></div><div data-wordglance style=position:fixed;top:0px;left:0px;width:0px;height:0px;z-index:999999;pointer-events:none><template shadowrootmode=open><style class="darkreader darkreader--inline sf-hidden" media=screen>[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--override sf-hidden" media=screen>.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #684b00) !important;
+    border-color: var(--darkreader-background-c59d00, #9e7e00) !important;
+    color: var(--darkreader-text-302505, #d7d4cf) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #1b4958) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #0f3a47) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #1e2021) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #432c09) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #245d70) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select {
+    --darkreader-bg--form-control-background-color: rgba(22, 22, 22, 0) !important;
+}
+select * {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style><style class="darkreader darkreader--invert sf-hidden" media=screen>.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style><style class=sf-hidden>.wordglance-tooltip{position:absolute;background:#ffffff;border:1px solid #e0e0e0;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);padding:16px;max-width:320px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.5;display:none;pointer-events:auto;transition:opacity 0.3s ease,transform 0.3s ease;word-wrap:break-word;overflow-wrap:break-word;opacity:0;transform:translateY(-10px) scale(0.95);will-change:transform,opacity;color:#2c3e50;contain:layout style paint;z-index:99999}.wordglance-tooltip.show{opacity:1;transform:translateY(0) scale(1)}.wordglance-tooltip.dark-mode{background:#1a1a1a;border-color:#333333;color:#e0e0e0;box-shadow:0 4px 12px rgba(0,0,0,0.4)}.wordglance-trigger-icon{position:absolute;background:#3498db;color:white;border:none;border-radius:50%;width:24px;height:24px;font-size:12px;cursor:pointer;display:none;box-shadow:0 2px 8px rgba(0,0,0,0.2);transition:transform 0.25s ease,background-color 0.25s ease;font-weight:bold;opacity:0;transform:scale(0.8);will-change:transform,opacity;pointer-events:auto;z-index:9999}@media (hover:none) and (pointer:coarse){.wordglance-trigger-icon{width:32px;height:32px;font-size:16px}}.wordglance-trigger-icon.show{opacity:1;transform:scale(1)}.wordglance-trigger-icon:hover{background:#2980b9;transform:scale(1.1)}.wordglance-trigger-icon.dark-mode{background:#ff6b6b}.wordglance-trigger-icon.dark-mode:hover{background:#ff5252}.wordglance-tooltip .definition-section{margin-bottom:16px}.wordglance-tooltip .translation-section{margin-bottom:0}.wordglance-tooltip .section-title{font-weight:600;color:#2c3e50;margin-bottom:8px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;display:flex;justify-content:space-between;align-items:center}.wordglance-tooltip.dark-mode .section-title{color:#cccccc}.wordglance-tooltip .slider-controls{display:flex;gap:4px;align-items:center}.wordglance-tooltip .slider-button{background:none;border:none;border-radius:3px;width:20px;height:20px;font-size:12px;cursor:pointer;color:#7f8c8d;display:flex;align-items:center;justify-content:center;transition:color 0.2s}.wordglance-tooltip .slider-button:hover{color:#2c3e50}.wordglance-tooltip .slider-button:disabled{opacity:0.4;cursor:not-allowed}.wordglance-tooltip.dark-mode .slider-button{color:#cccccc}.wordglance-tooltip.dark-mode .slider-button:hover:not(:disabled){color:#ffffff}.wordglance-tooltip .slider-info{font-size:11px;color:#7f8c8d;margin:0 4px;white-space:nowrap}.wordglance-tooltip .content-container{position:relative;overflow:hidden;height:auto;transition:height 0.4s cubic-bezier(0.25,0.46,0.45,0.94);will-change:height}.wordglance-tooltip .content-slider{display:flex;transition:transform 0.3s ease;width:100%;height:auto;will-change:transform}.wordglance-tooltip .content-page{min-width:100%;max-width:100%;flex-shrink:0;word-wrap:break-word;overflow-wrap:break-word;box-sizing:border-box;height:auto}.wordglance-tooltip .definition-item{margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid #f8f9fa;word-wrap:break-word;overflow-wrap:break-word}.wordglance-tooltip.dark-mode .definition-item{border-bottom-color:#333333}.wordglance-tooltip .definition-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.wordglance-tooltip .part-of-speech{color:#7f8c8d;font-style:italic;font-size:12px;margin-right:8px}.wordglance-tooltip.dark-mode .part-of-speech{color:#cccccc}.wordglance-tooltip .definition-text{color:#2c3e50;margin-bottom:4px;word-wrap:break-word;overflow-wrap:break-word}.wordglance-tooltip.dark-mode .definition-text{color:#e0e0e0}.wordglance-tooltip .translation-item{margin-bottom:4px;word-wrap:break-word;overflow-wrap:break-word}.wordglance-tooltip .translation-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;min-height:80px;position:relative;border-radius:4px;overflow:hidden}.wordglance-tooltip .translation-grid::before{content:"";position:absolute;top:50%;left:10%;right:10%;height:2px;background:#e0e0e0;transform:translateY(-1px);z-index:3}.wordglance-tooltip .translation-grid::after{content:"";position:absolute;top:5%;bottom:5%;left:50%;width:2px;background:#e0e0e0;transform:translateX(-1px);z-index:3}.wordglance-tooltip.dark-mode .translation-grid::before,.wordglance-tooltip.dark-mode .translation-grid::after{background:#333333}.wordglance-tooltip .translation-text{color:#27ae60;font-weight:500;font-size:14px;word-wrap:break-word;overflow-wrap:break-word;padding:12px 8px;display:flex;align-items:center;justify-content:center;text-align:center;min-height:20px;background:#ffffff;position:relative;z-index:2}.wordglance-tooltip.dark-mode .translation-text{color:#4fc3f7;background:#1a1a1a}.wordglance-tooltip .example{font-style:italic;color:#7f8c8d;font-size:12px;margin-top:4px}.wordglance-tooltip.dark-mode .example{color:#cccccc}.wordglance-tooltip .loading{color:#7f8c8d;font-style:italic}.wordglance-tooltip.dark-mode .loading{color:#cccccc}.wordglance-tooltip .error{color:#e74c3c;font-size:13px}.wordglance-tooltip.dark-mode .error{color:#ff6b6b}.wordglance-tooltip .info{color:rgb(0,60,170);font-size:14px;font-weight:600;text-align:center;padding:20px 16px;line-height:1.4;font-style:italic}.wordglance-tooltip.dark-mode .info{color:rgb(172,219,52)}.wordglance-tooltip .synonyms-antonyms-section{margin-top:12px}.wordglance-tooltip .synonyms,.wordglance-tooltip .antonyms{margin-top:4px}.wordglance-tooltip .synonyms-label,.wordglance-tooltip .antonyms-label{font-weight:600;color:#2c3e50}.wordglance-tooltip.dark-mode .synonyms-label,.wordglance-tooltip.dark-mode .antonyms-label{color:#cccccc}.wordglance-tooltip .synonyms-list,.wordglance-tooltip .antonyms-list{color:#7f8c8d;font-style:italic}.wordglance-tooltip.dark-mode .synonyms-list,.wordglance-tooltip.dark-mode .antonyms-list{color:#cccccc}</style><div class=wordglance-root style=position:fixed;pointer-events:none;top:0px;left:0px;width:100vw;height:100vh><button class=wordglance-trigger-icon aria-label="Look up word definition and translation" style=display:none>📖</button><div class=wordglance-tooltip style=display:none></div></div></template></div><contextsearch-widgets id=contextsearch-widgets style=--cs-zoom:2;--cs-scale:calc(1/var(--cs-zoom,1)*var(--cs-custom-scale,1))><template shadowrootmode=open><style class="darkreader darkreader--inline sf-hidden" media=screen>[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}
+[data-darkreader-inline-border-short] {
+  border: var(--darkreader-inline-border-short) !important;
+}
+[data-darkreader-inline-border-bottom-short] {
+  border-bottom: var(--darkreader-inline-border-bottom-short) !important;
+}
+[data-darkreader-inline-border-left-short] {
+  border-left: var(--darkreader-inline-border-left-short) !important;
+}
+[data-darkreader-inline-border-right-short] {
+  border-right: var(--darkreader-inline-border-right-short) !important;
+}
+[data-darkreader-inline-border-top-short] {
+  border-top: var(--darkreader-inline-border-top-short) !important;
+}
+[data-darkreader-inline-invert] {
+    filter: invert(100%) hue-rotate(180deg);
+}</style><style class="darkreader darkreader--override sf-hidden" media=screen>.vimvixen-hint {
+    background-color: var(--darkreader-background-ffd76e, #684b00) !important;
+    border-color: var(--darkreader-background-c59d00, #9e7e00) !important;
+    color: var(--darkreader-text-302505, #d7d4cf) !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important;
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: var(--darkreader-background-add8e6, #1b4958) !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: var(--darkreader-background-cfecf5, #0f3a47) !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: var(--darkreader-background-f5f5f5, #1e2021) !important;
+}
+.tou-uknfeu {
+    background-color: var(--darkreader-background-faedda, #432c09) !important;
+}
+.tou-6i3zyv {
+    background-color: var(--darkreader-background-85c3d8, #245d70) !important;
+}
+div.mermaid-viewer-control-panel .btn {
+    background-color: var(--darkreader-neutral-background);
+    fill: var(--darkreader-neutral-text);
+}
+svg g rect.er {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+    fill: var(--darkreader-selection-background);
+    fill-opacity: 0.8 !important;
+}
+svg rect.er.relationshipLabelBox {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect,
+svg g g.nodes polygon {
+    fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+    fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0,
+svg line.messageLine1 {
+    stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+    fill: var(--darkreader-neutral-background) !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    background-color: white !important;
+    padding-top: 1rem;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+select {
+    --darkreader-bg--form-control-background-color: rgba(22, 22, 22, 0) !important;
+}
+select * {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+body#tumblr {
+    --darkreader-bg--secondary-accent: 31, 32, 34 !important;
+    --darkreader-bg--white: 23, 23, 23 !important;
+    --darkreader-text--black: 228, 224, 218 !important;
+}
+:host {
+    --d2l-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-button-icon-background-color-hover: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-color-ferrite: var(--darkreader-neutral-text) !important;
+    --d2l-color-sylvite: var(--darkreader-bg--d2l-color-sylvite) !important;
+    --d2l-dropdown-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-dropdown-border-color: var(--darkreader-border--d2l-color-mica) !important;
+    --d2l-input-backgroud-color: var(--darkreader-neutral-background) !important;
+    --d2l-menu-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+    --d2l-tooltip-background-color: var(--darkreader-neutral-background) !important;
+    --d2l-tooltip-border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+:host([_floating]) .d2l-floating-buttons-container {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-top-color: var(--darkreader-border--d2l-color-mica) !important;
+    opacity: 0.88 !important;
+}
+d2l-card {
+    background: var(--darkreader-neutral-background) !important;
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+d2l-dropdown-content > div,
+d2l-menu-item {
+    background-color: var(--darkreader-neutral-background) !important;
+    border-radius: 10px !important;
+}
+d2l-empty-state-simple {
+    border-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-button-filter > ul > li > a.vui-button {
+    border-color: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-label-text:has(.d2l-button-subtle-content):hover,
+.d2l-label-text:has(.d2l-button-subtle-content):focus,
+.d2l-label-text:has(.d2l-button-subtle-content):active {
+    background-color: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-navigation-centerer {
+    color: inherit !important;
+}
+.d2l-tabs-layout {
+    border-color: var(--darkreader-border--d2l-color-gypsum) !important;
+}
+.d2l-input,
+.d2l-calendar-date,
+.d2l-htmleditor-container {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-collapsible-panel {
+    border: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+    border-radius: 0.4rem !important;
+}
+.d2l-collapsible-panel-divider {
+    border-bottom: 1px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-w2d-flex {
+    border-bottom: 2px solid var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-collapsible-panel scrolled,
+.d2l-collapsible-panel-header,
+.d2l-w2d-collection-fixed {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.d2l-loading-spinner-bg {
+    fill: var(--darkreader-bg--d2l-color-gypsum) !important;
+}
+.d2l-loading-spinner-bg-stroke {
+    stroke: var(--darkreader-border--d2l-color-mica) !important;
+}
+.d2l-loading-spinner-wrapper svg path,
+.d2l-loading-spinner-wrapper svg circle {
+    fill: var(--darkreader-neutral-background) !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style><style class="darkreader darkreader--invert sf-hidden" media=screen>.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, img.Wirisformula, a[data-testid="headerMediumLogo"]>svg, .d2l-navigation-link-image-container, .d2l-iframe-loading-container {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}</style>
+ <style class=sf-hidden>:host{all:initial!important}</style></template></contextsearch-widgets><script data-template-shadow-root>(()=>{document.currentScript.remove();processNode(document);function processNode(node){node.querySelectorAll("template[shadowrootmode]").forEach(element=>{let shadowRoot = element.parentElement.shadowRoot;if (!shadowRoot) {try {shadowRoot=element.parentElement.attachShadow({mode:element.getAttribute("shadowrootmode"),delegatesFocus:element.getAttribute("shadowrootdelegatesfocus")!=null,clonable:element.getAttribute("shadowrootclonable")!=null,serializable:element.getAttribute("shadowrootserializable")!=null});shadowRoot.innerHTML=element.innerHTML;element.remove()} catch (error) {} if (shadowRoot) {processNode(shadowRoot)}}})}})()</script>
